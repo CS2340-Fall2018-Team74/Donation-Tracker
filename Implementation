@@ -1,9 +1,9 @@
-Create your team's Android Project and Import into Git <br>
-Mai - Create an opening or welcome screen which has options for Login and Registration.  You may have some other method of differentiating login and registration, if you do not want an opening screen.  <br>
-Tim - If someone selects Login, then you should display a way to enter the user name and password.  <br>
-Jiajie - If someone requests login, you should check for the correct user name and password.  For this first milestone, you may have a hard coded user with name "user" and password "pass" to check against. <br>
-Yong - If the login matches user name / password  then go to your application.  Otherwise, notify of the bad login attempt.  The application screen currently is undefined, although we will add requirements in later milestones. <br>
-Uyen - Canceling the login (press Cancel or going back a screen for example) will close out the login attempt , but no information is recorded and the application does not start up.  <br>
-Note here you are not explicitly required to have a cancel button, just a way to back out of the login. <br>
-Joe - Once in the application, there should be a way to logout.  After logging out, the application should return to the welcome / opening  <br>
-page or some other way of signifying to the user you have logged out.  <br>
+Create your team's Android Project and Import into Git
+Mai - Create an opening or welcome screen which has options for Login and Registration.  You may have some other method of differentiating login and registration, if you do not want an opening screen.  
+Tim - If someone selects Login, then you should display a way to enter the user name and password.  
+Jiajie - If someone requests login, you should check for the correct user name and password.  For this first milestone, you may have a hard coded user with name "user" and password "pass" to check against.
+Yong - If the login matches user name / password  then go to your application.  Otherwise, notify of the bad login attempt.  The application screen currently is undefined, although we will add requirements in later milestones. 
+Uyen - Canceling the login (press Cancel or going back a screen for example) will close out the login attempt , but no information is recorded and the application does not start up.
+Note here you are not explicitly required to have a cancel button, just a way to back out of the login.
+Joe - Once in the application, there should be a way to logout.  After logging out, the application should return to the welcome / opening
+page or some other way of signifying to the user you have logged out.
