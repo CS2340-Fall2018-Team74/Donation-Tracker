@@ -1,13 +1,10 @@
-1.	As a user, I want to be able to sign up so that I can sign in.
-2.	As a user, I want to be able to sign in so that I can look up donate location/center, view the inventory.
-3.	As a admin, I want to be able to sign up so that I can sign in.
-4.	As a admin, I want to be able to sign in so that I can add/remove users, locations, lock/unlock users accounts.
-10.	As a admin, I want to be able to change a user status and give user more/less privilege.
-5.	As a location employee, I want to be able to sign up so that I can sign in.
-6.	As a location employee, I want to be able to sign in so that I can change data.
-7.	As a location employee, I want to be able to change data so that I can update info.
-8.	As a manager, I want to be able to sign up so that I can sign in.
-9.	As a manager, I want to be able to sign in so that I can view and edit all info at all locations.
-
-
-
+As a user, I want to be able to sign up so that I can sign in.
+As a user, I want to be able to sign in so that I can look up donate location/center, view the inventory.
+As a admin, I want to be able to sign up so that I can sign in.
+As a admin, I want to be able to sign in so that I can add/remove users, locations, lock/unlock users accounts.
+As a admin, I want to be able to change a user status and give user more/less privilege.
+As a location employee, I want to be able to sign up so that I can sign in.
+As a location employee, I want to be able to sign in so that I can change data.
+As a location employee, I want to be able to change data so that I can update info.
+As a manager, I want to be able to sign up so that I can sign in.
+As a manager, I want to be able to sign in so that I can view and edit all info at all locations.
