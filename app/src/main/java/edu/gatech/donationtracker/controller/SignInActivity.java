@@ -5,7 +5,12 @@ import android.widget.Button;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.content.Intent;
+
+import java.util.ArrayList;
+
 import edu.gatech.donationtracker.R;
+import edu.gatech.donationtracker.model.UserAccount;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -25,10 +30,19 @@ public class SignInActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = inputEmail.getText().toString();
                 String password = inputPassword.getText().toString();
-
-                if(email.equals("") | password.equals("")){
+                ArrayList<UserAccount> accounts = new ArrayList<>();
+                accounts.add(new UserAccount("admin","pass","email"));
+                if(email.equals("") || password.equals("")){
                     Toast.makeText(SignInActivity.this,"You need to input your email and password to login.",Toast.LENGTH_SHORT).show();
-                } // else, verify the Email and Password with existed information.
+                } else {
+                    for (UserAccount e : accounts) {
+                        if (e.getEmail().equals(email) && e.getPassword().equals(password)) {
+                            Intent intent = new Intent(SignInActivity.this, DashboardActivity.class);
+                            startActivityForResult(intent, 0);
+                        }
+                    }
+                    Toast.makeText(SignInActivity.this,"Email or password is in valid",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
