@@ -20,6 +20,10 @@
     <string name="log_out">Log out</string>
 
     <!-- Strings related to Dash Board -->
-    <string name="people">People</string>
+    <string name="detail">detail</string>
+
+    <!-- Strings related to Welcome -->
+    <string name="sign_in">sign in</string>
+    <string name="sign_out">sign out</string>
 
 </resources>
