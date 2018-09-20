@@ -14,15 +14,18 @@ import edu.gatech.donationtracker.model.UserAccount;
 
 public class SignInActivity extends AppCompatActivity {
 
+    private EditText inputEmail;
+    private EditText inputPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
 
-        final EditText inputEmail = (EditText) findViewById(R.id.email) ;
-        final EditText inputPassword = (EditText) findViewById(R.id.password) ;
+        inputEmail = (EditText) findViewById(R.id.email) ;
+        inputPassword = (EditText) findViewById(R.id.password) ;
 
-        Button signin = (Button) findViewById(R.id.button_signIn);
+        Button signin = (Button) findViewById(R.id.email_sign_in_button);
         Button cancel =(Button) findViewById(R.id.button_cancel);
 
         signin.setOnClickListener(new View.OnClickListener() {
