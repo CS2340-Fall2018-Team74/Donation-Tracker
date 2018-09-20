@@ -12,5 +12,14 @@
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
+
+        <!-- Strings related to logout -->
     </string>
+    <string name="name_textView">Name:</string>
+    <string name="location_textView">Location:</string>
+    <string name="log_out">Log out</string>
+
+    <!-- Strings related to Dash Board -->
+    <string name="people">People</string>
+
 </resources>
