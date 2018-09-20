@@ -16,5 +16,16 @@ public class Model {
         accounts.add(new UserAccount("admin", "pass", "email"));
     }
 
+    public boolean add(UserAccount account) {
+        if (!accounts.contains(account)) {
+            accounts.add(account);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    public ArrayList<UserAccount> getAccounts() {
+        return accounts;
+    }
 }
