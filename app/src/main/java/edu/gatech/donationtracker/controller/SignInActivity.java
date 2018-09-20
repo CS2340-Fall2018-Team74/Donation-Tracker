@@ -1,5 +1,4 @@
-package edu.gatech.donationtracker;
-
+package edu.gatech.donationtracker.controller;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,6 +9,8 @@ import android.content.Intent;
 
 import java.util.ArrayList;
 
+import edu.gatech.donationtracker.R;
+import edu.gatech.donationtracker.model.UserAccount;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -41,11 +42,9 @@ public class SignInActivity extends AppCompatActivity {
                         if (e.getEmail().equals(email) && e.getPassword().equals(password)) {
                             Intent intent = new Intent(SignInActivity.this, DashboardActivity.class);
                             startActivityForResult(intent, 0);
-
-                        } else {
-                            Toast.makeText(SignInActivity.this,"Email or password is invalid",Toast.LENGTH_SHORT).show();
                         }
                     }
+                    Toast.makeText(SignInActivity.this,"Email or password is in valid",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -53,10 +52,9 @@ public class SignInActivity extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignInActivity.this, WelcomeActivity.class);
-                startActivity(intent);
-                finish();
+                finishActivity(0);
             }
         });
     }
 }
+
