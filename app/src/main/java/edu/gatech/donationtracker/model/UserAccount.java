@@ -1,4 +1,4 @@
-package edu.gatech.donationtracker;
+package edu.gatech.donationtracker.model;
 
 public class UserAccount {
     private String username;
