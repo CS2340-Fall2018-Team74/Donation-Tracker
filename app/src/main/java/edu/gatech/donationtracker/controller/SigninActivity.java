@@ -1,4 +1,4 @@
-package edu.gatech.donationtracker;
+package edu.gatech.donationtracker.controller;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -273,7 +273,7 @@ public class SigninActivity extends AppCompatActivity implements LoaderCallbacks
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(LoginActivity.this,
+                new ArrayAdapter<>(SigninActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         mEmailView.setAdapter(adapter);
