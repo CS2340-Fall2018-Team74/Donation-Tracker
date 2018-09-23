@@ -2,8 +2,6 @@ package edu.gatech.donationtracker.model;
 
 import java.util.ArrayList;
 
-import edu.gatech.donationtracker.model.UserAccount;
-
 public class Model {
     private ArrayList<UserAccount> accounts;
 

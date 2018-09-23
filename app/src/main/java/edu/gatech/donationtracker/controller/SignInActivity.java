@@ -1,4 +1,5 @@
 package edu.gatech.donationtracker.controller;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import edu.gatech.donationtracker.R;
 import edu.gatech.donationtracker.model.UserAccount;
 
+
 public class SignInActivity extends AppCompatActivity {
 
     private EditText inputEmail;
@@ -22,29 +24,33 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
 
-        inputEmail = (EditText) findViewById(R.id.email) ;
-        inputPassword = (EditText) findViewById(R.id.password) ;
+        inputEmail = (EditText) findViewById(R.id.email);
+        inputPassword = (EditText) findViewById(R.id.password);
 
         Button signin = (Button) findViewById(R.id.email_sign_in_button);
-        Button cancel =(Button) findViewById(R.id.button_cancel);
+        Button cancel = (Button) findViewById(R.id.button_cancel);
 
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean isFound = false;
                 String email = inputEmail.getText().toString();
                 String password = inputPassword.getText().toString();
                 ArrayList<UserAccount> accounts = new ArrayList<>();
-                accounts.add(new UserAccount("admin","pass","email"));
-                if(email.equals("") || password.equals("")){
-                    Toast.makeText(SignInActivity.this,"You need to input your email and password to login.",Toast.LENGTH_SHORT).show();
+                accounts.add(new UserAccount("admin", "pass", "email"));
+                if (email.equals("") || password.equals("")) {
+                    Toast.makeText(SignInActivity.this, "You need to input your email and password to login.", Toast.LENGTH_SHORT).show();
                 } else {
                     for (UserAccount e : accounts) {
-                        if (e.getEmail().equals(email) && e.getPassword().equals(password)) {
+                        if (e.get_email().equals(email) && e.get_password().equals(password)) {
+                            isFound = true;
                             Intent intent = new Intent(SignInActivity.this, DashboardActivity.class);
                             startActivityForResult(intent, 0);
                         }
                     }
-                    Toast.makeText(SignInActivity.this,"Email or password is in valid",Toast.LENGTH_SHORT).show();
+                    if (!isFound) {
+                        Toast.makeText(SignInActivity.this, "Email or password is invalid", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -52,9 +58,10 @@ public class SignInActivity extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finishActivity(0);
+                Intent intent = new Intent(SignInActivity.this, WelcomeActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
 }
-
