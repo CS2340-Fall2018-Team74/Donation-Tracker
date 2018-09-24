@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import edu.gatech.donationtracker.R;
-import android.content.Context;
 
 public class WelcomeActivity extends AppCompatActivity {
     private String app_name = "Donation Tracker";
@@ -17,6 +17,7 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
         Button button_sign_in = (Button)findViewById(R.id.button_signIn);
         Button button_sign_up = (Button)findViewById(R.id.button_signUp);
         //ADD LISTENERS
