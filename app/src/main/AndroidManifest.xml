@@ -24,9 +24,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.SignInActivity" android:noHistory="true"></activity>
-        <activity android:name=".controller.LogOutActivity" android:noHistory="true"/>
-        <activity android:name=".controller.DashboardActivity" android:noHistory="true"/>
+        <activity
+            android:name=".controller.SignInActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".controller.LogOutActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".controller.DashboardActivity"
+            android:noHistory="true" />
+        <activity android:name=".controller.SignUpActivity"
+            android:noHistory="true" />
     </application>
 
 </manifest>

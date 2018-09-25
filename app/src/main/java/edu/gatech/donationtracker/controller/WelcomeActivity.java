@@ -30,5 +30,13 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        button_sign_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(WelcomeActivity.this, SignUpActivity.class);
+                startActivity(intent1);
+            }
+        });
     }
 }

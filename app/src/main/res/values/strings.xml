@@ -26,4 +26,7 @@
     <string name="sign_in">sign in</string>
     <string name="sign_out">sign out</string>
 
+    <!-- Strings related to Sign up -->
+    <string name="Account_type">Account type</string>
+
 </resources>
