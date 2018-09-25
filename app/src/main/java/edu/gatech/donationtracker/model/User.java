@@ -19,6 +19,7 @@ import java.util.List;
 public class User implements Parcelable {
 
     /** a demonstration of using something other than an enum for holding choices */
+    /** all user types */
     public static List<String> legalType = Arrays.asList("Manager", "User", "Location Employee", "Admin");
 
     /** this User's name */
@@ -33,15 +34,18 @@ public class User implements Parcelable {
     /** allow us to assign unique id numbers to each user */
     private static int Next_Id = 0;
 
-    /** this students id number */
+    /** this User's id number */gi
     private int _id;
-    private boolean isLocked;
 
+    /** this User's state of being locked */
+    private boolean _isLocked;
 
+    /** User constructor*/
     public User(String _name, String _password, String _email) {
         this._name = _name;
         this._password = _password;
         this._email = _email;
+        this._isLocked = false;
         _id = User.Next_Id++;
     }
 
@@ -53,6 +57,7 @@ public class User implements Parcelable {
         this("enter new name" , "enter new password", "enter new email");
     }
 
+    /** getters and setters */
     public String get_name() {
         return _name;
     }
@@ -82,11 +87,15 @@ public class User implements Parcelable {
     }
 
     public void setIsLocked(boolean isLocked) {
-        this.isLocked = isLocked;
+        this._isLocked = isLocked;
     }
 
     public void set_id(int _id) {
         this._id = _id;
+    }
+
+    public boolean get_isLocked() {
+        return _isLocked;
     }
 
     @Override
@@ -134,4 +143,10 @@ public class User implements Parcelable {
             return new User[size];
         }
     };
+
+    /** toString of this object */
+    @Override
+    public String toString() {
+        return _name;
+    }
 }
