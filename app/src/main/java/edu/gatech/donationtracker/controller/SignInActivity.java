@@ -44,13 +44,14 @@ public class SignInActivity extends AppCompatActivity {
                             if (e.getIsLocked()) {
                                 Toast.makeText(SignInActivity.this, "Your account is locked", Toast.LENGTH_SHORT).show();
                                 break;
-                            } else if (e.getCounter() >= 3) {
-                                Toast.makeText(SignInActivity.this, "Your account is locked", Toast.LENGTH_SHORT).show();
-                                e.setIsLocked(true);
-                                break;
                             } else if (!e.getPassword().equals(password)) {
-                                Toast.makeText(SignInActivity.this, "Wrong password, please enter again", Toast.LENGTH_SHORT).show();
                                 e.counterIncrement();
+                                if (e.getCounter() >= 3) {
+                                    Toast.makeText(SignInActivity.this, "Your account is locked", Toast.LENGTH_SHORT).show();
+                                    e.setIsLocked(true);
+                                    break;
+                                }
+                                Toast.makeText(SignInActivity.this, "Wrong password, please enter again", Toast.LENGTH_SHORT).show();
                                 break;
                             }
                             Intent intent = new Intent(SignInActivity.this, DashboardActivity.class);
