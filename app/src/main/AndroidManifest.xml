@@ -28,7 +28,7 @@
             android:name=".controller.SignInActivity"
             android:noHistory="true" />
         <activity
-            android:name=".controller.LogOutActivity"
+            android:name=".controller.SignOutActivity"
             android:noHistory="true" />
         <activity
             android:name=".controller.DashboardActivity"
