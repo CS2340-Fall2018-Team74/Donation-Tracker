@@ -39,6 +39,9 @@ public class User implements Parcelable {
     /** this User's state of being locked */
     private boolean isLocked;
 
+    /** this User's password counter */
+    private int counter;
+
     /** User constructor*/
     public User(String _name, String _password, String _email) {
         this.name = _name;
@@ -46,6 +49,7 @@ public class User implements Parcelable {
         this.email = _email;
         this.isLocked = false;
         id = User.Next_Id++;
+        this.counter = 0;
     }
 
     /**
@@ -96,6 +100,12 @@ public class User implements Parcelable {
     public boolean getIsLocked() {
         return isLocked;
     }
+
+    public int getCounter() {return counter;}
+
+    public void setCounter(int counter) {this.counter = counter;}
+
+    public void counterIncrement() {counter++;}
 
     @Override
     public int describeContents() {

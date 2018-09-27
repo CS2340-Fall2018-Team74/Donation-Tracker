@@ -39,8 +39,21 @@ public class SignInActivity extends AppCompatActivity {
                     Toast.makeText(SignInActivity.this, "You need to input your email and password to login.", Toast.LENGTH_SHORT).show();
                 } else {
                     for (User e : SignUpActivity.accounts) {
-                        if (e.getEmail().equals(email) && e.getPassword().equals(password)) {
+                        if (e.getEmail().equals(email)) {
                             isFound = true;
+                            if (e.getIsLocked()) {
+                                Toast.makeText(SignInActivity.this, "Your account is locked", Toast.LENGTH_SHORT).show();
+                                break;
+                            } else if (!e.getPassword().equals(password)) {
+                                e.counterIncrement();
+                                if (e.getCounter() >= 3) {
+                                    Toast.makeText(SignInActivity.this, "Your account is locked", Toast.LENGTH_SHORT).show();
+                                    e.setIsLocked(true);
+                                    break;
+                                }
+                                Toast.makeText(SignInActivity.this, "Wrong password, please enter again", Toast.LENGTH_SHORT).show();
+                                break;
+                            }
                             Intent intent = new Intent(SignInActivity.this, DashboardActivity.class);
                             startActivityForResult(intent, 0);
                         }
