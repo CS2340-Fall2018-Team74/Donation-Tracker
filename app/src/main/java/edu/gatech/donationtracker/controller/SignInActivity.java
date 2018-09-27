@@ -18,7 +18,6 @@ public class SignInActivity extends AppCompatActivity {
 
     private EditText inputEmail;
     private EditText inputPassword;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +35,10 @@ public class SignInActivity extends AppCompatActivity {
                 boolean isFound = false;
                 String email = inputEmail.getText().toString();
                 String password = inputPassword.getText().toString();
-                ArrayList<User> accounts = new ArrayList<>();
-                accounts.add(new User("admin", "pass", "email"));
                 if (email.equals("") || password.equals("")) {
                     Toast.makeText(SignInActivity.this, "You need to input your email and password to login.", Toast.LENGTH_SHORT).show();
                 } else {
-                    for (User e : accounts) {
+                    for (User e : SignUpActivity.accounts) {
                         if (e.getEmail().equals(email) && e.getPassword().equals(password)) {
                             isFound = true;
                             Intent intent = new Intent(SignInActivity.this, DashboardActivity.class);

@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import edu.gatech.donationtracker.R;
 import edu.gatech.donationtracker.model.User;
@@ -21,7 +24,7 @@ public class SignUpActivity extends AppCompatActivity  {
     private EditText passwordField;
     private EditText confirmPasswordField;
     private Spinner accountTypeSpinner;
-
+    public static ArrayList<User> accounts = new ArrayList<>();
     private String _accountType = "NA";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +32,10 @@ public class SignUpActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_sign_up);
 
         idField = findViewById(R.id.id_field);
-        nameField = findViewById(R.id.name);
-        emailField = findViewById(R.id.email);
-        passwordField = findViewById(R.id.password);
-        confirmPasswordField = findViewById(R.id.confirm_password);
+        nameField = (EditText)findViewById(R.id.name);
+        emailField = (EditText)findViewById(R.id.email);
+        passwordField = (EditText)findViewById(R.id.sign_up_password);
+        confirmPasswordField =(EditText) findViewById(R.id.confirm_password);
         accountTypeSpinner = findViewById(R.id.spinner);
 
         /*
@@ -48,8 +51,31 @@ public class SignUpActivity extends AppCompatActivity  {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SignUpActivity.this, DashboardActivity.class);
-                startActivity(intent);
+                boolean passwordCheck = false;
+                boolean emailNotRepeated = true;
+                String name = nameField.getText().toString();
+                String email = emailField.getText().toString();
+                String password = passwordField.getText().toString();
+                String confirmPassword =confirmPasswordField.getText().toString();
+                if (email.equals("") || password.equals("")|| name.equals("")|| confirmPassword.equals("")) {
+                    Toast.makeText(SignUpActivity.this, "You need to enter your basic account information.", Toast.LENGTH_SHORT).show();
+                } else if (!password.equals(confirmPassword)) {
+                    Toast.makeText(SignUpActivity.this, "The two passwords you entered don't match.", Toast.LENGTH_SHORT).show();
+                } else {passwordCheck = true;}
+
+                for (User u : accounts){
+                    if (u.getEmail().equals(email)){
+                        emailNotRepeated = false;
+                    }
+                }
+                if(!emailNotRepeated && passwordCheck) {
+                    Toast.makeText(SignUpActivity.this, "The e-mail has already been signed up", Toast.LENGTH_SHORT).show();
+                }
+                if(passwordCheck && emailNotRepeated) {
+                    accounts.add(new User(name, password, email));
+                    Intent intent = new Intent(SignUpActivity.this, DashboardActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
