@@ -42,7 +42,7 @@ public class SignInActivity extends AppCompatActivity {
                     Toast.makeText(SignInActivity.this, "You need to input your email and password to login.", Toast.LENGTH_SHORT).show();
                 } else {
                     for (User e : accounts) {
-                        if (e.get_email().equals(email) && e.get_password().equals(password)) {
+                        if (e.getEmail().equals(email) && e.getPassword().equals(password)) {
                             isFound = true;
                             Intent intent = new Intent(SignInActivity.this, DashboardActivity.class);
                             startActivityForResult(intent, 0);

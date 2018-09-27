@@ -44,7 +44,7 @@ public class Model {
      */
     public boolean remove(String email) {
         for (User user : accounts) {
-            if (user.get_email().equals(email)) {
+            if (user.getEmail().equals(email)) {
                 accounts.remove(user);
                 return true;
             }

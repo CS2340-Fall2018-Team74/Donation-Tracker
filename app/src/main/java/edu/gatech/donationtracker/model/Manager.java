@@ -21,8 +21,8 @@ public class Manager extends LocationEmployee{
      * @return true if the user is type User and the type change is successful, false otherwise
      */
     public boolean hireUser(Model model, User user, Location location) {
-        if (model.remove(user.get_email())) {
-            model.add(new LocationEmployee(user.get_email() ,user.get_name(), user.get_password(), location));
+        if (model.remove(user.getEmail())) {
+            model.add(new LocationEmployee(user.getEmail() ,user.getName(), user.getPassword(), location));
             return true;
         } else {
             return false;

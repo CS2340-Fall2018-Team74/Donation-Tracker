@@ -44,7 +44,7 @@ public class Admin extends User {
      * @param user The user who would be removed from database
      */
     public void RemoveUser(Model model, User user) {
-        model.remove(user.get_email());
+        model.remove(user.getEmail());
     }
 
     /**
@@ -58,12 +58,12 @@ public class Admin extends User {
      */
     public boolean ChangeAccountType(Model model, User user, Class<? extends User> type)
             throws InstantiationException, IllegalAccessException {
-        if (model.remove(user.get_email())) {
+        if (user != null && model.remove(user.getEmail())) {
             User newAcc = type.newInstance();
-            newAcc.set_name(user.get_name());
-            newAcc.set_email(user.get_email());
-            newAcc.set_id(user.get_id());
-            newAcc.set_password(user.get_password());
+            newAcc.setName(user.getName());
+            newAcc.setEmail(user.getEmail());
+            newAcc.setId(user.getId());
+            newAcc.setPassword(user.getPassword());
             model.add(type.cast(newAcc));
             return true;
         } else {
