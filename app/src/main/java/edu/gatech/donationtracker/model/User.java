@@ -18,35 +18,34 @@ import java.util.List;
 
 public class User implements Parcelable {
 
-    /** a demonstration of using something other than an enum for holding choices */
     /** all user types */
     public static List<String> legalType = Arrays.asList("Manager", "User", "Location Employee", "Admin");
 
     /** this User's name */
-    private String _name;
+    private String name;
 
     /** this User's password */
-    private String _password;
+    private String password;
 
     /** this User's email */
-    private String _email;
+    private String email;
 
     /** allow us to assign unique id numbers to each user */
     private static int Next_Id = 0;
 
-    /** this User's id number */gi
-    private int _id;
+    /** this User's id number */
+    private int id;
 
     /** this User's state of being locked */
-    private boolean _isLocked;
+    private boolean isLocked;
 
     /** User constructor*/
     public User(String _name, String _password, String _email) {
-        this._name = _name;
-        this._password = _password;
-        this._email = _email;
-        this._isLocked = false;
-        _id = User.Next_Id++;
+        this.name = _name;
+        this.password = _password;
+        this.email = _email;
+        this.isLocked = false;
+        id = User.Next_Id++;
     }
 
     /**
@@ -58,44 +57,44 @@ public class User implements Parcelable {
     }
 
     /** getters and setters */
-    public String get_name() {
-        return _name;
+    public String getName() {
+        return name;
     }
 
-    public void set_name(String _name) {
-        this._name = _name;
+    public void setName(String _name) {
+        this.name = _name;
     }
 
-    public String get_password() {
-        return _password;
+    public String getPassword() {
+        return password;
     }
 
-    public void set_password(String _password) {
-        this._password = _password;
+    public void setPassword(String _password) {
+        this.password = _password;
     }
 
-    public String get_email() {
-        return _email;
+    public String getEmail() {
+        return email;
     }
 
-    public void set_email(String _email) {
-        this._email = _email;
+    public void setEmail(String _email) {
+        this.email = _email;
     }
 
-    public int get_id() {
-        return _id;
+    public int getId() {
+        return id;
     }
 
     public void setIsLocked(boolean isLocked) {
-        this._isLocked = isLocked;
+        this.isLocked = isLocked;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public void setId(int _id) {
+        this.id = _id;
     }
 
-    public boolean get_isLocked() {
-        return _isLocked;
+    public boolean getIsLocked() {
+        return isLocked;
     }
 
     @Override
@@ -105,10 +104,10 @@ public class User implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(_name);
-        parcel.writeString(_email);
-        parcel.writeString(_password);
-        parcel.writeInt(_id);
+        parcel.writeString(name);
+        parcel.writeString(email);
+        parcel.writeString(password);
+        parcel.writeInt(id);
     }
 
     /**
@@ -147,6 +146,6 @@ public class User implements Parcelable {
     /** toString of this object */
     @Override
     public String toString() {
-        return _name;
+        return name;
     }
 }
