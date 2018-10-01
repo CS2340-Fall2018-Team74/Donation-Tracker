@@ -52,7 +52,7 @@ public class Item implements Comparable<Item> {
     }
 
     /** getter */
-    public int get_quantity() {
+    public int getQuantity() {
         return quantity;
     }
 

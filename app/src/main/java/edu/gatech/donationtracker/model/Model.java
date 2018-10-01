@@ -37,7 +37,7 @@ public class Model {
     }
 
     /**
-     * remove a account into the system
+     * remove a account from the system
      *
      * @param email the user registered with this email will be removed
      * @return true if user is existed in the system and removed, false otherwise

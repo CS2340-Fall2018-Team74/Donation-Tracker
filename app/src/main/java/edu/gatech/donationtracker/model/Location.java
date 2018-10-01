@@ -4,31 +4,31 @@ import java.util.List;
 
 public class Location {
 
-    private String _name;
+    private String name;
 
-    private String _address;
+    private String address;
 
-    private List<Item> _inventory;
+    private List<Item> inventory;
 
-    private String _type;
+    private String type;
 
-    private float _longitude;
+    private float longitude;
 
-    private float _latitude;
+    private float latitude;
 
-    private String _phone;
+    private String phone;
 
 
     /** constructor */
     public Location(String name, String address, List<Item> inventory, String type, float longitude
             , float latitude, String phone) {
-        this._name = name;
-        this._address = address;
-        this._inventory = inventory;
-        this._type = type;
-        this._longitude = longitude;
-        this._latitude = latitude;
-        this._phone = phone;
+        this.name = name;
+        this.address = address;
+        this.inventory = inventory;
+        this.type = type;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.phone = phone;
     }
 
     /** default constructor */
@@ -40,14 +40,14 @@ public class Location {
     /**
      * add data of this location
      *
-     * @param items all items being removed
+     * @param items all items being added
      */
     public void addData(Item... items) {
         for (Item item : items) {
-            if (_inventory.contains(item)) {
-                _inventory.get(_inventory.indexOf(item)).addQuantity(item.get_quantity());
+            if (inventory.contains(item)) {
+                inventory.get(inventory.indexOf(item)).addQuantity(item.getQuantity());
             } else {
-                _inventory.add(item);
+                inventory.add(item);
             }
         }
     }
@@ -59,11 +59,11 @@ public class Location {
      */
     public void removeData(Item... items){
         for (Item item : items) {
-            int index = _inventory.indexOf(item);
-            if (_inventory.contains(item)) {
-                _inventory.get(index).removeQuantity(item.get_quantity());
-                if (_inventory.get(index).get_quantity() <= 0) {
-                    _inventory.remove(index);
+            int index = inventory.indexOf(item);
+            if (inventory.contains(item)) {
+                inventory.get(index).removeQuantity(item.getQuantity());
+                if (inventory.get(index).getQuantity() <= 0) {
+                    inventory.remove(index);
                 }
             }
         }
@@ -71,57 +71,56 @@ public class Location {
 
     /** getters and setters */
     public List<Item> getInventory() {
-        return _inventory;
+        return inventory;
     }
 
     public void setInventory(List<Item> list) {
-        this._inventory = list;
+        this.inventory = list;
     }
 
     public String getNanme() {
-        return _name;
+        return name;
     }
 
     public void setName(String name) {
-        this._name = name;
+        this.name = name;
     }
 
     public String getAddress() {
-        return _address;
+        return address;
     }
 
     public void setAddress(String address) {
-        this._address = address;
+        this.address = address;
     }
 
     public String getType() {
-        return _type;
+        return type;
     }
 
     public void setType(String type) {
-        this._type = type;
+        this.type = type;
     }
 
     public float getLongitude() {
-        return _longitude;
+        return longitude;
     }
 
     public void setLongitude(float longitude) {
-        this._longitude = longitude;
+        this.longitude = longitude;
     }
 
     public float getLatitude() {
-        return _latitude;
+        return latitude;
     }
 
     public void setLatitude(float latitude) {
-        this._latitude = latitude;
+        this.latitude = latitude;
     }
-
 
     /** toString of this object */
     @Override
     public String toString() {
-        return _name + " " + _address + " " + _type + " " + _phone;
+        return name + " " + address + " " + type + " " + phone;
     }
 }

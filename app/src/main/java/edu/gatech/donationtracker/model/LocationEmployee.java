@@ -3,12 +3,12 @@ package edu.gatech.donationtracker.model;
 public class LocationEmployee extends User {
 
     /** the location this employee belongs to */
-    private Location _location;
+    private Location location;
 
     /** constructor */
     public LocationEmployee(String email, String username, String password, Location location) {
         super(email, username, password);
-        this._location = location;
+        this.location = location;
     }
 
     /**
@@ -17,7 +17,7 @@ public class LocationEmployee extends User {
      * @param items all items being added
      */
     public void addData(Item... items) {
-        _location.removeData(items);
+        location.removeData(items);
     }
 
     /**
@@ -26,14 +26,14 @@ public class LocationEmployee extends User {
      * @param items all items being removed
      */
     public void removeData(Item... items){
-        _location.removeData(items);
+        location.removeData(items);
     }
 
     /** getters and setters */
-    public Location get_location() {
-        return _location;
+    public Location getlocation() {
+        return location;
     }
-    public void set_location(Location location) {
-        this._location = location;
+    public void setlocation(Location location) {
+        this.location = location;
     }
 }

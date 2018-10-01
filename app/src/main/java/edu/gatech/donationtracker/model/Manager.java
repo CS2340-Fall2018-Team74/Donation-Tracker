@@ -58,7 +58,7 @@ public class Manager extends LocationEmployee{
      * @param location the new location this employee will be assigned to
      */
     public void changeEmployeeLocation(LocationEmployee employee, Location location) {
-        employee.set_location(location);
+        employee.setlocation(location);
     }
 
 }
