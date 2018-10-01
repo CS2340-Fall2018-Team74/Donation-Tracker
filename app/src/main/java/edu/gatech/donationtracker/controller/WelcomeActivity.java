@@ -18,7 +18,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        Button button_sign_in = (Button)findViewById(R.id.button_signIn);
+        Button button_sign_in = (Button)findViewById(R.id.email);
         Button button_sign_up = (Button)findViewById(R.id.button_signUp);
         //ADD LISTENERS
 

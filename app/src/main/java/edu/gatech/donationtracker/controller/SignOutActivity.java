@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import edu.gatech.donationtracker.R;
 
-public class LogOutActivity extends AppCompatActivity {
+public class SignOutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class LogOutActivity extends AppCompatActivity {
         logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LogOutActivity.this, WelcomeActivity.class);
+                Intent intent = new Intent(SignOutActivity.this, WelcomeActivity.class);
                 startActivity(intent);
             }
         });

@@ -19,7 +19,7 @@ public class DashboardActivity extends AppCompatActivity {
         detailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, LogOutActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, SignOutActivity.class);
                 startActivity(intent);
             }
         });

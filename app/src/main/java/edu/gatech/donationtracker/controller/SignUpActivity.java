@@ -31,7 +31,7 @@ public class SignUpActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        idField = findViewById(R.id.id_field);
+//        idField = findViewById(R.id.id_field);
         nameField = (EditText)findViewById(R.id.name);
         emailField = (EditText)findViewById(R.id.email);
         passwordField = (EditText)findViewById(R.id.sign_up_password);
@@ -45,8 +45,8 @@ public class SignUpActivity extends AppCompatActivity  {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountTypeSpinner.setAdapter(adapter);
 
-        Button signUp = findViewById(R.id.email_sign_in_button);
-        Button cancel = findViewById(R.id.email_cancel_button);
+        Button signUp = findViewById(R.id.button_signUp);
+        Button cancel = findViewById(R.id.button_cancel_SU);
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override

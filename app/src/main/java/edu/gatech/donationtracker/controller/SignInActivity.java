@@ -26,7 +26,7 @@ public class SignInActivity extends AppCompatActivity {
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
 
-        Button signin = (Button) findViewById(R.id.email_sign_in_button);
+        Button signin = (Button) findViewById(R.id.button_signIn);
         Button cancel = (Button) findViewById(R.id.button_cancel);
 
         signin.setOnClickListener(new View.OnClickListener() {
