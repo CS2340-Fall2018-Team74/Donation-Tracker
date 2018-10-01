@@ -4,16 +4,37 @@ import java.util.List;
 
 public class Location {
 
-    /** this location's address*/
+    private String _name;
+
     private String _address;
 
-    /** the inventory of this location */
     private List<Item> _inventory;
 
+    private String _type;
+
+    private float _longitude;
+
+    private float _latitude;
+
+    private String _phone;
+
+
     /** constructor */
-    public Location(String address, List<Item> inventory) {
+    public Location(String name, String address, List<Item> inventory, String type, float longitude
+            , float latitude, String phone) {
+        this._name = name;
         this._address = address;
         this._inventory = inventory;
+        this._type = type;
+        this._longitude = longitude;
+        this._latitude = latitude;
+        this._phone = phone;
+    }
+
+    /** default constructor */
+    public Location() {
+        this("Name", "Address", null, "Type", 0, 0
+                , "xxx-xxx-xxxx");
     }
 
     /**
@@ -48,14 +69,59 @@ public class Location {
         }
     }
 
-    /** getter */
-    public List<Item> get_inventory() {
+    /** getters and setters */
+    public List<Item> getInventory() {
         return _inventory;
     }
+
+    public void setInventory(List<Item> list) {
+        this._inventory = list;
+    }
+
+    public String getNanme() {
+        return _name;
+    }
+
+    public void setName(String name) {
+        this._name = name;
+    }
+
+    public String getAddress() {
+        return _address;
+    }
+
+    public void setAddress(String address) {
+        this._address = address;
+    }
+
+    public String getType() {
+        return _type;
+    }
+
+    public void setType(String type) {
+        this._type = type;
+    }
+
+    public float getLongitude() {
+        return _longitude;
+    }
+
+    public void setLongitude(float longitude) {
+        this._longitude = longitude;
+    }
+
+    public float getLatitude() {
+        return _latitude;
+    }
+
+    public void setLatitude(float latitude) {
+        this._latitude = latitude;
+    }
+
 
     /** toString of this object */
     @Override
     public String toString() {
-        return _address;
+        return _name + " " + _address + " " + _type + " " + _phone;
     }
 }
