@@ -21,13 +21,13 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signin);
+        setContentView(R.layout.activity_sign_in);
 
-        inputEmail = (EditText) findViewById(R.id.email);
-        inputPassword = (EditText) findViewById(R.id.password);
+        inputEmail = (EditText) findViewById(R.id.email_SI);
+        inputPassword = (EditText) findViewById(R.id.password_SI);
 
-        Button signin = (Button) findViewById(R.id.button_signIn);
-        Button cancel = (Button) findViewById(R.id.button_cancel);
+        Button signin = (Button) findViewById(R.id.button_signIn_SI);
+        Button cancel = (Button) findViewById(R.id.button_cancel_SI);
 
         signin.setOnClickListener(new View.OnClickListener() {
             @Override

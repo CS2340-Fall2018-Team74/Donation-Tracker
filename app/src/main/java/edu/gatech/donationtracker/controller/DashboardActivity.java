@@ -13,8 +13,8 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dash_board);
-        Button detailButton = findViewById(R.id.detail);
+        setContentView(R.layout.activity_dashboard);
+        Button detailButton = findViewById(R.id.button_settings_DB);
         //Jump to Logout layout when button clicked.
         detailButton.setOnClickListener(new View.OnClickListener() {
             @Override

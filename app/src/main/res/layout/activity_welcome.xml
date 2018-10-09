@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp">
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -46,30 +48,35 @@
         android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="127dp"
+        android:layout_marginTop="140dp"
         android:text="Donation Tracker"
         android:textAlignment="center"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/button_signIn_Wel"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/email"
+        android:id="@+id/button_signIn_Wel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/app_name"
-        android:layout_marginTop="187dp"
-        android:text="Sign in" />
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="10dp"
+        android:text="Sign in"
+        app:layout_constraintEnd_toStartOf="@+id/button_signUp_Wel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_name" />
 
     <Button
-        android:id="@+id/button_signUp"
+        android:id="@+id/button_signUp_Wel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/app_name"
-        android:layout_alignTop="@+id/email"
-        android:text="Sign up" />
+        android:layout_marginEnd="21dp"
+        android:layout_marginTop="10dp"
+        android:text="Sign up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_signIn_Wel"
+        app:layout_constraintTop_toBottomOf="@+id/app_name" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

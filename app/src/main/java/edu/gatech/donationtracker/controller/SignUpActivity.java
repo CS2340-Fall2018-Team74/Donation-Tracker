@@ -32,11 +32,11 @@ public class SignUpActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_sign_up);
 
 //        idField = findViewById(R.id.id_field);
-        nameField = (EditText)findViewById(R.id.name);
-        emailField = (EditText)findViewById(R.id.email);
-        passwordField = (EditText)findViewById(R.id.sign_up_password);
-        confirmPasswordField =(EditText) findViewById(R.id.confirm_password);
-        accountTypeSpinner = findViewById(R.id.spinner);
+        nameField = (EditText)findViewById(R.id.name_SU);
+        emailField = (EditText)findViewById(R.id.email_SU);
+        passwordField = (EditText)findViewById(R.id.password_SU);
+        confirmPasswordField =(EditText) findViewById(R.id.confirm_password_SU);
+        accountTypeSpinner = findViewById(R.id.spinner_SU);
 
         /*
           Set up the adapter to display the allowable majors in the spinner
@@ -45,7 +45,7 @@ public class SignUpActivity extends AppCompatActivity  {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountTypeSpinner.setAdapter(adapter);
 
-        Button signUp = findViewById(R.id.button_signUp);
+        Button signUp = findViewById(R.id.button_signUp_SU);
         Button cancel = findViewById(R.id.button_cancel_SU);
 
         signUp.setOnClickListener(new View.OnClickListener() {

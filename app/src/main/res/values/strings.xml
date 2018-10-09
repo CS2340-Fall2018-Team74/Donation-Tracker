@@ -28,5 +28,6 @@
 
     <!-- Strings related to Sign up -->
     <string name="Account_type">Account type</string>
+    <string name="title_activity_dashboard">dashboard</string>
 
 </resources>
