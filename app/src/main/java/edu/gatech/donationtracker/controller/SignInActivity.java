@@ -23,6 +23,8 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+        createTestAcc();
+
         inputEmail = (EditText) findViewById(R.id.email_SI);
         inputPassword = (EditText) findViewById(R.id.password_SI);
 
@@ -73,5 +75,9 @@ public class SignInActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    private void createTestAcc() {
+        User test = new User("test", "test", "test@test.com");
+        SignUpActivity.accounts.add(test);
     }
 }

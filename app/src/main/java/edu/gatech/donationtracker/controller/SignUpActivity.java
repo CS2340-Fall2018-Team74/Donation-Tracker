@@ -31,6 +31,8 @@ public class SignUpActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+
+
 //        idField = findViewById(R.id.id_field);
         nameField = (EditText)findViewById(R.id.name_SU);
         emailField = (EditText)findViewById(R.id.email_SU);
@@ -88,4 +90,5 @@ public class SignUpActivity extends AppCompatActivity  {
             }
         });
     }
+
 }
