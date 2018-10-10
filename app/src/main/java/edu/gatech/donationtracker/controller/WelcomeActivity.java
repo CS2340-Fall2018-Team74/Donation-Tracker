@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
 import edu.gatech.donationtracker.R;
@@ -18,12 +19,12 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        Button button_sign_in = (Button)findViewById(R.id.button_signIn_Wel);
-        Button button_sign_up = (Button)findViewById(R.id.button_signUp_Wel);
+        Button buttonSignIn = (Button)findViewById(R.id.button_signIn_Wel);
+        Button buttonSignUp = (Button)findViewById(R.id.button_signUp_Wel);
         //ADD LISTENERS
 
 
-        button_sign_in.setOnClickListener(new View.OnClickListener() {
+        buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WelcomeActivity.this, SignInActivity.class);
@@ -31,7 +32,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        button_sign_up.setOnClickListener(new View.OnClickListener() {
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(WelcomeActivity.this, SignUpActivity.class);

@@ -15,8 +15,8 @@ public class SignOutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_out);
         //Jump to sign in layout when button clicked.
-        final Button logOutButton = findViewById(R.id.button_signOut_SO);
-        logOutButton.setOnClickListener(new View.OnClickListener() {
+        final Button buttonSignOut = findViewById(R.id.button_signOut_SO);
+        buttonSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SignOutActivity.this, WelcomeActivity.class);

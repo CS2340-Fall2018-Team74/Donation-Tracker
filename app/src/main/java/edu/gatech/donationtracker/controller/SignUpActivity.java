@@ -45,10 +45,10 @@ public class SignUpActivity extends AppCompatActivity  {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountTypeSpinner.setAdapter(adapter);
 
-        Button signUp = findViewById(R.id.button_signUp_SU);
-        Button cancel = findViewById(R.id.button_cancel_SU);
+        Button buttonSignUp = findViewById(R.id.button_signUp_SU);
+        Button buttonCancel = findViewById(R.id.button_cancel_SU);
 
-        signUp.setOnClickListener(new View.OnClickListener() {
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean passwordCheck = false;
@@ -79,7 +79,7 @@ public class SignUpActivity extends AppCompatActivity  {
             }
         });
 
-        cancel.setOnClickListener(new View.OnClickListener() {
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SignUpActivity.this, WelcomeActivity.class);

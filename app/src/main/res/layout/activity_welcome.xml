@@ -51,7 +51,7 @@
         android:layout_marginTop="140dp"
         android:text="Donation Tracker"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@color/title"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/button_signIn_Wel"

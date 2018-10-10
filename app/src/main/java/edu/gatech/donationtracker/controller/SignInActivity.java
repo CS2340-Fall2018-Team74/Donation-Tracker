@@ -26,10 +26,10 @@ public class SignInActivity extends AppCompatActivity {
         inputEmail = (EditText) findViewById(R.id.email_SI);
         inputPassword = (EditText) findViewById(R.id.password_SI);
 
-        Button signin = (Button) findViewById(R.id.button_signIn_SI);
-        Button cancel = (Button) findViewById(R.id.button_cancel_SI);
+        Button buttonSignIn = (Button) findViewById(R.id.button_signIn_SI);
+        Button buttonCancel = (Button) findViewById(R.id.button_cancel_SI);
 
-        signin.setOnClickListener(new View.OnClickListener() {
+        buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean isFound = false;
@@ -65,7 +65,7 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
-        cancel.setOnClickListener(new View.OnClickListener() {
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SignInActivity.this, WelcomeActivity.class);
