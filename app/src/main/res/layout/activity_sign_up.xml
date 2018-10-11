@@ -112,34 +112,35 @@
         app:layout_constraintBottom_toTopOf="@+id/button_cancel_SU"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/confirm_password_SU" />
+        app:layout_constraintTop_toTopOf="@+id/confirm_password_SU"
+        app:layout_constraintVertical_bias="0.012" />
 
     <Button
         android:id="@+id/button_signUp_SU"
         android:layout_width="97dp"
         android:layout_height="53dp"
         android:layout_marginBottom="60dp"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="72dp"
         android:layout_marginTop="8dp"
         android:text="Sign up"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner-SU"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.302" />
 
     <Button
         android:id="@+id/button_cancel_SU"
         android:layout_width="97dp"
         android:layout_height="53dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="112dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="Cancel"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/barrier2"
-        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toEndOf="@+id/button_signUp_SU" />
 
     <android.support.constraint.Guideline
