@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"><u> Donation tracker </u> </string>
+    <string name="app_name"><u>DONATION TRACKER</u> </string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
