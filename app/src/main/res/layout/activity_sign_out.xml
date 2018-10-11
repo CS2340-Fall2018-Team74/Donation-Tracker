@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".controller.SignOutActivity">
+
+    <TextView
+        android:id="@+id/name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/name_textView"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/location_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/location_textView"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
+
+
+    <Button
+        android:id="@+id/button_signOut_SO"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:text="@string/log_out"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold"
+        app:cornerRadius="20dp" />
+
+
+</LinearLayout>
