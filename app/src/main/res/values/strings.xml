@@ -29,5 +29,8 @@
     <!-- Strings related to Sign up -->
     <string name="Account_type">Account type</string>
     <string name="title_activity_dashboard">dashboard</string>
+    <string name="textview">TextView</string>
+    <string name="edit">Edit</string>
+    <string name="inventory">Inventory</string>
 
 </resources>

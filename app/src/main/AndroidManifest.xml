@@ -35,7 +35,7 @@
             android:theme="@style/NoTitle" />
         <activity
             android:name=".controller.DashboardActivity"
-            android:noHistory="true" />
+             />
         <activity
             android:name=".controller.SignUpActivity"
             android:noHistory="true"

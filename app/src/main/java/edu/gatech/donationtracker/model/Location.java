@@ -9,19 +9,12 @@ public class Location implements Parcelable{
 
     private String key;
     private String name;
-
     private String streetaddress;
-
     private List<Item> inventory;
-
     private String type;
-
     private String longitude;
-
     private String latitude;
-
     private String phone;
-
     private String zip;
     private String state;
     private String city;
