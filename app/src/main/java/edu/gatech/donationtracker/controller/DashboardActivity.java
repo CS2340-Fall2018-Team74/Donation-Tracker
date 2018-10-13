@@ -15,11 +15,20 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         Button buttonSettings = findViewById(R.id.button_settings_DB);
+        Button location = findViewById(R.id.location);
         //Jump to Logout layout when button clicked.
         buttonSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DashboardActivity.this, SignOutActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashboardActivity.this, LocationListActivity.class);
                 startActivity(intent);
             }
         });

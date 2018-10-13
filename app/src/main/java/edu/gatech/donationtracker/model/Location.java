@@ -1,41 +1,81 @@
 package edu.gatech.donationtracker.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class Location {
+public class Location implements Parcelable{
 
+    private String key;
     private String name;
 
-    private String address;
+    private String streetaddress;
 
     private List<Item> inventory;
 
     private String type;
 
-    private float longitude;
+    private String longitude;
 
-    private float latitude;
+    private String latitude;
 
     private String phone;
 
+    private String zip;
+    private String state;
+    private String city;
+    private String website;
 
-    /** constructor */
-    public Location(String name, String address, List<Item> inventory, String type, float longitude
-            , float latitude, String phone) {
+
+    public Location(String key, String name, String streetaddress, String type, String longitude, String latitude, String phone, String zip, String state, String city, String website) {
         this.name = name;
-        this.address = address;
-        this.inventory = inventory;
+        this.streetaddress = streetaddress;
         this.type = type;
         this.longitude = longitude;
         this.latitude = latitude;
         this.phone = phone;
+        this.zip = zip;
+        this.state = state;
+        this.city = city;
+        this.website = website;
+        this.key = key;
     }
 
-    /** default constructor */
-    public Location() {
-        this("Name", "Address", null, "Type", 0, 0
-                , "xxx-xxx-xxxx");
+    public String getKey() {
+        return key;
     }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    protected Location(Parcel in) {
+        key = in.readString();
+
+        name = in.readString();
+        streetaddress = in.readString();
+        type = in.readString();
+        longitude = in.readString();
+        latitude = in.readString();
+        phone = in.readString();
+        city = in.readString();
+        state= in.readString();
+        website = in.readString();
+        zip = in.readString();
+    }
+
+    public static final Creator<Location> CREATOR = new Creator<Location>() {
+        @Override
+        public Location createFromParcel(Parcel in) {
+            return new Location(in);
+        }
+
+        @Override
+        public Location[] newArray(int size) {
+            return new Location[size];
+        }
+    };
 
     /**
      * add data of this location
@@ -74,11 +114,16 @@ public class Location {
         return inventory;
     }
 
-    public void setInventory(List<Item> list) {
-        this.inventory = list;
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 
-    public String getNanme() {
+    public String getName() {
         return name;
     }
 
@@ -86,12 +131,12 @@ public class Location {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStreetaddress() {
+        return streetaddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreetaddress(String streetaddress) {
+        this.streetaddress = streetaddress;
     }
 
     public String getType() {
@@ -102,25 +147,83 @@ public class Location {
         this.type = type;
     }
 
-    public float getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(float longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
-    public float getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(float latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    /** toString of this object */
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
     @Override
-    public String toString() {
-        return name + " " + address + " " + type + " " + phone;
+    public int describeContents() {
+        return 0;
+    }
+
+    public Location() {
+        name = "locationName";
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeString(streetaddress);
+        parcel.writeString(type);
+        parcel.writeString(longitude);
+        parcel.writeString(latitude);
+        parcel.writeString(phone);
+        parcel.writeString(city);
+        parcel.writeString(state);
+        parcel.writeString(website);
+        parcel.writeString(key);
+        parcel.writeString(zip);
     }
 }

@@ -34,18 +34,18 @@ public class Admin extends User {
      * @param model the model of all accounts
      * @param user The user who would be added to database
      */
-    public void AddUser(Model model, User user) {
-        model.add(user);
-    }
+//    public void AddUser(Model model, User user) {
+//        model.add(user);
+//    }
 
     /**
      * remove an account
      * @param model the model of all accounts
      * @param user The user who would be removed from database
      */
-    public void RemoveUser(Model model, User user) {
-        model.remove(user.getEmail());
-    }
+//    public void RemoveUser(Model model, User user) {
+//        model.remove(user.getEmail());
+//    }
 
     /**
      * ***Extra credit!
@@ -56,18 +56,18 @@ public class Admin extends User {
      * @param type the new class type of the user
      * @return true if user found and class type changed successfully, false otherwise
      */
-    public boolean ChangeAccountType(Model model, User user, Class<? extends User> type)
-            throws InstantiationException, IllegalAccessException {
-        if (user != null && model.remove(user.getEmail())) {
-            User newAcc = type.newInstance();
-            newAcc.setName(user.getName());
-            newAcc.setEmail(user.getEmail());
-            newAcc.setId(user.getId());
-            newAcc.setPassword(user.getPassword());
-            model.add(type.cast(newAcc));
-            return true;
-        } else {
-            return false;
-        }
-    }
+//    public boolean ChangeAccountType(Model model, User user, Class<? extends User> type)
+//            throws InstantiationException, IllegalAccessException {
+//        if (user != null && model.remove(user.getEmail())) {
+//            User newAcc = type.newInstance();
+//            newAcc.setName(user.getName());
+//            newAcc.setEmail(user.getEmail());
+//            newAcc.setId(user.getId());
+//            newAcc.setPassword(user.getPassword());
+//            model.add(type.cast(newAcc));
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 }
