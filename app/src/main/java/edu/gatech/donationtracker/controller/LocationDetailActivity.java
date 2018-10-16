@@ -40,7 +40,7 @@ public class LocationDetailActivity extends AppCompatActivity {
         editThisLocation = (Button) findViewById(R.id.location_detail_edit);
         viewInventory = (Button) findViewById(R.id.location_detail_inventory);
         detailName.setText(model.getCurrentLocation().getName());
-        detailStreetAddress.setText(model.getCurrentLocation().getStreetaddress());
+        detailStreetAddress.setText(model.getCurrentLocation().getStreetAddress());
         detailCity.setText(model.getCurrentLocation().getCity());
         detailState.setText(model.getCurrentLocation().getState());
         detailZip.setText(model.getCurrentLocation().getZip());
