@@ -2,6 +2,7 @@ package edu.gatech.donationtracker.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -106,7 +107,7 @@ public class SignUpActivity extends AppCompatActivity  {
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SignUpActivity.this, WelcomeActivity.class);
+                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
                 startActivity(intent);
                 finish();
             }
