@@ -9,7 +9,7 @@ public class Location implements Parcelable{
 
     private String key;
     private String name;
-    private String streetaddress;
+    private String streetAddress;
     private List<Item> inventory;
     private String type;
     private String longitude;
@@ -21,9 +21,9 @@ public class Location implements Parcelable{
     private String website;
 
 
-    public Location(String key, String name, String streetaddress, String type, String longitude, String latitude, String phone, String zip, String state, String city, String website) {
+    public Location(String key, String name, String streetAddress, String type, String longitude, String latitude, String phone, String zip, String state, String city, String website) {
         this.name = name;
-        this.streetaddress = streetaddress;
+        this.streetAddress = streetAddress;
         this.type = type;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -47,7 +47,7 @@ public class Location implements Parcelable{
         key = in.readString();
 
         name = in.readString();
-        streetaddress = in.readString();
+        streetAddress = in.readString();
         type = in.readString();
         longitude = in.readString();
         latitude = in.readString();
@@ -124,12 +124,12 @@ public class Location implements Parcelable{
         this.name = name;
     }
 
-    public String getStreetaddress() {
-        return streetaddress;
+    public String getStreetAddress() {
+        return streetAddress;
     }
 
-    public void setStreetaddress(String streetaddress) {
-        this.streetaddress = streetaddress;
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
     }
 
     public String getType() {
@@ -208,7 +208,7 @@ public class Location implements Parcelable{
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
-        parcel.writeString(streetaddress);
+        parcel.writeString(streetAddress);
         parcel.writeString(type);
         parcel.writeString(longitude);
         parcel.writeString(latitude);

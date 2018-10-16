@@ -12,4 +12,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="textBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#FEDE0F</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
 </resources>

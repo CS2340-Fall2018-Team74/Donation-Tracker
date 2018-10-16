@@ -1,0 +1,79 @@
+{
+  "project_info": {
+    "project_number": "338021052994",
+    "firebase_url": "https://donation-tracker-bed83.firebaseio.com",
+    "project_id": "donation-tracker-bed83",
+    "storage_bucket": "donation-tracker-bed83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338021052994:android:8cf864fd66b7ecb4",
+        "android_client_info": {
+          "package_name": "edu.gatech.donationtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338021052994-j3ir73mvtnrfo1oh0ug1bik3cu39dgep.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.gatech.donationtracker",
+            "certificate_hash": "7f0cbdb105c7c6432ad0cdfec3eebf88a52c5d02"
+          }
+        },
+        {
+          "client_id": "338021052994-6c2i0hur9sfmjem6ff6qga2m3v9j9oku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.gatech.donationtracker",
+            "certificate_hash": "ea51182b6686324f093f4be7707f0923bbcb5709"
+          }
+        },
+        {
+          "client_id": "338021052994-v1ur47c7165u8ndb2d40uqn93c7fjera.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.gatech.donationtracker",
+            "certificate_hash": "b6aee468094200abbcf842ff7e802a6cbed8afea"
+          }
+        },
+        {
+          "client_id": "338021052994-o4ekg1atii9eb0v20d3nv1t76h6nu873.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.gatech.donationtracker",
+            "certificate_hash": "97c4f5a6752edfa53fbf41ce4d34550e134f53ca"
+          }
+        },
+        {
+          "client_id": "338021052994-h9kq7k3s9hpcbsq3sjib46mh3np0vnsj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgmLPgckGWcPFwvjgnJ56WLueMmvIVZqI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338021052994-h9kq7k3s9hpcbsq3sjib46mh3np0vnsj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
