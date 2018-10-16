@@ -14,6 +14,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import edu.gatech.donationtracker.R;
+import edu.gatech.donationtracker.model.Admin;
+import edu.gatech.donationtracker.model.LocationEmployee;
+import edu.gatech.donationtracker.model.Manager;
+import edu.gatech.donationtracker.model.Model;
 import edu.gatech.donationtracker.model.User;
 
 public class SignUpActivity extends AppCompatActivity  {
@@ -24,8 +28,6 @@ public class SignUpActivity extends AppCompatActivity  {
     private EditText passwordField;
     private EditText confirmPasswordField;
     private Spinner accountTypeSpinner;
-    public static ArrayList<User> accounts = new ArrayList<>();
-    private String _accountType = "NA";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,17 +35,17 @@ public class SignUpActivity extends AppCompatActivity  {
 
 
 
-//        idField = findViewById(R.id.id_field);
+//      idField = findViewById(R.id.id_field);
         nameField = (EditText)findViewById(R.id.name_SU);
         emailField = (EditText)findViewById(R.id.email_SU);
         passwordField = (EditText)findViewById(R.id.password_SU);
         confirmPasswordField =(EditText) findViewById(R.id.confirm_password_SU);
-        accountTypeSpinner = findViewById(R.id.spinner_SU);
+        accountTypeSpinner = (Spinner) findViewById(R.id.spinner_SU);
 
         /*
           Set up the adapter to display the allowable majors in the spinner
          */
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, User.legalType);
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, User.legalType);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountTypeSpinner.setAdapter(adapter);
 
@@ -55,32 +57,52 @@ public class SignUpActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 boolean passwordCheck = false;
                 boolean emailNotRepeated = true;
+                int type = accountTypeSpinner.getSelectedItemPosition();
                 String name = nameField.getText().toString();
                 String email = emailField.getText().toString();
                 String password = passwordField.getText().toString();
                 String confirmPassword =confirmPasswordField.getText().toString();
                 if (email.equals("") || password.equals("")|| name.equals("")|| confirmPassword.equals("")) {
-                    Toast.makeText(SignUpActivity.this, "You need to enter your basic account information.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "You need to enter your basic account information.",
+                            Toast.LENGTH_SHORT).show();
                 } else if (!password.equals(confirmPassword)) {
-                    Toast.makeText(SignUpActivity.this, "The two passwords you entered don't match.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "The two passwords you entered don't match.",
+                            Toast.LENGTH_SHORT).show();
                 } else {passwordCheck = true;}
 
-                for (User u : accounts){
+                for (User u : Model.getInstance().getAccounts()){
                     if (u.getEmail().equals(email)){
                         emailNotRepeated = false;
                     }
                 }
                 if(!emailNotRepeated && passwordCheck) {
-                    Toast.makeText(SignUpActivity.this, "The e-mail has already been signed up", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "The e-mail has already been signed up",
+                            Toast.LENGTH_SHORT).show();
                 }
                 if(passwordCheck && emailNotRepeated) {
-                    accounts.add(new User(name, password, email));
+                    User newAccount;
+                    switch (type) {
+                        case 1:
+                            //new LE would have their default location as locations[0]
+                            newAccount = new LocationEmployee(email, name, password,
+                                    Model.getInstance().getLocations().get(0));
+                            break;
+                        case 2:
+                            newAccount = new Manager(email, name, password);
+                            break;
+                        case 3:
+                            newAccount = new Admin(email, name, password);
+                            break;
+                        default:
+                            newAccount = new User(email, name, password);
+                    }
+                    Model.getInstance().addAccount(newAccount);
+                    Model.getInstance().setCurrentUser(newAccount);
                     Intent intent = new Intent(SignUpActivity.this, DashboardActivity.class);
                     startActivity(intent);
                 }
             }
         });
-
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

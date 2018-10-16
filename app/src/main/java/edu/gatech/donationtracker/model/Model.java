@@ -23,15 +23,23 @@ public class Model {
     /** holds the list of all locations */
     private ArrayList<Location> locations;
 
-    /** the currently selected location, defaults to first location */
+    private ArrayList<User> accounts;
+
     private Location currentLocation;
 
-    /** Null Object pattern, returned when no location is found */
-    private final Location theNullLocation = new Location();
+    private User currentUser;
 
     private Model () {
         locations = new ArrayList<>();
         loadLocation();
+        accounts = new ArrayList<>();
+        loadAccount();
+
+        //default user is null (visitor mode)
+        currentUser = null;
+        //default location is locations[0] or null if no location in database
+        currentLocation = locations.size() == 0 ?
+                null : locations.get(0);
     }
 
     /**
@@ -51,25 +59,90 @@ public class Model {
                             for (DocumentSnapshot documentSnapshot : task.getResult()) {
                                 Location location = documentSnapshot.toObject(Location.class);
                                 locations.add(location);
-                                Log.d("model", location.getCity());
                             }
                         }
                     }
                 });
     }
 
-    /**
-     *
-     * @return  the currently selected Location
-     */
+    private void loadAccount() {
+            User test = new User("test@test.com", "test", "test");
+            Admin admin = new Admin("admin@admin.com", "admin", "admin");
+            accounts.add(test);
+            accounts.add(admin);
+    }
+
+    public void addLocation(Location location) {
+
+    }
+
+    public void removeLocation(Location location) {
+
+    }
+
+    public void addAccount(User user) {
+        accounts.add(user);
+    }
+
+    public void removeAccount(User user) {
+
+    }
+
     public Location getCurrentLocation() { return currentLocation;}
 
     public void setCurrentLocation(Location location) { currentLocation = location; }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
     /**
-     * get all accounts
-     *
-     * @return a Arraylist of Locations
+     * @return int representaion of type, or -1 if currentUser is null(Visitor mode)
+     * User = 0
+     * LE = 1
+     * Manager = 2
+     * Admin = 3
      */
+    public int getCurrentUserType() {
+        if (currentUser != null) {
+            if (currentUser instanceof Admin)
+                return 3;
+            else if (currentUser instanceof Manager)
+                return 2;
+            else if (currentUser instanceof LocationEmployee)
+                return 1;
+            else
+                return 0;
+        }
+        return -1;
+    }
+
+    /**
+     * @return current User type as String
+     */
+    public String getCurrentUserTypeAsString() {
+        switch(getCurrentUserType()) {
+            case 0:
+                return "User";
+            case 1:
+                return "Location Employee";
+            case 2:
+                return "Manager";
+            case 3:
+                return "Admin";
+            default:
+                return "Visitor";
+        }
+    }
+
+    public ArrayList<User> getAccounts() {
+        return accounts;
+    }
+
     public ArrayList<Location> getLocations() {
         return locations;
     }

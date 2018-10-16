@@ -15,7 +15,6 @@ public class Item implements Comparable<Item> {
     /** this Item's quantity in inventory */
     private int quantity;
 
-
     /** constructor with no quantity specified*/
     public Item(String name, int id) {
         this.name = name;

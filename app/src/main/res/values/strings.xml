@@ -32,5 +32,8 @@
     <string name="textview">TextView</string>
     <string name="edit">Edit</string>
     <string name="inventory">Inventory</string>
+    <string name="settings">Settings</string>
+    <string name="location">location</string>
+    <string name="user">User</string>
 
 </resources>

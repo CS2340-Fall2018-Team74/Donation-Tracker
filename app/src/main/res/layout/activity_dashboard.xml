@@ -14,14 +14,22 @@
         android:layout_height="53dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="323dp"
-        android:text="Settings"
+        android:text="@string/settings"
         android:visibility="visible" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/location"
-        android:text="location"
+        android:text="@string/location"
         />
+
+    <TextView
+        android:id="@+id/dashboard_account_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="146dp"
+        android:text="@string/user" />
 
 </RelativeLayout>
