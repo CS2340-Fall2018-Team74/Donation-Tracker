@@ -10,27 +10,27 @@ public class Item implements Comparable<Item> {
     private String name;
 
     /** this Item's id */
-    private int id;
+    private String id;
 
     /** this Item's quantity in inventory */
     private int quantity;
 
+    private String category;
 
-    /** constructor with no quantity specified*/
-    public Item(String name, int id) {
+    public Item() {
+    }
+
+    /** constructor */
+    public Item(String name, String id, int quantity, String category) {
         this.name = name;
         this.id = id;
         this.quantity = 0;
-    }
-    /** constructor with quantity specified*/
-    public Item(String name, int id, int quantity) {
-        this(name, id);
-        this.quantity = quantity;
+        this.category = category;
     }
 
     /** compareTo method */
     public int compareTo (Item item) {
-        return this.id - item.id;
+        return this.id.compareTo(item.id);
     }
 
     /**
@@ -52,7 +52,7 @@ public class Item implements Comparable<Item> {
     }
 
     /** getter */
-    public int get_quantity() {
+    public int getQuantity() {
         return quantity;
     }
 
@@ -61,4 +61,33 @@ public class Item implements Comparable<Item> {
     public String toString() {
         return name + " id: " + id + " x" + quantity;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }
+
