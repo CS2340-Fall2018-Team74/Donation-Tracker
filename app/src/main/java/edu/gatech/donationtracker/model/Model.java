@@ -8,10 +8,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /** firestore database https://console.firebase.google.com/project/donation-tracker-bed83/database/firestore/data~2FLocations~2F4G9dqBJsGOlT4lVlVeld */
 
@@ -53,6 +55,7 @@ public class Model {
                         if (task.isSuccessful()) {
                             for (DocumentSnapshot documentSnapshot : task.getResult()) {
                                 Location location = documentSnapshot.toObject(Location.class);
+                                location.setReference(documentSnapshot.getReference());
                                 locations.add(location);
                                 loadItem(location, documentSnapshot);
                                 Log.d("ModelLocation", location.toString());
@@ -76,7 +79,11 @@ public class Model {
                         if (task.isSuccessful()) {
                             for (DocumentSnapshot ItemSnapshot : task.getResult()) {
                                 Item item = ItemSnapshot.toObject(Item.class);
+                                item.setReference(ItemSnapshot.getReference());
                                 location.addData(item);
+                                if (Integer.parseInt(item.getId()) > location.itemId) {
+                                    location.itemId = Integer.parseInt(item.getId());
+                                }
                                 Log.d("ModelItem", item.toString());
                             }
                         } else {
@@ -91,6 +98,34 @@ public class Model {
             Admin admin = new Admin("admin@admin.com", "admin", "admin");
             accounts.add(test);
             accounts.add(admin);
+    }
+
+    public void pushNewItemToDatabase(Item... items) {
+        for (Item item : items) {
+            Map<String, Object> itemAsMap = new HashMap<>();
+            itemAsMap.put("id", item.getId());
+            itemAsMap.put("name", item.getName());
+            itemAsMap.put("category", item.getCategory());
+            itemAsMap.put("quantity", item.getQuantity());
+            Model.getInstance().getCurrentLocation().getReference().collection("Items").add(itemAsMap);
+        }
+    }
+
+    public void pushEditedItemToDatabase(Item... items) {
+        for (Item item : items) {
+            Map<String, Object> itemAsMap = new HashMap<>();
+            itemAsMap.put("id", item.getId());
+            itemAsMap.put("name", item.getName());
+            itemAsMap.put("category", item.getCategory());
+            itemAsMap.put("quantity", item.getQuantity());
+            item.getReference().set(itemAsMap);
+        }
+    }
+
+    public void deleteItemInDatabase(Item... items) {
+        for (Item item : items) {
+            item.getReference().delete();
+        }
     }
 
     public boolean addLocation(Location location) {

@@ -23,7 +23,6 @@ import edu.gatech.donationtracker.model.User;
 
 public class SignUpActivity extends AppCompatActivity  {
 
-    private TextView idField;
     private EditText nameField;
     private EditText emailField;
     private EditText passwordField;
@@ -34,9 +33,6 @@ public class SignUpActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-
-
-//      idField = findViewById(R.id.id_field);
         nameField = (EditText)findViewById(R.id.name_SU);
         emailField = (EditText)findViewById(R.id.email_SU);
         passwordField = (EditText)findViewById(R.id.password_SU);

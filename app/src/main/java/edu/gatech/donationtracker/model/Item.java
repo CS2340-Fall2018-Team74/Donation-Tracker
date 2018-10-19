@@ -4,6 +4,8 @@ package edu.gatech.donationtracker.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.firebase.firestore.DocumentReference;
+
 /**
  * Item that is being stored in inventories
  */
@@ -13,6 +15,7 @@ public class Item implements Comparable<Item>, Parcelable {
     private String id;
     private String category;
     private int quantity;
+    private DocumentReference reference;
 
     public Item(String name, String id, String category, int quantity) {
         this.name = name;
@@ -104,6 +107,14 @@ public class Item implements Comparable<Item>, Parcelable {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public DocumentReference getReference() {
+        return reference;
+    }
+
+    public void setReference(DocumentReference reference) {
+        this.reference = reference;
     }
 
     @Override

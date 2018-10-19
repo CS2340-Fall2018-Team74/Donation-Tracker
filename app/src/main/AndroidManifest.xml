@@ -33,25 +33,23 @@
             android:name=".controller.SignOutActivity"
             android:noHistory="true"
             android:theme="@style/NoTitle" />
-        <activity
-            android:name=".controller.DashboardActivity"
-             />
+        <activity android:name=".controller.DashboardActivity" />
         <activity
             android:name=".controller.SignUpActivity"
             android:noHistory="true"
             android:theme="@style/NoTitle" />
-
         <activity android:name=".controller.LocationListActivity" />
-
-        <activity android:name=".controller.LocationDetailActivity"
+        <activity android:name=".controller.ItemListActivity"
+            android:noHistory="true"/>
+        <activity
+            android:name=".controller.LocationDetailActivity"
             android:parentActivityName=".controller.LocationListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".controller.LocationListActivity"/>
+                android:value=".controller.LocationListActivity" />
         </activity>
-
-        <activity android:name="edu.gatech.donationtracker.controller.EditItemActivity"/>
-
+        <activity android:name=".controller.EditItemActivity" />
+        <activity android:name=".controller.ItemDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -39,5 +39,10 @@
     <string name="settings">Settings</string>
     <string name="location">location</string>
     <string name="user">User</string>
+    <string name="enter_category">Enter Category:</string>
+    <string name="enter_name">Enter Name:</string>
+    <string name="enter_quantity">Enter Quantity:</string>
+    <string name="delete_this_item">Delete this item</string>
+    <string name="delete">Delete</string>
 
 </resources>
