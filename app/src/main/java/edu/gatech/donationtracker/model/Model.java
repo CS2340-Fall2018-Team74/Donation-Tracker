@@ -20,14 +20,12 @@ public class Model {
     public static Model getInstance() { return _instance; }
     public static FirebaseFirestore db;
 
-    /** holds the list of all locations */
     private ArrayList<Location> locations;
-
     private ArrayList<User> accounts;
 
     private Location currentLocation;
-
     private User currentUser;
+    private Item currentItem;
 
     private Model () {
         locations = new ArrayList<>();
@@ -37,21 +35,18 @@ public class Model {
 
         //default user is null (visitor mode)
         currentUser = null;
-        //default location is locations[0] or null if no location in database
-        currentLocation = locations.size() == 0 ?
-                null : locations.get(0);
+        currentLocation = null;
+        currentItem = null;
     }
 
     /**
-     * load a default account
-     *
-     * @return true if all items are found in inventory and deleted, false otherwise
+     * load locations from database
      */
     private void loadLocation() {
         db = FirebaseFirestore.getInstance();
         Query query = db.collection("Locations");
         query.
-            get().
+                get().
                 addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -59,7 +54,33 @@ public class Model {
                             for (DocumentSnapshot documentSnapshot : task.getResult()) {
                                 Location location = documentSnapshot.toObject(Location.class);
                                 locations.add(location);
+                                loadItem(location, documentSnapshot);
+                                Log.d("ModelLocation", location.toString());
                             }
+                        } else {
+                            Log.d("ModelLocation", "Load failed");
+                        }
+                    }
+                });
+    }
+
+    /**
+     * load Items from database
+     */
+    private void loadItem(final Location location, DocumentSnapshot locationSnapshot) {
+        locationSnapshot.getReference().collection("Items").
+                get().
+                addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot ItemSnapshot : task.getResult()) {
+                                Item item = ItemSnapshot.toObject(Item.class);
+                                location.addData(item);
+                                Log.d("ModelItem", item.toString());
+                            }
+                        } else {
+                            Log.d("ModelItem", "Load failed");
                         }
                     }
                 });
@@ -73,11 +94,11 @@ public class Model {
     }
 
     public void addLocation(Location location) {
-
+        locations.add(location);
     }
 
     public void removeLocation(Location location) {
-
+        locations.add(location);
     }
 
     public void addAccount(User user) {
@@ -85,7 +106,7 @@ public class Model {
     }
 
     public void removeAccount(User user) {
-
+        accounts.remove(user);
     }
 
     public Location getCurrentLocation() { return currentLocation;}

@@ -3,6 +3,7 @@ package edu.gatech.donationtracker.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Location implements Parcelable{
@@ -22,6 +23,7 @@ public class Location implements Parcelable{
 
 
     public Location(String key, String name, String streetAddress, String type, String longitude, String latitude, String phone, String zip, String state, String city, String website) {
+        this();
         this.name = name;
         this.streetAddress = streetAddress;
         this.type = type;
@@ -35,6 +37,10 @@ public class Location implements Parcelable{
         this.key = key;
     }
 
+    public Location() {
+        inventory = new ArrayList<>();
+    }
+
     public String getKey() {
         return key;
     }
@@ -45,7 +51,6 @@ public class Location implements Parcelable{
 
     protected Location(Parcel in) {
         key = in.readString();
-
         name = in.readString();
         streetAddress = in.readString();
         type = in.readString();
@@ -199,10 +204,6 @@ public class Location implements Parcelable{
     @Override
     public int describeContents() {
         return 0;
-    }
-
-    public Location() {
-        name = "locationName";
     }
 
     @Override

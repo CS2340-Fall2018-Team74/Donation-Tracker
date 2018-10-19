@@ -1,35 +1,52 @@
 package edu.gatech.donationtracker.model;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Item that is being stored in inventories
  */
-public class Item implements Comparable<Item> {
+public class Item implements Comparable<Item>, Parcelable {
 
-    /** this Item's name */
     private String name;
-
-    /** this Item's id */
-    private int id;
-
-    /** this Item's quantity in inventory */
+    private String id;
+    private String category;
     private int quantity;
 
-    /** constructor with no quantity specified*/
-    public Item(String name, int id) {
+    public Item(String name, String id, String category, int quantity) {
         this.name = name;
         this.id = id;
-        this.quantity = 0;
-    }
-    /** constructor with quantity specified*/
-    public Item(String name, int id, int quantity) {
-        this(name, id);
+        this.category = category;
         this.quantity = quantity;
     }
 
+    public Item() {
+        this("Enter name: ", "Enter id: ", "Enter category: ", 0);
+    }
+
+    protected Item(Parcel in) {
+        name = in.readString();
+        id = in.readString();
+        category = in.readString();
+        quantity = in.readInt();
+    }
+
+    public static final Creator<Item> CREATOR = new Creator<Item>() {
+        @Override
+        public Item createFromParcel(Parcel in) {
+            return new Item(in);
+        }
+
+        @Override
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
+
     /** compareTo method */
     public int compareTo (Item item) {
-        return this.id - item.id;
+        return this.id.compareTo(item.id);
     }
 
     /**
@@ -58,7 +75,7 @@ public class Item implements Comparable<Item> {
     /** toString of this object */
     @Override
     public String toString() {
-        return name + " id: " + id + " x" + quantity;
+        return category + " - " + " id: " + id + " - " + name + " x" + quantity;
     }
 
     public String getName() {
@@ -69,15 +86,36 @@ public class Item implements Comparable<Item> {
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(id);
+        dest.writeString(category);
+        dest.writeInt(quantity);
     }
 }
