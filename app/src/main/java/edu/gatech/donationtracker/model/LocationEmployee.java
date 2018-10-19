@@ -42,7 +42,7 @@ public class LocationEmployee extends User {
     public void setlocation(Location location) {
         this.location = location;
     }
-    public boolean isHasLocation() {
+    public boolean HasLocation() {
         return hasLocation;
     }
     public void setHasLocation(boolean hasLocation) {

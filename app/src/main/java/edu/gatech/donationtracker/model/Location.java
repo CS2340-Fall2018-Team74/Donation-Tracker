@@ -115,10 +115,7 @@ public class Location implements Parcelable{
 
     @Override
     public String toString() {
-        return "Location{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                '}';
+        return name + " Type: " + type;
     }
 
     public String getName() {
