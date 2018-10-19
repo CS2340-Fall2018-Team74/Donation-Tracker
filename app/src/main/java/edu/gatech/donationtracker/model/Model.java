@@ -8,16 +8,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /** firestore database https://console.firebase.google.com/project/donation-tracker-bed83/database/firestore/data~2FLocations~2F4G9dqBJsGOlT4lVlVeld */
 
 public class Model {
-    private static  Model _instance = new Model();
-    public static Model getInstance() { return _instance; }
+    private static  Model instance = new Model();
+    public static Model getInstance() { return instance; }
     public static FirebaseFirestore db;
 
     private ArrayList<Location> locations;
@@ -65,7 +65,7 @@ public class Model {
     }
 
     /**
-     * load Items from database
+     * load Items at each location from database
      */
     private void loadItem(final Location location, DocumentSnapshot locationSnapshot) {
         locationSnapshot.getReference().collection("Items").
@@ -93,20 +93,20 @@ public class Model {
             accounts.add(admin);
     }
 
-    public void addLocation(Location location) {
-        locations.add(location);
+    public boolean addLocation(Location location) {
+        return locations.add(location);
     }
 
-    public void removeLocation(Location location) {
-        locations.add(location);
+    public boolean removeLocation(Location location) {
+        return locations.add(location);
     }
 
-    public void addAccount(User user) {
-        accounts.add(user);
+    public boolean addAccount(User user) {
+        return accounts.add(user);
     }
 
-    public void removeAccount(User user) {
-        accounts.remove(user);
+    public boolean removeAccount(User user) {
+        return accounts.remove(user);
     }
 
     public Location getCurrentLocation() { return currentLocation;}
@@ -121,8 +121,16 @@ public class Model {
         this.currentUser = currentUser;
     }
 
+    public Item getCurrentItem() {
+        return currentItem;
+    }
+
+    public void setCurrentItem(Item currentItem) {
+        this.currentItem = currentItem;
+    }
+
     /**
-     * @return int representaion of type, or -1 if currentUser is null(Visitor mode)
+     * @return int representation of user type, -1 if currentUser is null(Visitor mode)
      * User = 0
      * LE = 1
      * Manager = 2
