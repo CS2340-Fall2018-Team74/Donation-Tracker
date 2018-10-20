@@ -3,13 +3,16 @@ package edu.gatech.donationtracker.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.firebase.firestore.DocumentReference;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Location implements Parcelable{
 
     private String key;
     private String name;
-    private String streetaddress;
+    private String streetAddress;
     private List<Item> inventory;
     private String type;
     private String longitude;
@@ -19,11 +22,15 @@ public class Location implements Parcelable{
     private String state;
     private String city;
     private String website;
+    private DocumentReference reference;
+
+    public int itemId = 0;
 
 
-    public Location(String key, String name, String streetaddress, String type, String longitude, String latitude, String phone, String zip, String state, String city, String website) {
+    public Location(String key, String name, String streetAddress, String type, String longitude, String latitude, String phone, String zip, String state, String city, String website) {
+        this();
         this.name = name;
-        this.streetaddress = streetaddress;
+        this.streetAddress = streetAddress;
         this.type = type;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -33,6 +40,10 @@ public class Location implements Parcelable{
         this.city = city;
         this.website = website;
         this.key = key;
+    }
+
+    public Location() {
+        inventory = new ArrayList<>();
     }
 
     public String getKey() {
@@ -45,9 +56,8 @@ public class Location implements Parcelable{
 
     protected Location(Parcel in) {
         key = in.readString();
-
         name = in.readString();
-        streetaddress = in.readString();
+        streetAddress = in.readString();
         type = in.readString();
         longitude = in.readString();
         latitude = in.readString();
@@ -92,12 +102,8 @@ public class Location implements Parcelable{
      */
     public void removeData(Item... items){
         for (Item item : items) {
-            int index = inventory.indexOf(item);
             if (inventory.contains(item)) {
-                inventory.get(index).removeQuantity(item.getQuantity());
-                if (inventory.get(index).getQuantity() <= 0) {
-                    inventory.remove(index);
-                }
+                inventory.remove(item);
             }
         }
     }
@@ -110,10 +116,7 @@ public class Location implements Parcelable{
 
     @Override
     public String toString() {
-        return "Location{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                '}';
+        return name + " Type: " + type;
     }
 
     public String getName() {
@@ -124,12 +127,12 @@ public class Location implements Parcelable{
         this.name = name;
     }
 
-    public String getStreetaddress() {
-        return streetaddress;
+    public String getStreetAddress() {
+        return streetAddress;
     }
 
-    public void setStreetaddress(String streetaddress) {
-        this.streetaddress = streetaddress;
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
     }
 
     public String getType() {
@@ -196,19 +199,23 @@ public class Location implements Parcelable{
         this.website = website;
     }
 
+    public DocumentReference getReference() {
+        return reference;
+    }
+
+    public void setReference(DocumentReference reference) {
+        this.reference = reference;
+    }
+
     @Override
     public int describeContents() {
         return 0;
     }
 
-    public Location() {
-        name = "locationName";
-    }
-
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
-        parcel.writeString(streetaddress);
+        parcel.writeString(streetAddress);
         parcel.writeString(type);
         parcel.writeString(longitude);
         parcel.writeString(latitude);
