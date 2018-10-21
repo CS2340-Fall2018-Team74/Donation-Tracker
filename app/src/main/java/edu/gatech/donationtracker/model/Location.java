@@ -102,9 +102,7 @@ public class Location implements Parcelable{
      */
     public void removeData(Item... items){
         for (Item item : items) {
-            if (inventory.contains(item)) {
-                inventory.remove(item);
-            }
+            inventory.remove(item);
         }
     }
 

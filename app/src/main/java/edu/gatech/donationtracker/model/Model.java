@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -107,7 +108,17 @@ public class Model {
             itemAsMap.put("name", item.getName());
             itemAsMap.put("category", item.getCategory());
             itemAsMap.put("quantity", item.getQuantity());
-            Model.getInstance().getCurrentLocation().getReference().collection("Items").add(itemAsMap);
+            Model.getInstance().getCurrentLocation().getReference().collection("Items").add(itemAsMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentReference> task) {
+                    if (task.isSuccessful()) {
+                        Model.getInstance().getCurrentItem().setReference(task.getResult());
+                    } else {
+                        Log.d("ModelAddNew", "failed");
+                    }
+                }
+            });
+
         }
     }
 
