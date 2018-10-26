@@ -7,6 +7,9 @@ import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.common.base.Predicates;
+import com.google.common.collect.Collections2;
+import com.google.common.collect.Lists;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -18,8 +21,13 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /** firestore database https://console.firebase.google.com/project/donation-tracker-bed83/database/firestore/data~2FLocations~2F4G9dqBJsGOlT4lVlVeld */
 
@@ -31,6 +39,7 @@ public class Model {
 
     private ArrayList<Location> locations;
     private ArrayList<User> accounts;
+    private List<Item> filtedItems;
 
     private Location currentLocation;
     private User currentUser;
@@ -109,7 +118,7 @@ public class Model {
     public void pushNewItemToDatabase(Item... items) {
         for (Item item : items) {
             Map<String, Object> itemAsMap = new HashMap<>();
-            itemAsMap.put("imageUrl", item.getUrl());
+            itemAsMap.put("url", item.getUrl());
             itemAsMap.put("id", item.getId());
             itemAsMap.put("name", item.getName());
             itemAsMap.put("category", item.getCategory());
@@ -131,7 +140,7 @@ public class Model {
     public void pushEditedItemToDatabase(Item... items) {
         for (Item item : items) {
             Map<String, Object> itemAsMap = new HashMap<>();
-            itemAsMap.put("imageUrl", item.getUrl());
+            itemAsMap.put("url", item.getUrl());
             itemAsMap.put("id", item.getId());
             itemAsMap.put("name", item.getName());
             itemAsMap.put("category", item.getCategory());
@@ -144,6 +153,34 @@ public class Model {
         for (Item item : items) {
             item.getReference().delete();
         }
+    }
+
+    public void filterCategory(List<Item> array, final String keyword) {
+        filtedItems = array.stream().filter(new Predicate<Item>() {
+            @Override
+            public boolean test(Item item) {
+                return item.getCategory().equals(keyword);
+            }
+        }).collect(Collectors.<Item>toList());
+    }
+
+    public void filterName(List<Item> array, final String keyword) {
+        filtedItems = array.stream().filter(new Predicate<Item>() {
+            @Override
+            public boolean test(Item item) {
+                return item.getName().equals(keyword);
+            }
+        }).collect(Collectors.<Item>toList());
+    }
+
+    public void filterBoth(List<Item> array, final String keyword) {
+        filtedItems = array.stream().filter(new Predicate<Item>() {
+            @Override
+            public boolean test(Item item) {
+                return item.getName().equals(keyword) ||
+                        item.getCategory().equals(keyword);
+            }
+        }).collect(Collectors.<Item>toList());
     }
 
 
@@ -230,5 +267,22 @@ public class Model {
 
     public ArrayList<Location> getLocations() {
         return locations;
+    }
+
+    public ArrayList<String> getLocationsAsString() {
+        ArrayList<String> locationsAsString = new ArrayList<>();
+        for (Location l : locations) {
+            locationsAsString.add(l.getName());
+        }
+        return locationsAsString;
+    }
+
+    public void set() {
+        ArrayList<Item> items = new ArrayList<>();
+        for (Location l : locations) {
+            for (Item i : l.getInventory()) {
+                items.add(i);
+            }
+        }
     }
 }
