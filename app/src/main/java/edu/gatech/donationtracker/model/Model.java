@@ -160,7 +160,7 @@ public class Model {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
             public boolean test(Item item) {
-                return item.getCategory().contains(keyword);
+                return item.getCategory().toLowerCase().contains(keyword.toLowerCase());
             }
         }).collect(Collectors.<Item>toList());
     }
@@ -169,7 +169,7 @@ public class Model {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
             public boolean test(Item item) {
-                return item.getName().contains(keyword);
+                return item.getName().toLowerCase().contains(keyword.toLowerCase());
             }
         }).collect(Collectors.<Item>toList());
     }
@@ -178,8 +178,8 @@ public class Model {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
             public boolean test(Item item) {
-                return item.getName().contains(keyword) ||
-                        item.getCategory().contains(keyword);
+                return item.getName().toLowerCase().contains(keyword.toLowerCase()) ||
+                        item.getCategory().toLowerCase().contains(keyword.toLowerCase());
             }
         }).collect(Collectors.<Item>toList());
     }
