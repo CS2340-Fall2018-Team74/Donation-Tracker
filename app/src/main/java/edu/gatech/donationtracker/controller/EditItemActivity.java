@@ -82,7 +82,7 @@ public class EditItemActivity extends AppCompatActivity {
                 //adding new item
                 if (currentItem == null) {
                     String id = String.valueOf(++(Model.getInstance().getCurrentLocation().itemId));
-                    Item newItem = new Item(imageUrl, name, id, category, quantity);
+                    Item newItem = new Item(imageUrl, name, id, category, quantity, Model.getInstance().getCurrentLocation());
                     Model.getInstance().getCurrentLocation().addData(newItem);
                     Model.getInstance().setCurrentItem(newItem);
                     Model.getInstance().pushNewItemToDatabase(newItem);

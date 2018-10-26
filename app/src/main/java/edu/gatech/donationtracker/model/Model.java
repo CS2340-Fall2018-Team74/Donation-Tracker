@@ -1,28 +1,17 @@
 package edu.gatech.donationtracker.model;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.common.base.Predicates;
-import com.google.common.collect.Collections2;
-import com.google.common.collect.Lists;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -95,6 +84,7 @@ public class Model {
                         if (task.isSuccessful()) {
                             for (DocumentSnapshot ItemSnapshot : task.getResult()) {
                                 Item item = ItemSnapshot.toObject(Item.class);
+                                item.setLocation(location);
                                 item.setReference(ItemSnapshot.getReference());
                                 location.addData(item);
                                 if (Integer.parseInt(item.getId()) > location.itemId) {

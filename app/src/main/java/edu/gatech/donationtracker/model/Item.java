@@ -16,20 +16,22 @@ public class Item implements Comparable<Item>, Parcelable {
     private String id;
     private String category;
     private int quantity;
+    private Location location;
     DocumentReference reference;
 
 
 
-    public Item(String url, String name, String id, String category, int quantity) {
+    public Item(String url, String name, String id, String category, int quantity, Location location) {
         this.url = url;
         this.name = name;
         this.id = id;
         this.category = category;
         this.quantity = quantity;
+        this.location = location;
     }
 
     public Item() {
-        this("Enter url", "Enter name: ", "Enter id: ", "Enter category: ", 0);
+        this("Enter url", "Enter name: ", "Enter id: ", "Enter category: ", 0, null);
     }
 
     protected Item(Parcel in) {
@@ -128,6 +130,14 @@ public class Item implements Comparable<Item>, Parcelable {
 
     public void setReference(DocumentReference reference) {
         this.reference = reference;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     @Override

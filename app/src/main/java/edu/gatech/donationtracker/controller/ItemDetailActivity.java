@@ -64,7 +64,11 @@ public class ItemDetailActivity extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Model.getInstance().getCurrentLocation().removeData(Model.getInstance().getCurrentItem());
+                if (Model.getInstance().getCurrentLocation() == null) {
+                    //delete item when searching
+                    Model.getInstance().getFilteredItems().remove(Model.getInstance().getCurrentItem());
+                }
+                Model.getInstance().getCurrentItem().getLocation().removeData(Model.getInstance().getCurrentItem());
                 Model.getInstance().deleteItemInDatabase(Model.getInstance().getCurrentItem());
                 Intent intent = new Intent(ItemDetailActivity.this, ItemListActivity.class);
                 startActivity(intent);
