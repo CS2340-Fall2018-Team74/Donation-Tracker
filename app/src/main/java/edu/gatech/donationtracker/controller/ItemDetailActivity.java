@@ -24,7 +24,7 @@ public class ItemDetailActivity extends AppCompatActivity {
     private ImageView detailImage;
     private TextView detailName;
     private TextView detailQuantity;
-    private TextView detailCatetory;
+    private TextView detailCategory;
     private Button delete;
     private Button edit;
     @Override
@@ -32,7 +32,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_detail);
 
-        detailCatetory = findViewById(R.id.item_detail_category);
+        detailCategory = findViewById(R.id.item_detail_category);
         detailName = findViewById(R.id.item_detail_name);
         detailQuantity = findViewById(R.id.item_detail_quantity);
         detailImage = findViewById(R.id.item_detail_image);
@@ -47,11 +47,9 @@ public class ItemDetailActivity extends AppCompatActivity {
         Picasso.get().load(Model.getInstance().getCurrentItem().getUrl()).into(detailImage);
         Log.d("image", Model.getInstance().getCurrentItem().getUrl());
 
-        detailCatetory.setText(Model.getInstance().getCurrentItem().getCategory());
+        detailCategory.setText(Model.getInstance().getCurrentItem().getCategory());
         detailName.setText(Model.getInstance().getCurrentItem().getName());
         detailQuantity.setText(String.valueOf(Model.getInstance().getCurrentItem().getQuantity()));
-
-
 
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
