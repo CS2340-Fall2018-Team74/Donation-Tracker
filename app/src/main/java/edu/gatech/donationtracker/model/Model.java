@@ -36,7 +36,6 @@ public class Model {
     public static Model getInstance() { return instance; }
     public static FirebaseFirestore db;
 
-
     private List<Location> locations;
     private List<User> accounts;
     private List<Item> filteredItems;
@@ -161,7 +160,7 @@ public class Model {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
             public boolean test(Item item) {
-                return item.getCategory().equals(keyword);
+                return item.getCategory().contains(keyword);
             }
         }).collect(Collectors.<Item>toList());
     }
@@ -170,7 +169,7 @@ public class Model {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
             public boolean test(Item item) {
-                return item.getName().equals(keyword);
+                return item.getName().contains(keyword);
             }
         }).collect(Collectors.<Item>toList());
     }
@@ -179,14 +178,11 @@ public class Model {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
             public boolean test(Item item) {
-                return item.getName().equals(keyword) ||
-                        item.getCategory().equals(keyword);
+                return item.getName().contains(keyword) ||
+                        item.getCategory().contains(keyword);
             }
         }).collect(Collectors.<Item>toList());
     }
-
-
-
 
     public boolean addLocation(Location location) {
         return locations.add(location);
