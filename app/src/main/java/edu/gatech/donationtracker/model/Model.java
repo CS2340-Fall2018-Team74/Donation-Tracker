@@ -26,12 +26,7 @@ public class Model {
     private static  Model instance = new Model();
     public static Model getInstance() { return instance; }
     public static FirebaseFirestore db;
-    public static FirebaseStorage storage;
-    // Create a storage reference from our app
-    StorageReference storageRef;
-    StorageReference imageRef;
-    Uri uriImage;
-    private static final int Selected = 100;
+
 
     private ArrayList<Location> locations;
     private ArrayList<User> accounts;

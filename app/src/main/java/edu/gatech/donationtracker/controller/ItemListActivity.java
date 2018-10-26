@@ -105,6 +105,7 @@ public class ItemListActivity extends AppCompatActivity {
             holder.mNameView.setText(mItems.get(position).getName());
             holder.mQuantityView.setText(String.valueOf(mItems.get(position).getQuantity()));
 
+
             /*
              * set up a listener to handle if the user clicks on this list item, what should happen?
              */

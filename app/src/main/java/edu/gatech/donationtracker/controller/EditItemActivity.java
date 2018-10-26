@@ -150,6 +150,7 @@ public class EditItemActivity extends AppCompatActivity {
             public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
                 if (!task.isSuccessful()) {
                     throw task.getException();
+
                 }
 
                 // Continue with the task to get the download URL
