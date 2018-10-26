@@ -27,6 +27,10 @@ public class ItemListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
         FloatingActionButton add = (FloatingActionButton) findViewById(R.id.item_list_edit);
+        //when searching or user type is user, we hide add button
+        if(Model.getInstance().getLocations() == null || Model.getInstance().getCurrentUserType() < 1) {
+            add.hide();
+        }
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +53,14 @@ public class ItemListActivity extends AppCompatActivity {
      */
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         Model model = Model.getInstance();
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(model.getCurrentLocation().getInventory()));
+        //if we are display a searched list, or an item list at location
+        if (model.getCurrentLocation() == null) {
+            recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(model.getFilteredItems()));
+        }
+        else {
+            recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(model.getCurrentLocation().getInventory()));
+        }
+
     }
 
     /**

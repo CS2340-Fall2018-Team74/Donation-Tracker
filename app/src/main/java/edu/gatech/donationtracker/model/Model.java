@@ -37,9 +37,9 @@ public class Model {
     public static FirebaseFirestore db;
 
 
-    private ArrayList<Location> locations;
-    private ArrayList<User> accounts;
-    private List<Item> filtedItems;
+    private List<Location> locations;
+    private List<User> accounts;
+    private List<Item> filteredItems;
 
     private Location currentLocation;
     private User currentUser;
@@ -50,11 +50,13 @@ public class Model {
         loadLocation();
         accounts = new ArrayList<>();
         loadAccount();
+        filteredItems = new ArrayList<>();
 
         //default user is null (visitor mode)
         currentUser = null;
         currentLocation = null;
         currentItem = null;
+
     }
 
     /**
@@ -156,7 +158,7 @@ public class Model {
     }
 
     public void filterCategory(List<Item> array, final String keyword) {
-        filtedItems = array.stream().filter(new Predicate<Item>() {
+        filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
             public boolean test(Item item) {
                 return item.getCategory().equals(keyword);
@@ -165,7 +167,7 @@ public class Model {
     }
 
     public void filterName(List<Item> array, final String keyword) {
-        filtedItems = array.stream().filter(new Predicate<Item>() {
+        filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
             public boolean test(Item item) {
                 return item.getName().equals(keyword);
@@ -174,7 +176,7 @@ public class Model {
     }
 
     public void filterBoth(List<Item> array, final String keyword) {
-        filtedItems = array.stream().filter(new Predicate<Item>() {
+        filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
             public boolean test(Item item) {
                 return item.getName().equals(keyword) ||
@@ -222,6 +224,8 @@ public class Model {
         this.currentItem = currentItem;
     }
 
+    public List<Item> getFilteredItems() { return filteredItems; }
+
     /**
      * @return int representation of user type, -1 if currentUser is null(Visitor mode)
      * User = 0
@@ -261,28 +265,29 @@ public class Model {
         }
     }
 
-    public ArrayList<User> getAccounts() {
+    public List<User> getAccounts() {
         return accounts;
     }
 
-    public ArrayList<Location> getLocations() {
+    public List<Location> getLocations() {
         return locations;
     }
 
-    public ArrayList<String> getLocationsAsString() {
-        ArrayList<String> locationsAsString = new ArrayList<>();
+    public List<String> getLocationsAsString() {
+        List<String> locationsAsString = new ArrayList<>();
         for (Location l : locations) {
             locationsAsString.add(l.getName());
         }
         return locationsAsString;
     }
 
-    public void set() {
+    public List<Item> getAllItems() {
         ArrayList<Item> items = new ArrayList<>();
         for (Location l : locations) {
             for (Item i : l.getInventory()) {
                 items.add(i);
             }
         }
+        return items;
     }
 }

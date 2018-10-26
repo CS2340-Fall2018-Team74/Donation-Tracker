@@ -39,8 +39,12 @@ public class ItemDetailActivity extends AppCompatActivity {
         delete = (Button) findViewById(R.id.item_detail_delete);
         edit = (Button) findViewById(R.id.item_detail_edit);
 
-        Picasso.get().load(Model.getInstance().getCurrentItem().getUrl()).into(detailImage);
+        if (Model.getInstance().getCurrentUserType() < 1) {
+            edit.setVisibility(View.INVISIBLE);
+            delete.setVisibility(View.INVISIBLE);
+        }
 
+        Picasso.get().load(Model.getInstance().getCurrentItem().getUrl()).into(detailImage);
         Log.d("image", Model.getInstance().getCurrentItem().getUrl());
 
         detailCatetory.setText(Model.getInstance().getCurrentItem().getCategory());
