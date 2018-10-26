@@ -1,5 +1,7 @@
 package edu.gatech.donationtracker.model;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -10,6 +12,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +26,12 @@ public class Model {
     private static  Model instance = new Model();
     public static Model getInstance() { return instance; }
     public static FirebaseFirestore db;
+    public static FirebaseStorage storage;
+    // Create a storage reference from our app
+    StorageReference storageRef;
+    StorageReference imageRef;
+    Uri uriImage;
+    private static final int Selected = 100;
 
     private ArrayList<Location> locations;
     private ArrayList<User> accounts;
@@ -47,8 +58,7 @@ public class Model {
     private void loadLocation() {
         db = FirebaseFirestore.getInstance();
         Query query = db.collection("Locations");
-        query.
-                get().
+        query.get().
                 addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -103,6 +113,7 @@ public class Model {
     public void pushNewItemToDatabase(Item... items) {
         for (Item item : items) {
             Map<String, Object> itemAsMap = new HashMap<>();
+            itemAsMap.put("imageUrl", item.getUrl());
             itemAsMap.put("id", item.getId());
             itemAsMap.put("name", item.getName());
             itemAsMap.put("category", item.getCategory());
@@ -114,6 +125,7 @@ public class Model {
     public void pushEditedItemToDatabase(Item... items) {
         for (Item item : items) {
             Map<String, Object> itemAsMap = new HashMap<>();
+            itemAsMap.put("imageUrl", item.getUrl());
             itemAsMap.put("id", item.getId());
             itemAsMap.put("name", item.getName());
             itemAsMap.put("category", item.getCategory());
@@ -127,6 +139,9 @@ public class Model {
             item.getReference().delete();
         }
     }
+
+
+
 
     public boolean addLocation(Location location) {
         return locations.add(location);

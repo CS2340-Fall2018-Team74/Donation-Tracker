@@ -33,7 +33,8 @@
         app:backgroundTint="@color/pop"
         app:layout_anchor="@+id/frameLayout"
         app:layout_anchorGravity="right|bottom"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:srcCompat="@android:drawable/ic_menu_add"
+        android:focusable="true" />
 
 
 

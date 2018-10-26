@@ -44,5 +44,8 @@
     <string name="enter_quantity">Enter Quantity:</string>
     <string name="delete_this_item">Delete this item</string>
     <string name="delete">Delete</string>
+    <string name="todo">TODO</string>
+    <string name="update_image">UPDATE IMAGE</string>
+    <string name="your_url">Your URL</string>
 
 </resources>

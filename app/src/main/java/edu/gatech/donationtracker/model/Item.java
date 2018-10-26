@@ -11,13 +11,17 @@ import com.google.firebase.firestore.DocumentReference;
  */
 public class Item implements Comparable<Item>, Parcelable {
 
+    private String url;
     private String name;
     private String id;
     private String category;
     private int quantity;
-    private DocumentReference reference;
+    DocumentReference reference;
 
-    public Item(String name, String id, String category, int quantity) {
+
+
+    public Item(String url, String name, String id, String category, int quantity) {
+        this.url = url;
         this.name = name;
         this.id = id;
         this.category = category;
@@ -25,10 +29,11 @@ public class Item implements Comparable<Item>, Parcelable {
     }
 
     public Item() {
-        this("Enter name: ", "Enter id: ", "Enter category: ", 0);
+        this("Enter url", "Enter name: ", "Enter id: ", "Enter category: ", 0);
     }
 
     protected Item(Parcel in) {
+        url = in.readString();
         name = in.readString();
         id = in.readString();
         category = in.readString();
@@ -78,7 +83,15 @@ public class Item implements Comparable<Item>, Parcelable {
     /** toString of this object */
     @Override
     public String toString() {
-        return category + " - " + " id: " + id + " - " + name + " x" + quantity;
+        return url + " - " + category + " - " + " id: " + id + " - " + name + " x" + quantity;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getName() {
@@ -124,6 +137,7 @@ public class Item implements Comparable<Item>, Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(url);
         dest.writeString(name);
         dest.writeString(id);
         dest.writeString(category);
