@@ -1,36 +1,62 @@
 package edu.gatech.donationtracker.model;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import com.google.firebase.firestore.DocumentReference;
+
 /**
  * Item that is being stored in inventories
  */
-public class Item implements Comparable<Item> {
+public class Item implements Comparable<Item>, Parcelable {
 
-    /** this Item's name */
+    private String url;
     private String name;
-
-    /** this Item's id */
-    private int id;
-
-    /** this Item's quantity in inventory */
+    private String id;
+    private String category;
     private int quantity;
+    private Location location;
+    DocumentReference reference;
 
 
-    /** constructor with no quantity specified*/
-    public Item(String name, int id) {
+
+    public Item(String url, String name, String id, String category, int quantity, Location location) {
+        this.url = url;
         this.name = name;
         this.id = id;
-        this.quantity = 0;
-    }
-    /** constructor with quantity specified*/
-    public Item(String name, int id, int quantity) {
-        this(name, id);
+        this.category = category;
         this.quantity = quantity;
+        this.location = location;
     }
+
+    public Item() {
+        this("Enter url", "Enter name: ", "Enter id: ", "Enter category: ", 0, null);
+    }
+
+    protected Item(Parcel in) {
+        url = in.readString();
+        name = in.readString();
+        id = in.readString();
+        category = in.readString();
+        quantity = in.readInt();
+    }
+
+    public static final Creator<Item> CREATOR = new Creator<Item>() {
+        @Override
+        public Item createFromParcel(Parcel in) {
+            return new Item(in);
+        }
+
+        @Override
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
 
     /** compareTo method */
     public int compareTo (Item item) {
-        return this.id - item.id;
+        return this.id.compareTo(item.id);
     }
 
     /**
@@ -59,6 +85,72 @@ public class Item implements Comparable<Item> {
     /** toString of this object */
     @Override
     public String toString() {
-        return name + " id: " + id + " x" + quantity;
+        return url + " - " + category + " - " + " id: " + id + " - " + name + " x" + quantity;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public DocumentReference getReference() {
+        return reference;
+    }
+
+    public void setReference(DocumentReference reference) {
+        this.reference = reference;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(url);
+        dest.writeString(name);
+        dest.writeString(id);
+        dest.writeString(category);
+        dest.writeInt(quantity);
     }
 }

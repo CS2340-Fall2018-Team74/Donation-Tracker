@@ -4,11 +4,13 @@ public class LocationEmployee extends User {
 
     /** the location this employee belongs to */
     private Location location;
+    private boolean hasLocation;
 
     /** constructor */
     public LocationEmployee(String email, String username, String password, Location location) {
         super(email, username, password);
         this.location = location;
+        this.hasLocation = location != null;
     }
 
     /**
@@ -17,7 +19,9 @@ public class LocationEmployee extends User {
      * @param items all items being added
      */
     public void addData(Item... items) {
-        location.removeData(items);
+        if (hasLocation) {
+            location.removeData(items);
+        }
     }
 
     /**
@@ -26,7 +30,9 @@ public class LocationEmployee extends User {
      * @param items all items being removed
      */
     public void removeData(Item... items){
-        location.removeData(items);
+        if (hasLocation) {
+            location.removeData(items);
+        }
     }
 
     /** getters and setters */
@@ -35,5 +41,11 @@ public class LocationEmployee extends User {
     }
     public void setlocation(Location location) {
         this.location = location;
+    }
+    public boolean HasLocation() {
+        return hasLocation;
+    }
+    public void setHasLocation(boolean hasLocation) {
+        this.hasLocation = hasLocation;
     }
 }

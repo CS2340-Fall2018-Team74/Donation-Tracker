@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -21,25 +22,37 @@
             android:theme="@style/NoTitle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".controller.SignInActivity"
             android:noHistory="true"
-            android:theme="@style/NoTitle"/>
+            android:theme="@style/NoTitle" />
         <activity
             android:name=".controller.SignOutActivity"
             android:noHistory="true"
-            android:theme="@style/NoTitle"/>
-        <activity
-            android:name=".controller.DashboardActivity"
-            android:noHistory="true" />
+            android:theme="@style/NoTitle" />
+        <activity android:name=".controller.DashboardActivity" />
         <activity
             android:name=".controller.SignUpActivity"
             android:noHistory="true"
-            android:theme="@style/NoTitle"/>
+            android:theme="@style/NoTitle" />
+        <activity android:name=".controller.LocationListActivity" />
+        <activity
+            android:name=".controller.ItemListActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".controller.LocationDetailActivity"
+            android:parentActivityName=".controller.LocationListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controller.LocationListActivity" />
+        </activity>
+        <activity android:name=".controller.EditItemActivity" />
+        <activity android:name=".controller.ItemDetailActivity" />
+        <activity android:name=".controller.SearchActivity"></activity>
     </application>
 
 </manifest>

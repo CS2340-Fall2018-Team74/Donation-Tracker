@@ -1,41 +1,84 @@
 package edu.gatech.donationtracker.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import com.google.firebase.firestore.DocumentReference;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class Location {
+public class Location implements Parcelable{
 
+    private String key;
     private String name;
-
-    private String address;
-
+    private String streetAddress;
     private List<Item> inventory;
-
     private String type;
-
-    private float longitude;
-
-    private float latitude;
-
+    private String longitude;
+    private String latitude;
     private String phone;
+    private String zip;
+    private String state;
+    private String city;
+    private String website;
+    private DocumentReference reference;
+
+    public int itemId = 0;
 
 
-    /** constructor */
-    public Location(String name, String address, List<Item> inventory, String type, float longitude
-            , float latitude, String phone) {
+    public Location(String key, String name, String streetAddress, String type, String longitude, String latitude, String phone, String zip, String state, String city, String website) {
+        this();
         this.name = name;
-        this.address = address;
-        this.inventory = inventory;
+        this.streetAddress = streetAddress;
         this.type = type;
         this.longitude = longitude;
         this.latitude = latitude;
         this.phone = phone;
+        this.zip = zip;
+        this.state = state;
+        this.city = city;
+        this.website = website;
+        this.key = key;
     }
 
-    /** default constructor */
     public Location() {
-        this("Name", "Address", null, "Type", 0, 0
-                , "xxx-xxx-xxxx");
+        inventory = new ArrayList<>();
     }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    protected Location(Parcel in) {
+        key = in.readString();
+        name = in.readString();
+        streetAddress = in.readString();
+        type = in.readString();
+        longitude = in.readString();
+        latitude = in.readString();
+        phone = in.readString();
+        city = in.readString();
+        state= in.readString();
+        website = in.readString();
+        zip = in.readString();
+    }
+
+    public static final Creator<Location> CREATOR = new Creator<Location>() {
+        @Override
+        public Location createFromParcel(Parcel in) {
+            return new Location(in);
+        }
+
+        @Override
+        public Location[] newArray(int size) {
+            return new Location[size];
+        }
+    };
 
     /**
      * add data of this location
@@ -59,13 +102,7 @@ public class Location {
      */
     public void removeData(Item... items){
         for (Item item : items) {
-            int index = inventory.indexOf(item);
-            if (inventory.contains(item)) {
-                inventory.get(index).removeQuantity(item.getQuantity());
-                if (inventory.get(index).getQuantity() <= 0) {
-                    inventory.remove(index);
-                }
-            }
+            inventory.remove(item);
         }
     }
 
@@ -74,11 +111,13 @@ public class Location {
         return inventory;
     }
 
-    public void setInventory(List<Item> list) {
-        this.inventory = list;
+
+    @Override
+    public String toString() {
+        return name + " Type: " + type;
     }
 
-    public String getNanme() {
+    public String getName() {
         return name;
     }
 
@@ -86,12 +125,12 @@ public class Location {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStreetAddress() {
+        return streetAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
     }
 
     public String getType() {
@@ -102,25 +141,87 @@ public class Location {
         this.type = type;
     }
 
-    public float getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(float longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
-    public float getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(float latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    /** toString of this object */
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public DocumentReference getReference() {
+        return reference;
+    }
+
+    public void setReference(DocumentReference reference) {
+        this.reference = reference;
+    }
+
     @Override
-    public String toString() {
-        return name + " " + address + " " + type + " " + phone;
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeString(streetAddress);
+        parcel.writeString(type);
+        parcel.writeString(longitude);
+        parcel.writeString(latitude);
+        parcel.writeString(phone);
+        parcel.writeString(city);
+        parcel.writeString(state);
+        parcel.writeString(website);
+        parcel.writeString(key);
+        parcel.writeString(zip);
     }
 }
