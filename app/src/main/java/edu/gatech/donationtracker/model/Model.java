@@ -102,8 +102,10 @@ public class Model {
     private void loadAccount() {
         User test = new User("test@test.com", "test", "test");
         Admin admin = new Admin("admin@admin.com", "admin", "admin");
+        User testFast = new User("1", "1", "1");
         accounts.add(test);
         accounts.add(admin);
+        accounts.add(testFast);
     }
 
     public void pushNewItemToDatabase(Item... items) {
