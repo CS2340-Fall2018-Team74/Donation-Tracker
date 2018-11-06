@@ -51,7 +51,7 @@
     <string name="your_url">Your URL</string>
     <string name="name">Search by name</string>
     <string name="category">Search by category</string>
-    <string name="enter_keyword">Enter search keyword:</string>
+    <string name="enter_keyword">Search</string>
 
     <!--Strings related to location list-->
     <string name="location_list_name">Location name</string>

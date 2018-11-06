@@ -1,6 +1,7 @@
 package edu.gatech.donationtracker.controller;
 
 import android.content.Intent;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -38,13 +39,13 @@ public class DashboardActivity extends AppCompatActivity {
 
         //Set up search
         ImageButton searchButton = findViewById(R.id.search_item_button);
-        final EditText searchField = findViewById(R.id.search_item);
+        final TextInputEditText searchField = findViewById(R.id.search_item);
         final CheckBox categoryChecker = findViewById(R.id.search_item_category);
         final CheckBox nameChecker = findViewById(R.id.search_item_name);
 
-        Button buttonSettings = findViewById(R.id.button_settings_DB);
+        ImageButton buttonSettings = findViewById(R.id.button_settings_DB);
 
-        Button location = findViewById(R.id.location);
+        ImageButton location = findViewById(R.id.location);
 
         //display current user type
         TextView accountType = (TextView) findViewById(R.id.dashboard_account_type);
