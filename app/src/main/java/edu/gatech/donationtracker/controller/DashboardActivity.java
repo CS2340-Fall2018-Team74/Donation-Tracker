@@ -23,7 +23,6 @@ import edu.gatech.donationtracker.model.Model;
 public class DashboardActivity extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +44,8 @@ public class DashboardActivity extends AppCompatActivity {
 
         ImageButton buttonSettings = findViewById(R.id.button_settings_DB);
 
-        ImageButton location = findViewById(R.id.location);
+        ImageButton location = findViewById(R.id.location_list);
+        ImageButton maps = findViewById(R.id.maps);
 
         //display current user type
         TextView accountType = (TextView) findViewById(R.id.dashboard_account_type);
@@ -55,7 +55,7 @@ public class DashboardActivity extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!categoryChecker.isChecked() && !nameChecker.isChecked() ) {
+                if (!categoryChecker.isChecked() && !nameChecker.isChecked()) {
                     Toast.makeText(DashboardActivity.this, "Please select the type to search!", Toast.LENGTH_SHORT).show();
                     return;
                 } else if (searchField.getText().length() == 0) {
@@ -120,6 +120,13 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DashboardActivity.this, LocationListActivity.class);
+                startActivity(intent);
+            }
+        });
+        maps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashboardActivity.this, Maps.class);
                 startActivity(intent);
             }
         });

@@ -56,5 +56,6 @@
     <!--Strings related to location list-->
     <string name="location_list_name">Location name</string>
     <string name="location_list_type">Type</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

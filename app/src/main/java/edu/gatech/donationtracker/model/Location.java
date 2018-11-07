@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import com.google.firebase.firestore.DocumentReference;
 
+import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 

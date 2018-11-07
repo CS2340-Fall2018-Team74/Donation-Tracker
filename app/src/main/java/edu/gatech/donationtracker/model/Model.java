@@ -18,6 +18,8 @@ import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import edu.gatech.donationtracker.controller.Maps;
+
 /** firestore database https://console.firebase.google.com/project/donation-tracker-bed83/database/firestore/data~2FLocations~2F4G9dqBJsGOlT4lVlVeld */
 
 public class Model {
@@ -25,7 +27,7 @@ public class Model {
     public static Model getInstance() { return instance; }
     public static FirebaseFirestore db;
 
-    private List<Location> locations;
+    private static List<Location> locations;
     private List<User> accounts;
     private List<Item> filteredItems;
 
@@ -257,6 +259,17 @@ public class Model {
 
     public List<Location> getLocations() {
         return locations;
+    }
+
+    public static Map<String, Double[]> getLongtitudeLatitude() {
+        Map<String, Double[]> lolist = new HashMap<String, Double[]>();
+        for (Location l : locations) {
+            Double[] loc = new Double[2];
+            loc[0] = Double.parseDouble(l.getLatitude());
+            loc[1] = Double.parseDouble(l.getLongitude());
+            lolist.put(l.getName(), loc);
+        }
+        return lolist;
     }
 
     public List<String> getLocationsAsString() {

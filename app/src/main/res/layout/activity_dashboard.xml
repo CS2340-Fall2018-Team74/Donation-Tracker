@@ -37,16 +37,28 @@
         app:srcCompat="@drawable/ic_account_circle_black_24dp" />
 
     <ImageButton
-        android:id="@+id/location"
+        android:id="@+id/maps"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="26dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/ic_location_on_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/location_list"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="22dp"
+        android:layout_toStartOf="@+id/maps"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_format_list_bulleted_black_24dp" />
     <!--<Button-->
         <!--android:id="@+id/location"-->
         <!--android:layout_width="wrap_content"-->
@@ -98,6 +110,7 @@
         android:background="@android:color/transparent"
         android:contentDescription="@string/todo"
         app:srcCompat="@drawable/ic_search_black_24dp" />
+
 
     <Spinner
         android:id="@+id/search_location_spinner"
