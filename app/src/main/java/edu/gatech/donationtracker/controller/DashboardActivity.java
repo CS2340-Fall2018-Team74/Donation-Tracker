@@ -6,9 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -31,7 +29,7 @@ public class DashboardActivity extends AppCompatActivity {
         //Set up location list spinner
         final Spinner searchLocationSpinner = findViewById(R.id.search_location_spinner);
         List<String> locationList = Model.getInstance().getLocationsAsString();
-        locationList.add(0, "All Location");
+        locationList.add(0, "All Locations");
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locationList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         searchLocationSpinner.setAdapter(adapter);
@@ -126,7 +124,7 @@ public class DashboardActivity extends AppCompatActivity {
         maps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, Maps.class);
+                Intent intent = new Intent(DashboardActivity.this, MapsActivity.class);
                 startActivity(intent);
             }
         });

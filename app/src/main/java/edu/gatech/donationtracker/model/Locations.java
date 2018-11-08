@@ -5,11 +5,10 @@ import android.os.Parcelable;
 
 import com.google.firebase.firestore.DocumentReference;
 
-import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Location implements Parcelable{
+public class Locations implements Parcelable{
 
     private String key;
     private String name;
@@ -28,7 +27,7 @@ public class Location implements Parcelable{
     public int itemId = 0;
 
 
-    public Location(String key, String name, String streetAddress, String type, String longitude, String latitude, String phone, String zip, String state, String city, String website) {
+    public Locations(String key, String name, String streetAddress, String type, String longitude, String latitude, String phone, String zip, String state, String city, String website) {
         this();
         this.name = name;
         this.streetAddress = streetAddress;
@@ -43,7 +42,7 @@ public class Location implements Parcelable{
         this.key = key;
     }
 
-    public Location() {
+    public Locations() {
         inventory = new ArrayList<>();
     }
 
@@ -55,7 +54,7 @@ public class Location implements Parcelable{
         this.key = key;
     }
 
-    protected Location(Parcel in) {
+    protected Locations(Parcel in) {
         key = in.readString();
         name = in.readString();
         streetAddress = in.readString();
@@ -69,15 +68,15 @@ public class Location implements Parcelable{
         zip = in.readString();
     }
 
-    public static final Creator<Location> CREATOR = new Creator<Location>() {
+    public static final Creator<Locations> CREATOR = new Creator<Locations>() {
         @Override
-        public Location createFromParcel(Parcel in) {
-            return new Location(in);
+        public Locations createFromParcel(Parcel in) {
+            return new Locations(in);
         }
 
         @Override
-        public Location[] newArray(int size) {
-            return new Location[size];
+        public Locations[] newArray(int size) {
+            return new Locations[size];
         }
     };
 

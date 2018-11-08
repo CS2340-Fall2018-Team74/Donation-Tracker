@@ -6,20 +6,19 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import java.util.List;
 import edu.gatech.donationtracker.R;
-import edu.gatech.donationtracker.model.Location;
+import edu.gatech.donationtracker.model.Locations;
 import edu.gatech.donationtracker.model.Model;
 
 
 public class LocationListActivity extends AppCompatActivity {
 
-    static String[] listHeader = {"No.", "Location name", "Type"};
+    static String[] listHeader = {"No.", "Locations name", "Type"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +45,7 @@ public class LocationListActivity extends AppCompatActivity {
      * This inner class is our custom adapter.  It takes our basic model information and
      * converts it to the correct layout for this view.
      *
-     * In this case, we are just mapping the toString of the Location object to a text field.
+     * In this case, we are just mapping the toString of the Locations object to a text field.
      */
     public class SimpleLocationRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleLocationRecyclerViewAdapter.ViewHolder> {
@@ -54,14 +53,14 @@ public class LocationListActivity extends AppCompatActivity {
         /**
          * Collection of the items to be shown in this list.
          */
-        private final List<Location> mLocations;
+        private final List<Locations> mLocations;
 
 
         /**
          * set the items to be used by the adapter
          * @param locations the list of locations to be displayed in the recycler view
          */
-        public SimpleLocationRecyclerViewAdapter(List<Location> locations) {
+        public SimpleLocationRecyclerViewAdapter(List<Locations> locations) {
             mLocations = locations;
         }
 
@@ -123,7 +122,7 @@ public class LocationListActivity extends AppCompatActivity {
 
         /**
          * This inner class represents a ViewHolder which provides us a way to cache information
-         * about the binding between the model element (in this case a Location) and the widgets in
+         * about the binding between the model element (in this case a Locations) and the widgets in
          * the list view (in this case the two TextView)
          */
 
@@ -131,7 +130,7 @@ public class LocationListActivity extends AppCompatActivity {
             public final View mView;
             public final TextView mNameView;
             public final TextView mTypeView;
-            public Location mLocation;
+            public Locations mLocation;
 
             public ViewHolder(View view) {
                 super(view);

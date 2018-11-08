@@ -20,7 +20,7 @@ public class Manager extends LocationEmployee{
 //     * @param location the location this employee will be assigned to
 //     * @return true if the user is type User and the type change is successful, false otherwise
 //     */
-//    public boolean hireUser(Model model, User user, Location location) {
+//    public boolean hireUser(Model model, User user, Locations location) {
 //        if (model.remove(user.getEmail())) {
 //            model.add(new LocationEmployee(user.getEmail() ,user.getName(), user.getPassword(), location));
 //            return true;
@@ -36,7 +36,7 @@ public class Manager extends LocationEmployee{
      * @param location the location where the data would be changed
      * @param items the items being removed
      */
-    public void addData(Location location,Item... items) {
+    public void addData(Locations location, Item... items) {
         location.addData(items);
     }
 
@@ -46,7 +46,7 @@ public class Manager extends LocationEmployee{
      * @param location the location where the data would be change
      * @param items the items being removed
      */
-    public void removeData(Location location, Item... items){
+    public void removeData(Locations location, Item... items){
         location.removeData(items);
     }
 
@@ -57,7 +57,7 @@ public class Manager extends LocationEmployee{
      * @param employee the employee whose location would be changed
      * @param location the new location this employee will be assigned to
      */
-    public void changeEmployeeLocation(LocationEmployee employee, Location location) {
+    public void changeEmployeeLocation(LocationEmployee employee, Locations location) {
         employee.setlocation(location);
     }
 

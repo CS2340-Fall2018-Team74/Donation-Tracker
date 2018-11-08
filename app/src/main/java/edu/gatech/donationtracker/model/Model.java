@@ -18,8 +18,6 @@ import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import edu.gatech.donationtracker.controller.Maps;
-
 /** firestore database https://console.firebase.google.com/project/donation-tracker-bed83/database/firestore/data~2FLocations~2F4G9dqBJsGOlT4lVlVeld */
 
 public class Model {
@@ -27,11 +25,11 @@ public class Model {
     public static Model getInstance() { return instance; }
     public static FirebaseFirestore db;
 
-    private static List<Location> locations;
+    private static List<Locations> locations;
     private List<User> accounts;
     private List<Item> filteredItems;
 
-    private Location currentLocation;
+    private Locations currentLocation;
     private User currentUser;
     private Item currentItem;
 
@@ -61,7 +59,7 @@ public class Model {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (DocumentSnapshot documentSnapshot : task.getResult()) {
-                                Location location = documentSnapshot.toObject(Location.class);
+                                Locations location = documentSnapshot.toObject(Locations.class);
                                 location.setReference(documentSnapshot.getReference());
                                 locations.add(location);
                                 loadItem(location, documentSnapshot);
@@ -77,7 +75,7 @@ public class Model {
     /**
      * load Items at each location from database
      */
-    private void loadItem(final Location location, DocumentSnapshot locationSnapshot) {
+    private void loadItem(final Locations location, DocumentSnapshot locationSnapshot) {
         locationSnapshot.getReference().collection("Items").
                 get().
                 addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -176,11 +174,11 @@ public class Model {
         }).collect(Collectors.<Item>toList());
     }
 
-    public boolean addLocation(Location location) {
+    public boolean addLocation(Locations location) {
         return locations.add(location);
     }
 
-    public boolean removeLocation(Location location) {
+    public boolean removeLocation(Locations location) {
         return locations.add(location);
     }
 
@@ -192,9 +190,9 @@ public class Model {
         return accounts.remove(user);
     }
 
-    public Location getCurrentLocation() { return currentLocation;}
+    public Locations getCurrentLocation() { return currentLocation;}
 
-    public void setCurrentLocation(Location location) { currentLocation = location; }
+    public void setCurrentLocation(Locations location) { currentLocation = location; }
 
     public User getCurrentUser() {
         return currentUser;
@@ -243,7 +241,7 @@ public class Model {
             case 0:
                 return "User";
             case 1:
-                return "Location Employee";
+                return "Locations Employee";
             case 2:
                 return "Manager";
             case 3:
@@ -257,24 +255,25 @@ public class Model {
         return accounts;
     }
 
-    public List<Location> getLocations() {
+    public List<Locations> getLocations() {
         return locations;
     }
 
     public static Map<String, Double[]> getLongtitudeLatitude() {
         Map<String, Double[]> lolist = new HashMap<String, Double[]>();
-        for (Location l : locations) {
+        for (Locations l : locations) {
             Double[] loc = new Double[2];
             loc[0] = Double.parseDouble(l.getLatitude());
             loc[1] = Double.parseDouble(l.getLongitude());
-            lolist.put(l.getName(), loc);
+            String markerName = l.getName() + " " + l.getPhone();
+            lolist.put(markerName, loc);
         }
         return lolist;
     }
 
     public List<String> getLocationsAsString() {
         List<String> locationsAsString = new ArrayList<>();
-        for (Location l : locations) {
+        for (Locations l : locations) {
             locationsAsString.add(l.getName());
         }
         return locationsAsString;
@@ -282,7 +281,7 @@ public class Model {
 
     public List<Item> getAllItems() {
         ArrayList<Item> items = new ArrayList<>();
-        for (Location l : locations) {
+        for (Locations l : locations) {
             for (Item i : l.getInventory()) {
                 items.add(i);
             }

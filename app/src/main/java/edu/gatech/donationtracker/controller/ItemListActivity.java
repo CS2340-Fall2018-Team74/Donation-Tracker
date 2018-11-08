@@ -64,7 +64,7 @@ public class ItemListActivity extends AppCompatActivity {
      * This inner class is our custom adapter.  It takes our basic model information and
      * converts it to the correct layout for this view.
      *
-     * In this case, we are just mapping the toString of the Location object to a text field.
+     * In this case, we are just mapping the toString of the Locations object to a text field.
      */
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {

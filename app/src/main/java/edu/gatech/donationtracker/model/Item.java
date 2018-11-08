@@ -16,12 +16,12 @@ public class Item implements Comparable<Item>, Parcelable {
     private String id;
     private String category;
     private int quantity;
-    private Location location;
+    private Locations location;
     DocumentReference reference;
 
 
 
-    public Item(String url, String name, String id, String category, int quantity, Location location) {
+    public Item(String url, String name, String id, String category, int quantity, Locations location) {
         this.url = url;
         this.name = name;
         this.id = id;
@@ -132,11 +132,11 @@ public class Item implements Comparable<Item>, Parcelable {
         this.reference = reference;
     }
 
-    public Location getLocation() {
+    public Locations getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(Locations location) {
         this.location = location;
     }
 
