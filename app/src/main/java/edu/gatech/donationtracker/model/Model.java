@@ -259,14 +259,11 @@ public class Model {
         return locations;
     }
 
-    public static Map<String, Double[]> getLongtitudeLatitude() {
-        Map<String, Double[]> lolist = new HashMap<String, Double[]>();
+    public static Map<String, Locations> getLongtitudeLatitude() {
+        Map<String, Locations> lolist = new HashMap<String, Locations>();
         for (Locations l : locations) {
-            Double[] loc = new Double[2];
-            loc[0] = Double.parseDouble(l.getLatitude());
-            loc[1] = Double.parseDouble(l.getLongitude());
-            String markerName = l.getName() + " " + l.getPhone();
-            lolist.put(markerName, loc);
+
+            lolist.put(l.getName(), l);
         }
         return lolist;
     }
