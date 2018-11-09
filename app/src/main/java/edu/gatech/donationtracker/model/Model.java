@@ -1,5 +1,6 @@
 package edu.gatech.donationtracker.model;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
 public class Model {
     private static  Model instance = new Model();
     public static Model getInstance() { return instance; }
+    @SuppressLint("StaticFieldLeak")
     public static FirebaseFirestore db;
 
     private static List<Locations> locations;

@@ -82,7 +82,10 @@
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_item_quantity">
+        app:layout_constraintTop_toBottomOf="@id/edit_item_quantity"
+        android:inputType=""
+        android:importantForAutofill="no"
+        tools:ignore="TextFields">
 
     </EditText>
 
