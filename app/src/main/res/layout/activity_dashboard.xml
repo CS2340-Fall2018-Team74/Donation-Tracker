@@ -13,15 +13,17 @@
         style="@style/textBox"
         android:layout_width="260dp"
         android:layout_height="50dp"
-        android:layout_marginStart="55dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp">
+
         <android.support.design.widget.TextInputEditText
             android:id="@+id/search_item"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="@string/enter_keyword"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="@color/colorPrimaryDark" />
     </android.support.design.widget.TextInputLayout>
 
     <ImageButton
@@ -41,10 +43,10 @@
         android:id="@+id/maps"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        android:layout_below="@+id/search_location_spinner"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="26dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/map_button"
         android:scaleType="fitCenter"
@@ -54,62 +56,56 @@
         android:id="@+id/location_list"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="22dp"
+        android:layout_below="@+id/search_location_spinner"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_toStartOf="@+id/maps"
         android:background="@android:color/transparent"
         android:contentDescription="@string/location_list_button"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/ic_format_list_bullet_black_24dp" />
-    <!--<Button-->
-        <!--android:id="@+id/location"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:layout_marginBottom="13dp"-->
-        <!--android:text="@string/location" />-->
 
     <TextView
         android:id="@+id/dashboard_account_type"
-        android:layout_width="49dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/button_settings_DB"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="57dp"
-        android:text="@string/user" />
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/user"
+        android:textAlignment="center" />
 
     <CheckBox
         android:id="@+id/search_item_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/search_location_spinner"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
+        android:layout_below="@+id/search_bar"
         android:layout_marginTop="5dp"
-        android:text="@string/category" />
+        android:layout_marginEnd="15dp"
+        android:layout_toStartOf="@+id/search_item_name"
+        android:text="@string/category"
+        android:textColor="@color/colorPrimaryDark" />
 
     <CheckBox
         android:id="@+id/search_item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/search_location_spinner"
+        android:layout_below="@+id/search_bar"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/name" />
+        android:layout_marginEnd="10dp"
+        android:text="@string/name"
+        android:textColor="@color/colorPrimaryDark" />
 
     <ImageButton
         android:id="@+id/search_item_button"
-        android:layout_width="45dp"
-        android:layout_height="43dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/todo"
         app:srcCompat="@drawable/ic_search_black_24dp" />
@@ -119,11 +115,11 @@
         android:id="@+id/search_location_spinner"
         android:layout_width="330dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/search_item_button"
+        android:layout_below="@+id/search_item_category"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="12dp" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp" />
 
 </RelativeLayout>
