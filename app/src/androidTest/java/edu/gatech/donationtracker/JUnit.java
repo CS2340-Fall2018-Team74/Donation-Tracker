@@ -15,19 +15,18 @@ public class JUnit {
 
     public User user;
     public Admin admin;
+    public int userType;
 
     @Before
     public void setup() {
         user = new User();
         admin = new Admin("E","N", "P");
+        userType = new 
     }
 
     @Test
-    public void testLockAccount() {
-        assertFalse(user.getIsLocked());
-        admin.lockAccount(user);
-        assertTrue(user.getIsLocked());
-        admin.lockAccount(user);
-        assertFalse(user.getIsLocked());
+    public void testChangeAccountType(){
+        int
+        admin.ChangeAccountType(user, )
     }
 }
