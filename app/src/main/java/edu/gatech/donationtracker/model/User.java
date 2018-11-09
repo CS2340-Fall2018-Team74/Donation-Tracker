@@ -7,6 +7,15 @@ import android.os.Parcelable;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * created by xiaohong chen on 9/23/2018
+ *
+ * Information Holder - represents a single student in model
+ *
+ * We are passing this object in a bundle between intents, so we implement
+ * the Parcelable interface.
+ */
+
 public class User implements Parcelable {
 
     /** all user types */
@@ -33,7 +42,12 @@ public class User implements Parcelable {
     /** this User's password counter */
     private int counter;
 
-    /** User constructor*/
+    /**
+     * constructor
+     * @param email email of the User
+     * @param username username of the User
+     * @param password password of the User
+     */
     public User(String email, String username, String password) {
         this.name = username;
         this.password = password;
@@ -55,60 +69,50 @@ public class User implements Parcelable {
         return name;
     }
 
-    /** getter/setter */
+    /**
+     *
+     * @param _name
+     */
     public void setName(String _name) {
         this.name = _name;
     }
 
-    /** getter/setter */
     public String getPassword() {
         return password;
     }
 
-    /** getter/setter */
     public void setPassword(String _password) {
         this.password = _password;
     }
 
-    /** getter/setter */
     public String getEmail() {
         return email;
     }
 
-    /** getter/setter */
     public void setEmail(String _email) {
         this.email = _email;
     }
 
-    /** getter/setter */
     public int getId() {
         return id;
     }
 
-    /** getter/setter */
     public void setIsLocked(boolean isLocked) {
         this.isLocked = isLocked;
     }
 
-    /** getter/setter */
     public void setId(int _id) {
         this.id = _id;
     }
 
-    /** getter/setter */
     public boolean getIsLocked() {
         return isLocked;
     }
 
-    /** getter/setter */
     public int getCounter() {return counter;}
 
-    /** getter/setter */
     public void setCounter(int counter) {this.counter = counter;}
 
-    /**
-     * increment lock counter when password is not valid
-     */
     public void counterIncrement() {counter++;}
 
     @Override
@@ -125,7 +129,7 @@ public class User implements Parcelable {
     }
 
     /**
-     * Lookup a major based on its code.  Returns the position of that
+     * Lookup a major based on its code.  Returns the postion of that
      * major in the array
      *
      * @param code the major to find
