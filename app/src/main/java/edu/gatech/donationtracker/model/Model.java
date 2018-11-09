@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 public class Model {
     private static  Model instance = new Model();
     public static Model getInstance() { return instance; }
-    public static FirebaseFirestore db;
+    public FirebaseFirestore db;
 
     private static List<Locations> locations;
     private List<User> accounts;
