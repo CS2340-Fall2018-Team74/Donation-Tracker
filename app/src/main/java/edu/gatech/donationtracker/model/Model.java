@@ -326,7 +326,6 @@ public class Model {
     public static Map<String, Locations> getLongitudeLatitude() {
         Map<String, Locations> map = new HashMap<String, Locations>();
         for (Locations l : locations) {
-
             map.put(l.getName(), l);
         }
         return map;
