@@ -125,7 +125,7 @@ public class User implements Parcelable {
     }
 
     /**
-     * Lookup a major based on its code.  Returns the postion of that
+     * Lookup a major based on its code.  Returns the position of that
      * major in the array
      *
      * @param code the major to find

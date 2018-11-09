@@ -24,7 +24,7 @@ public class SignOutActivity extends AppCompatActivity {
         nameField.setText("Username: " + Model.getInstance().getCurrentUser().getName());
         //if user type if LE and has location, we show their location, else we show "No location assigned"
         if (Model.getInstance().getCurrentUserType() == 1 && ((LocationEmployee) Model.getInstance().getCurrentUser()).HasLocation()) {
-            locationField.setText("Locations: " + ((LocationEmployee) Model.getInstance().getCurrentUser()).getlocation().toString());
+            locationField.setText("Locations: " + ((LocationEmployee) Model.getInstance().getCurrentUser()).getLocation().toString());
         } else {
             locationField.setText("Locations: No location assigned");
         }

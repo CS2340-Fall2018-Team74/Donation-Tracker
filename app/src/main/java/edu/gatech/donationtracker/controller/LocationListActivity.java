@@ -89,7 +89,7 @@ public class LocationListActivity extends AppCompatActivity {
             holder.mLocation = mLocations.get(position);
             /*
               Now we bind the data to the widgets.  In this case, pretty simple, put the id in one
-              textview and the string rep of a location in the other.
+              textView and the string rep of a location in the other.
              */
             holder.mNameView.setText("" + mLocations.get(position).getName());
             holder.mTypeView.setText(mLocations.get(position).getType());

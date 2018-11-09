@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-/** firestore database https://console.firebase.google.com/project/donation-tracker-bed83/database/firestore/data~2FLocations~2F4G9dqBJsGOlT4lVlVeld */
+/** fireStore database https://console.firebase.google.com/project/donation-tracker-bed83/database/firestore/data~2FLocations~2F4G9dqBJsGOlT4lVlVeld */
 
 public class Model {
     private static  Model instance = new Model();
@@ -323,13 +323,13 @@ public class Model {
      * get longitude and latitude for all locations as a map
      * @return a map contains all locations' longitude and latitude
      */
-    public static Map<String, Locations> getLongtitudeLatitude() {
-        Map<String, Locations> lolist = new HashMap<String, Locations>();
+    public static Map<String, Locations> getLongitudeLatitude() {
+        Map<String, Locations> map = new HashMap<String, Locations>();
         for (Locations l : locations) {
 
-            lolist.put(l.getName(), l);
+            map.put(l.getName(), l);
         }
-        return lolist;
+        return map;
     }
 
     /**

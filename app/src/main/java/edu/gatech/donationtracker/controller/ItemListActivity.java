@@ -107,7 +107,7 @@ public class ItemListActivity extends AppCompatActivity {
             holder.mItem = mItems.get(position);
             /*
               Now we bind the data to the widgets.  In this case, pretty simple, put the id in one
-              textview and the string rep of a location in the other.
+              textView and the string rep of a location in the other.
              */
             holder.mCategoryView.setText(mItems.get(position).getCategory());
             holder.mNameView.setText(mItems.get(position).getName());

@@ -9,13 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -117,7 +113,7 @@ public class EditItemActivity extends AppCompatActivity {
             case Selected:
                 if (resultCode == RESULT_OK) {
                     uriImage = imageReturnedIntent.getData();
-                    UploadFoto();
+                    uploadPhoto();
                 }
         }
     }
@@ -125,7 +121,7 @@ public class EditItemActivity extends AppCompatActivity {
     /**
      * Upload the chosen image to database
      */
-    public void UploadFoto() {
+    public void uploadPhoto() {
 
         String postItemImageID = Model.getInstance().getCurrentItem().getId();
         String postLocationID = Model.getInstance().getCurrentLocation().getKey();

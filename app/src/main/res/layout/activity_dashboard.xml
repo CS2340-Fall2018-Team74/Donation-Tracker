@@ -58,7 +58,7 @@
         android:layout_toStartOf="@+id/maps"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/ic_format_list_bulleted_black_24dp" />
+        app:srcCompat="@drawable/ic_format_list_bullet_black_24dp" />
     <!--<Button-->
         <!--android:id="@+id/location"-->
         <!--android:layout_width="wrap_content"-->

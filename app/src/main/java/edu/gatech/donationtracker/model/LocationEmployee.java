@@ -36,11 +36,11 @@ public class LocationEmployee extends User {
     }
 
     /** getters and setters */
-    public Locations getlocation() {
+    public Locations getLocation() {
         return location;
     }
     /** getter/setter */
-    public void setlocation(Locations location) {
+    public void setLocation(Locations location) {
         this.location = location;
     }
     /** getter/setter */

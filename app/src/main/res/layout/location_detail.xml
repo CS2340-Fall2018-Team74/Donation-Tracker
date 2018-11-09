@@ -16,8 +16,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/textview" />
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:id="@+id/location_detail_street_address"
@@ -26,8 +25,7 @@
         android:layout_below="@+id/location_detail_name"
         android:layout_alignParentStart="true"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/textview" />
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:id="@+id/location_detail_city"
@@ -35,8 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/location_detail_street_address"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/textview" />
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:id="@+id/location_detail_state"
@@ -45,8 +42,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="30dp"
         android:layout_marginTop="129dp"
-        android:layout_toEndOf="@+id/location_detail_city"
-        android:text="@string/textview" />
+        android:layout_toEndOf="@+id/location_detail_city" />
 
     <TextView
         android:id="@+id/location_detail_zip"
@@ -55,8 +51,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="30dp"
         android:layout_marginTop="129dp"
-        android:layout_toEndOf="@+id/location_detail_state"
-        android:text="@string/textview" />
+        android:layout_toEndOf="@+id/location_detail_state" />
 
     <TextView
         android:id="@+id/location_detail_type"
@@ -64,8 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/location_detail_zip"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/textview" />
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:id="@+id/location_detail_phone"
@@ -75,8 +69,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="60dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="-1dp"
-        android:text="@string/textview" />
+        android:layout_marginEnd="-1dp" />
 
     <TextView
         android:id="@+id/location_detail_website"
@@ -85,8 +78,7 @@
         android:layout_below="@+id/location_detail_phone"
         android:layout_alignParentStart="true"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/textview" />
+        android:layout_marginTop="30dp" />
 
     <Button
         android:id="@+id/location_detail_edit"
