@@ -22,12 +22,13 @@ import java.util.stream.Collectors;
 
 public class Model {
     private static  Model instance = new Model();
+    private static List<Item> filteredItems;
+
     public static Model getInstance() { return instance; }
     public FirebaseFirestore db;
 
     private static List<Locations> locations;
     private List<User> accounts;
-    private List<Item> filteredItems;
 
     private Locations currentLocation;
     private User currentUser;
@@ -181,7 +182,7 @@ public class Model {
      * @param array array that will be filtered
      * @param keyword keyword that filters array
      */
-    public void filterName(List<Item> array, final String keyword) {
+    public static void filterName(List<Item> array, final String keyword) {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
             public boolean test(Item item) {
@@ -326,7 +327,6 @@ public class Model {
     public static Map<String, Locations> getLongitudeLatitude() {
         Map<String, Locations> map = new HashMap<String, Locations>();
         for (Locations l : locations) {
-
             map.put(l.getName(), l);
         }
         return map;
