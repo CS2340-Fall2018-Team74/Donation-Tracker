@@ -114,6 +114,9 @@ public class JUnit {
         assertTrue(model.getFilteredItems().contains(items[0]));
         assertTrue(model.getFilteredItems().contains(items[3]));
         assertEquals(model.getFilteredItems().size(), 2);
+        model.filterName(filterList, "x");
+        assertFalse(model.getFilteredItems().contains(items[0]));
+        assertEquals(model.getFilteredItems().size(), 0);
     }
 
 
