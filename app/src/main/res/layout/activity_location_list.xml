@@ -20,7 +20,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:paddingRight="0dp">
+        android:paddingRight = "0dp"
+        android:paddingLeft= "0dp">
 
         <include
             layout="@layout/location_list"

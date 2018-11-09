@@ -57,5 +57,13 @@
     <string name="location_list_name" tools:ignore="UnusedResources">Location name</string>
     <string name="location_list_type" tools:ignore="UnusedResources">Type</string>
     <string name="title_activity_maps" tools:ignore="UnusedResources">Map</string>
+    <string name="profile">profile</string>
+    <string name="location_list_button">location_list_button</string>
+    <string name="map_button">map_button</string>
+    <string name="uri">uri</string>
+    <string name="location_name">LOCATION NAME</string>
+    <string name="cancel">Cancel</string>
+    <string name="details">Details</string>
+    <string name="account_info">Account info</string>
 
 </resources>

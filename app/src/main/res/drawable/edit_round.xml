@@ -4,6 +4,6 @@
     android:shape="rectangle"
     tools:keep="@drawable/edit_round">
     <!--<solid android:color="@color/colorPrimary"/>-->
-    <stroke android:color="@color/pop"></stroke>
+    <stroke android:color="@color/pop" />
     <corners android:radius="20dp"/>
 </shape>

@@ -11,7 +11,7 @@ import com.google.firebase.firestore.DocumentReference;
  */
 public class Item implements Comparable<Item>, Parcelable {
 
-    private String url;
+    private String uri;
     private String name;
     private String id;
     private String category;
@@ -20,8 +20,8 @@ public class Item implements Comparable<Item>, Parcelable {
     DocumentReference reference;
 
     /** constructor **/
-    public Item(String url, String name, String id, String category, int quantity, Locations location) {
-        this.url = url;
+    public Item(String uri, String name, String id, String category, int quantity, Locations location) {
+        this.uri = uri;
         this.name = name;
         this.id = id;
         this.category = category;
@@ -31,11 +31,11 @@ public class Item implements Comparable<Item>, Parcelable {
 
     /** default constructor **/
     public Item() {
-        this("Enter url", "Enter name: ", "Enter id: ", "Enter category: ", 0, null);
+        this("Enter uri", "Enter name: ", "Enter id: ", "Enter category: ", 0, null);
     }
 
     protected Item(Parcel in) {
-        url = in.readString();
+        uri = in.readString();
         name = in.readString();
         id = in.readString();
         category = in.readString();
@@ -86,17 +86,17 @@ public class Item implements Comparable<Item>, Parcelable {
     /** toString of this object */
     @Override
     public String toString() {
-        return url + " - " + category + " - " + " id: " + id + " - " + name + " x" + quantity;
+        return uri + " - " + category + " - " + " id: " + id + " - " + name + " x" + quantity;
     }
 
     /** getter/setter */
-    public String getUrl() {
-        return url;
+    public String getUri() {
+        return uri;
     }
 
     /** getter/setter */
-    public void setUrl(String url) {
-        this.url = url;
+    public void setUri(String uri) {
+        this.uri = uri;
     }
 
     /** getter/setter */
@@ -161,7 +161,7 @@ public class Item implements Comparable<Item>, Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(url);
+        dest.writeString(uri);
         dest.writeString(name);
         dest.writeString(id);
         dest.writeString(category);

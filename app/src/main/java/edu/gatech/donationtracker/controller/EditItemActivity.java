@@ -37,7 +37,6 @@ public class EditItemActivity extends AppCompatActivity {
     Uri uriImage;
     private static final int Selected = 100;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +52,7 @@ public class EditItemActivity extends AppCompatActivity {
 
         final Item currentItem = Model.getInstance().getCurrentItem();
         if (currentItem != null) {
-            urlField.setText(currentItem.getUrl());
+            urlField.setText(currentItem.getUri());
             categoryField.setText(currentItem.getCategory());
             nameField.setText(currentItem.getName());
             quantityField.setText(String.valueOf(currentItem.getQuantity()));
@@ -84,7 +83,7 @@ public class EditItemActivity extends AppCompatActivity {
                     Model.getInstance().pushNewItemToDatabase(newItem);
                     //edit current item
                 } else {
-                    currentItem.setUrl(imageUrl);
+                    currentItem.setUri(imageUrl);
                     currentItem.setCategory(category);
                     currentItem.setName(name);
                     currentItem.setQuantity(quantity);

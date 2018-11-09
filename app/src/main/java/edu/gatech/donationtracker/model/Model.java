@@ -117,7 +117,7 @@ public class Model {
     public void pushNewItemToDatabase(Item... items) {
         for (Item item : items) {
             Map<String, Object> itemAsMap = new HashMap<>();
-            itemAsMap.put("url", item.getUrl());
+            itemAsMap.put("url", item.getUri());
             itemAsMap.put("id", item.getId());
             itemAsMap.put("name", item.getName());
             itemAsMap.put("category", item.getCategory());
@@ -143,7 +143,7 @@ public class Model {
     public void pushEditedItemToDatabase(Item... items) {
         for (Item item : items) {
             Map<String, Object> itemAsMap = new HashMap<>();
-            itemAsMap.put("url", item.getUrl());
+            itemAsMap.put("url", item.getUri());
             itemAsMap.put("id", item.getId());
             itemAsMap.put("name", item.getName());
             itemAsMap.put("category", item.getCategory());
