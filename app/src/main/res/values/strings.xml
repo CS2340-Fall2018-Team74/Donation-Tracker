@@ -27,15 +27,15 @@
     <string name="detail" tools:ignore="UnusedResources">detail</string>
 
     <!-- Strings related to Welcome -->
-    <string name="sign_in" tools:ignore="UnusedResources">sign in</string>
-    <string name="sign_up" tools:ignore="UnusedResources">sign up</string>
+    <string name="sign_in">sign in</string>
+    <string name="sign_up">sign up</string>
     <string name="sign_out" tools:ignore="UnusedResources">sign out</string>
-    <string name="logo_des" tools:ignore="UnusedResources">logo</string>
+    <string name="logo_des">logo</string>
 
     <!-- Strings related to Sign up -->
     <string name="Account_type" tools:ignore="UnusedResources">Account type</string>
     <string name="title_activity_dashboard" tools:ignore="UnusedResources">dashboard</string>
-    <string name="textView">TextView</string>
+    <string name="textView" tools:ignore="UnusedResources">TextView</string>
     <string name="edit">Edit</string>
     <string name="inventory">Inventory</string>
     <string name="settings" tools:ignore="UnusedResources">Settings</string>
@@ -57,5 +57,13 @@
     <string name="location_list_name" tools:ignore="UnusedResources">Location name</string>
     <string name="location_list_type" tools:ignore="UnusedResources">Type</string>
     <string name="title_activity_maps" tools:ignore="UnusedResources">Map</string>
+    <string name="profile">profile</string>
+    <string name="location_list_button">location_list_button</string>
+    <string name="map_button">map_button</string>
+    <string name="uri">uri</string>
+    <string name="location_name">LOCATION NAME</string>
+    <string name="cancel">Cancel</string>
+    <string name="details">Details</string>
+    <string name="account_info">Account info</string>
 
 </resources>

@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:keep="@layout/activity_inventory">
 
     <Button
         android:id="@+id/button4"
@@ -28,6 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="68dp" />
 
+    <!--suppress AndroidDomInspection -->
     <EditText
         android:id="@+id/editText"
         android:layout_width="331dp"

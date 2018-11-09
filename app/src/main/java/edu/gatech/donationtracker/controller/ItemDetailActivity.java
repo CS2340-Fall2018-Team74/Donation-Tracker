@@ -46,8 +46,8 @@ public class ItemDetailActivity extends AppCompatActivity {
             delete.setVisibility(View.INVISIBLE);
         }
 
-        Picasso.get().load(Model.getInstance().getCurrentItem().getUrl()).into(detailImage);
-        Log.d("image", Model.getInstance().getCurrentItem().getUrl());
+        Picasso.get().load(Model.getInstance().getCurrentItem().getUri()).into(detailImage);
+        Log.d("image", Model.getInstance().getCurrentItem().getUri());
 
         detailCategory.setText(Model.getInstance().getCurrentItem().getCategory());
         detailName.setText(Model.getInstance().getCurrentItem().getName());

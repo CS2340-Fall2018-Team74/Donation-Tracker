@@ -20,13 +20,15 @@ public class SignOutActivity extends AppCompatActivity {
 
         TextView nameField = findViewById(R.id.name_text_view);
         TextView locationField = findViewById(R.id.location_text_view);
-
-        nameField.setText("Username: " + Model.getInstance().getCurrentUser().getName());
+        String name = "Username: " + Model.getInstance().getCurrentUser().getName();
+        nameField.setText(name);
         //if user type if LE and has location, we show their location, else we show "No location assigned"
         if (Model.getInstance().getCurrentUserType() == 1 && ((LocationEmployee) Model.getInstance().getCurrentUser()).HasLocation()) {
-            locationField.setText("Locations: " + ((LocationEmployee) Model.getInstance().getCurrentUser()).getLocation().toString());
+            String location = "Locations: " + ((LocationEmployee) Model.getInstance().getCurrentUser()).getLocation().toString();
+            locationField.setText(location);
         } else {
-            locationField.setText("Locations: No location assigned");
+            String location = "Locations: No location assigned";
+            locationField.setText(location);
         }
 
         //Jump to sign in layout when button clicked.
