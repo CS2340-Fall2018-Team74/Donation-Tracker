@@ -19,8 +19,7 @@ public class Item implements Comparable<Item>, Parcelable {
     private Locations location;
     DocumentReference reference;
 
-
-
+    /** constructor **/
     public Item(String url, String name, String id, String category, int quantity, Locations location) {
         this.url = url;
         this.name = name;
@@ -30,6 +29,7 @@ public class Item implements Comparable<Item>, Parcelable {
         this.location = location;
     }
 
+    /** default constructor **/
     public Item() {
         this("Enter url", "Enter name: ", "Enter id: ", "Enter category: ", 0, null);
     }
@@ -42,6 +42,7 @@ public class Item implements Comparable<Item>, Parcelable {
         quantity = in.readInt();
     }
 
+    /** creator method for Parcel **/
     public static final Creator<Item> CREATOR = new Creator<Item>() {
         @Override
         public Item createFromParcel(Parcel in) {
@@ -77,7 +78,7 @@ public class Item implements Comparable<Item>, Parcelable {
         this.quantity -= quantity;
     }
 
-    /** getter */
+    /** getter/setter */
     public int getQuantity() {
         return quantity;
     }
@@ -88,54 +89,67 @@ public class Item implements Comparable<Item>, Parcelable {
         return url + " - " + category + " - " + " id: " + id + " - " + name + " x" + quantity;
     }
 
+    /** getter/setter */
     public String getUrl() {
         return url;
     }
 
+    /** getter/setter */
     public void setUrl(String url) {
         this.url = url;
     }
 
+    /** getter/setter */
     public String getName() {
         return name;
     }
 
+    /** getter/setter */
     public void setName(String name) {
         this.name = name;
     }
 
+    /** getter/setter */
     public String getId() {
         return id;
     }
 
+    /** getter/setter */
     public void setId(String id) {
         this.id = id;
     }
 
+    /** getter/setter */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
+    /** getter/setter */
     public String getCategory() {
         return category;
     }
 
+    /** getter/setter */
     public void setCategory(String category) {
         this.category = category;
     }
 
+    /** getter/setter */
     public DocumentReference getReference() {
         return reference;
     }
 
+    /** getter/setter */
     public void setReference(DocumentReference reference) {
         this.reference = reference;
     }
 
+    /** getter/setter */
     public Locations getLocation() {
         return location;
     }
 
+    /** getter/setter */
     public void setLocation(Locations location) {
         this.location = location;
     }

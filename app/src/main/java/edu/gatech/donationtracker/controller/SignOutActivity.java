@@ -18,8 +18,8 @@ public class SignOutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_out);
 
-        TextView nameField = (TextView) findViewById(R.id.name_text_view);
-        TextView locationField = (TextView) findViewById(R.id.location_text_view);
+        TextView nameField = findViewById(R.id.name_text_view);
+        TextView locationField = findViewById(R.id.location_text_view);
 
         nameField.setText("Username: " + Model.getInstance().getCurrentUser().getName());
         //if user type if LE and has location, we show their location, else we show "No location assigned"

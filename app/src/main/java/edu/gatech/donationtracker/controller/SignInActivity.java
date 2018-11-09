@@ -26,11 +26,11 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        inputEmail = (EditText) findViewById(R.id.email_SI);
-        inputPassword = (EditText) findViewById(R.id.password_SI);
+        inputEmail = findViewById(R.id.email_SI);
+        inputPassword = findViewById(R.id.password_SI);
 
-        Button buttonSignIn = (Button) findViewById(R.id.button_signIn_SI);
-        Button buttonCancel = (Button) findViewById(R.id.button_cancel_SI);
+        Button buttonSignIn = findViewById(R.id.button_signIn_SI);
+        Button buttonCancel = findViewById(R.id.button_cancel_SI);
 
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override

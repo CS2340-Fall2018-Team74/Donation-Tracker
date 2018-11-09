@@ -11,25 +11,6 @@ public class Manager extends LocationEmployee{
         super(email, username, password, null);
     }
 
-//    /**
-//     * Extra credit!
-//     * Hire a user to be a location employee
-//     *
-//     * @param model the model of all accounts
-//     * @param user the user who would be changed to employee
-//     * @param location the location this employee will be assigned to
-//     * @return true if the user is type User and the type change is successful, false otherwise
-//     */
-//    public boolean hireUser(Model model, User user, Locations location) {
-//        if (model.remove(user.getEmail())) {
-//            model.add(new LocationEmployee(user.getEmail() ,user.getName(), user.getPassword(), location));
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-
-
     /**
      * Add data of any location
      *

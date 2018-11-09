@@ -21,12 +21,14 @@ import edu.gatech.donationtracker.R;
 import edu.gatech.donationtracker.model.Model;
 
 public class ItemDetailActivity extends AppCompatActivity {
+
     private ImageView detailImage;
     private TextView detailName;
     private TextView detailQuantity;
     private TextView detailCategory;
     private Button delete;
     private Button edit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +38,8 @@ public class ItemDetailActivity extends AppCompatActivity {
         detailName = findViewById(R.id.item_detail_name);
         detailQuantity = findViewById(R.id.item_detail_quantity);
         detailImage = findViewById(R.id.item_detail_image);
-        delete = (Button) findViewById(R.id.item_detail_delete);
-        edit = (Button) findViewById(R.id.item_detail_edit);
+        delete = findViewById(R.id.item_detail_delete);
+        edit = findViewById(R.id.item_detail_edit);
 
         if (Model.getInstance().getCurrentUserType() < 1) {
             edit.setVisibility(View.INVISIBLE);

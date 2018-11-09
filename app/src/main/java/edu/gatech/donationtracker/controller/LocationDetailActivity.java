@@ -31,16 +31,16 @@ public class LocationDetailActivity extends AppCompatActivity {
 
     private void setValues() {
         Model model = Model.getInstance();
-        detailName = (TextView) findViewById(R.id.location_detail_name);
-        detailStreetAddress = (TextView) findViewById(R.id.location_detail_street_address);
-        detailCity = (TextView) findViewById(R.id.location_detail_city);
-        detailState = (TextView) findViewById(R.id.location_detail_state);
-        detailZip = (TextView) findViewById(R.id.location_detail_zip);
-        detailType = (TextView) findViewById(R.id.location_detail_type);
-        detailPhone = (TextView) findViewById(R.id.location_detail_phone);
-        detailWebsite = (TextView) findViewById(R.id.location_detail_website);
-        editThisLocation = (Button) findViewById(R.id.location_detail_edit);
-        viewInventory = (Button) findViewById(R.id.location_detail_inventory);
+        detailName = findViewById(R.id.location_detail_name);
+        detailStreetAddress = findViewById(R.id.location_detail_street_address);
+        detailCity = findViewById(R.id.location_detail_city);
+        detailState = findViewById(R.id.location_detail_state);
+        detailZip = findViewById(R.id.location_detail_zip);
+        detailType = findViewById(R.id.location_detail_type);
+        detailPhone = findViewById(R.id.location_detail_phone);
+        detailWebsite = findViewById(R.id.location_detail_website);
+        editThisLocation = findViewById(R.id.location_detail_edit);
+        viewInventory = findViewById(R.id.location_detail_inventory);
         detailName.setText(model.getCurrentLocation().getName());
         detailStreetAddress.setText(model.getCurrentLocation().getStreetAddress());
         detailCity.setText(model.getCurrentLocation().getCity());
@@ -50,7 +50,7 @@ public class LocationDetailActivity extends AppCompatActivity {
         detailPhone.setText(model.getCurrentLocation().getPhone());
         detailWebsite.setText(model.getCurrentLocation().getWebsite());
 
-        viewInventory = (Button) findViewById(R.id.location_detail_inventory);
+        viewInventory = findViewById(R.id.location_detail_inventory);
         viewInventory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

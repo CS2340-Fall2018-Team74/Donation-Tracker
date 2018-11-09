@@ -26,7 +26,7 @@ public class Locations implements Parcelable{
 
     public int itemId = 0;
 
-
+    /** constructor **/
     public Locations(String key, String name, String streetAddress, String type, String longitude, String latitude, String phone, String zip, String state, String city, String website) {
         this();
         this.name = name;
@@ -42,18 +42,22 @@ public class Locations implements Parcelable{
         this.key = key;
     }
 
+    /** default constructor **/
     public Locations() {
         inventory = new ArrayList<>();
     }
 
+    /** getter/setter */
     public String getKey() {
         return key;
     }
 
+    /** getter/setter */
     public void setKey(String key) {
         this.key = key;
     }
 
+    /** constructor for Parcel **/
     protected Locations(Parcel in) {
         key = in.readString();
         name = in.readString();
@@ -68,6 +72,7 @@ public class Locations implements Parcelable{
         zip = in.readString();
     }
 
+    /** creator for Parcel **/
     public static final Creator<Locations> CREATOR = new Creator<Locations>() {
         @Override
         public Locations createFromParcel(Parcel in) {
@@ -117,90 +122,112 @@ public class Locations implements Parcelable{
         return name + " Type: " + type;
     }
 
+    /** getter/setter */
     public String getName() {
         return name;
     }
 
+    /** getter/setter */
     public void setName(String name) {
         this.name = name;
     }
 
+    /** getter/setter */
     public String getStreetAddress() {
         return streetAddress;
     }
 
+    /** getter/setter */
     public void setStreetAddress(String streetAddress) {
         this.streetAddress = streetAddress;
     }
 
+    /** getter/setter */
     public String getType() {
         return type;
     }
 
+    /** getter/setter */
     public void setType(String type) {
         this.type = type;
     }
 
+    /** getter/setter */
     public String getLongitude() {
         return longitude;
     }
 
+    /** getter/setter */
     public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
+    /** getter/setter */
     public String getLatitude() {
         return latitude;
     }
 
+    /** getter/setter */
     public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
+    /** getter/setter */
     public String getPhone() {
         return phone;
     }
 
+    /** getter/setter */
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
+    /** getter/setter */
     public String getZip() {
         return zip;
     }
 
+    /** getter/setter */
     public void setZip(String zip) {
         this.zip = zip;
     }
 
+    /** getter/setter */
     public String getState() {
         return state;
     }
 
+    /** getter/setter */
     public void setState(String state) {
         this.state = state;
     }
 
+    /** getter/setter */
     public String getCity() {
         return city;
     }
 
+    /** getter/setter */
     public void setCity(String city) {
         this.city = city;
     }
 
+    /** getter/setter */
     public String getWebsite() {
         return website;
     }
 
+    /** getter/setter */
     public void setWebsite(String website) {
         this.website = website;
     }
 
+    /** getter/setter */
     public DocumentReference getReference() {
         return reference;
     }
 
+    /** getter/setter */
     public void setReference(DocumentReference reference) {
         this.reference = reference;
     }

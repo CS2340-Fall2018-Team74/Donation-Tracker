@@ -7,10 +7,18 @@ public class Admin extends User {
         super(email, username, password);
     }
 
+    /**
+     * lock an user account
+     * @param user user whom will be locked
+     */
     public void LockAccount(User user) {
         user.setIsLocked(true);
     }
 
+    /**
+     * unlock an user account
+     * @param user user whom will be unlocked
+     */
     public void UnlockAccount(User user) {
         user.setIsLocked(false);
     }

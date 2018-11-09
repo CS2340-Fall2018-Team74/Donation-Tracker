@@ -39,12 +39,15 @@ public class LocationEmployee extends User {
     public Locations getlocation() {
         return location;
     }
+    /** getter/setter */
     public void setlocation(Locations location) {
         this.location = location;
     }
+    /** getter/setter */
     public boolean HasLocation() {
         return hasLocation;
     }
+    /** getter/setter */
     public void setHasLocation(boolean hasLocation) {
         this.hasLocation = hasLocation;
     }

@@ -24,7 +24,7 @@ public class ItemListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
-        FloatingActionButton add = (FloatingActionButton) findViewById(R.id.item_list_edit);
+        FloatingActionButton add = findViewById(R.id.item_list_edit);
         //when searching or user type is user, we hide add button
         if(Model.getInstance().getLocations() == null || Model.getInstance().getCurrentUserType() < 1) {
             add.hide();
@@ -149,6 +149,7 @@ public class ItemListActivity extends AppCompatActivity {
             public final TextView mQuantityView;
             public Item mItem;
 
+            /** constructor **/
             public ViewHolder(View view) {
                 super(view);
                 mView = view;

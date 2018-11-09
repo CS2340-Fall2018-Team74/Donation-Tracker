@@ -46,7 +46,7 @@ public class DashboardActivity extends AppCompatActivity {
         ImageButton maps = findViewById(R.id.maps);
 
         //display current user type
-        TextView accountType = (TextView) findViewById(R.id.dashboard_account_type);
+        TextView accountType = findViewById(R.id.dashboard_account_type);
         accountType.setText(Model.getInstance().getCurrentUserTypeAsString());
 
         //jump to item list layout

@@ -33,6 +33,7 @@ public class Model {
     private User currentUser;
     private Item currentItem;
 
+    /** constructor **/
     private Model () {
         locations = new ArrayList<>();
         loadLocation();
@@ -99,6 +100,9 @@ public class Model {
                 });
     }
 
+    /**
+     * load accounts from database
+     */
     private void loadAccount() {
             User test = new User("test@test.com", "test", "test");
             Admin admin = new Admin("admin@admin.com", "admin", "admin");
@@ -106,6 +110,10 @@ public class Model {
             accounts.add(admin);
     }
 
+    /**
+     * push new item to database
+     * @param items item that will be uploaded
+     */
     public void pushNewItemToDatabase(Item... items) {
         for (Item item : items) {
             Map<String, Object> itemAsMap = new HashMap<>();
@@ -128,6 +136,10 @@ public class Model {
         }
     }
 
+    /**
+     * push a change to item to database
+     * @param items items that will be changed and pushed to database
+     */
     public void pushEditedItemToDatabase(Item... items) {
         for (Item item : items) {
             Map<String, Object> itemAsMap = new HashMap<>();
@@ -140,12 +152,21 @@ public class Model {
         }
     }
 
+    /**
+     * delete an item in database
+     * @param items items that will be deleted
+     */
     public void deleteItemInDatabase(Item... items) {
         for (Item item : items) {
             item.getReference().delete();
         }
     }
 
+    /**
+     * filter the item list with a category keyword
+     * @param array array that will be filtered
+     * @param keyword keyword that filters array
+     */
     public void filterCategory(List<Item> array, final String keyword) {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
@@ -155,6 +176,11 @@ public class Model {
         }).collect(Collectors.<Item>toList());
     }
 
+    /**
+     * filter the item list with a name keyword
+     * @param array array that will be filtered
+     * @param keyword keyword that filters array
+     */
     public void filterName(List<Item> array, final String keyword) {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
@@ -164,6 +190,11 @@ public class Model {
         }).collect(Collectors.<Item>toList());
     }
 
+    /**
+     * filter the item list with a keyword that filter both name and category
+     * @param array array that will be filtered
+     * @param keyword keyword that filters array
+     */
     public void filterBoth(List<Item> array, final String keyword) {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
@@ -174,42 +205,69 @@ public class Model {
         }).collect(Collectors.<Item>toList());
     }
 
+    /**
+     * add a location to model
+     * @param location location that will be added
+     * @return true is success false otherwise
+     */
     public boolean addLocation(Locations location) {
         return locations.add(location);
     }
 
+    /**
+     * remove a location to model
+     * @param location location that will be removed
+     * @return true is success false otherwise
+     */
     public boolean removeLocation(Locations location) {
         return locations.add(location);
     }
 
+    /**
+     * add a user to model
+     * @param user user that will be added
+     * @return true is success false otherwise
+     */
     public boolean addAccount(User user) {
         return accounts.add(user);
     }
 
+    /**
+     * remove a user to model
+     * @param user user that will be removed
+     * @return true is success false otherwise
+     */
     public boolean removeAccount(User user) {
         return accounts.remove(user);
     }
 
+    /** getter/setter */
     public Locations getCurrentLocation() { return currentLocation;}
 
+    /** getter/setter */
     public void setCurrentLocation(Locations location) { currentLocation = location; }
 
+    /** getter/setter */
     public User getCurrentUser() {
         return currentUser;
     }
 
+    /** getter/setter */
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
     }
 
+    /** getter/setter */
     public Item getCurrentItem() {
         return currentItem;
     }
 
+    /** getter/setter */
     public void setCurrentItem(Item currentItem) {
         this.currentItem = currentItem;
     }
 
+    /** getter/setter */
     public List<Item> getFilteredItems() { return filteredItems; }
 
     /**
@@ -251,14 +309,20 @@ public class Model {
         }
     }
 
+    /** getter/setter */
     public List<User> getAccounts() {
         return accounts;
     }
 
+    /** getter/setter */
     public List<Locations> getLocations() {
         return locations;
     }
 
+    /**
+     * get longitude and latitude for all locations as a map
+     * @return a map contains all locations' longitude and latitude
+     */
     public static Map<String, Locations> getLongtitudeLatitude() {
         Map<String, Locations> lolist = new HashMap<String, Locations>();
         for (Locations l : locations) {
@@ -268,6 +332,10 @@ public class Model {
         return lolist;
     }
 
+    /**
+     * get a list contain all locations' name
+     * @return a list of all locations' name
+     */
     public List<String> getLocationsAsString() {
         List<String> locationsAsString = new ArrayList<>();
         for (Locations l : locations) {
@@ -276,6 +344,10 @@ public class Model {
         return locationsAsString;
     }
 
+    /**
+     * get all items in all locations
+     * @return a list of all items
+     */
     public List<Item> getAllItems() {
         ArrayList<Item> items = new ArrayList<>();
         for (Locations l : locations) {

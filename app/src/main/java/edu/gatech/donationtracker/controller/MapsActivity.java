@@ -1,28 +1,9 @@
 package edu.gatech.donationtracker.controller;
 
-import android.Manifest;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.common.logging.Logger;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
 
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import android.support.v4.app.ActivityCompat;
@@ -103,7 +84,10 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMarker
         return false;
     }
 
-
+    /**
+     * get all locations latitude and longitude as a map
+     * @return map of all locations' latitude and longitude
+     */
     public Map<String, Locations> getLocations() {
         return Model.getLongtitudeLatitude();
     }

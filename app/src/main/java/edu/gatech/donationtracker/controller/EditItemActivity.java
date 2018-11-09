@@ -48,12 +48,12 @@ public class EditItemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_item);
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
-        categoryField = (EditText) findViewById(R.id.edit_item_category_SU);
-        nameField = (EditText) findViewById(R.id.edit_item_name_SU);
-        quantityField = (EditText) findViewById(R.id.edit_item_quantity_SU);
-        urlField = (EditText) findViewById(R.id.edit_item_uri);
+        categoryField = findViewById(R.id.edit_item_category_SU);
+        nameField = findViewById(R.id.edit_item_name_SU);
+        quantityField = findViewById(R.id.edit_item_quantity_SU);
+        urlField = findViewById(R.id.edit_item_uri);
         update_image = findViewById(R.id.edit_item_update);
-        ok = (Button) findViewById(R.id.edit_item_ok);
+        ok = findViewById(R.id.edit_item_ok);
 
         final Item currentItem = Model.getInstance().getCurrentItem();
         if (currentItem != null) {
@@ -101,6 +101,9 @@ public class EditItemActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Pops up choose image screen
+     */
     public void ChooseImage() {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
@@ -119,6 +122,9 @@ public class EditItemActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Upload the chosen image to database
+     */
     public void UploadFoto() {
 
         String postItemImageID = Model.getInstance().getCurrentItem().getId();

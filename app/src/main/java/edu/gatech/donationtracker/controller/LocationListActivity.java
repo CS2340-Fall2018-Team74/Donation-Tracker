@@ -132,6 +132,7 @@ public class LocationListActivity extends AppCompatActivity {
             public final TextView mTypeView;
             public Locations mLocation;
 
+            /** constructor **/
             public ViewHolder(View view) {
                 super(view);
                 mView = view;
