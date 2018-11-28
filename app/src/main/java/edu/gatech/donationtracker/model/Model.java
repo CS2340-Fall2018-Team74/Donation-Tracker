@@ -264,6 +264,38 @@ public class Model {
         db.collection("Users").document(type).collection("Accounts").add(userAsMap);
     }
 
+    public void pushEditAccountToDatabase(User user) {
+        String type;
+        if (user instanceof Admin)
+            type = "admin";
+        else if (user instanceof Manager)
+            type = "manager";
+        else if (user instanceof LocationEmployee)
+            type = "locationEmployee";
+        else
+            type = "user";
+        Map<String, Object> userAsMap = new HashMap<>();
+        userAsMap.put("name", user.getName());
+        userAsMap.put("password", user.getPassword());
+        userAsMap.put("email", user.getEmail());
+        userAsMap.put("id", user.getId());
+        userAsMap.put("counter", user.getCounter());
+        userAsMap.put("isLocked", user.getIsLocked());
+        if (type.equals("locationEmployee")) {
+            userAsMap.put("location", ((LocationEmployee)user).getLocation().getKey());
+        }
+        db.collection("Users").document(type).collection("Accounts").get().
+                addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                            if (user.getEmail().equals(documentSnapshot.get("email"))) {
+                                documentSnapshot.getReference().set(userAsMap);
+                            }
+                        }
+                    }
+                });
+    }
+
     /**
      * delete an item in database
      * @param items items that will be deleted

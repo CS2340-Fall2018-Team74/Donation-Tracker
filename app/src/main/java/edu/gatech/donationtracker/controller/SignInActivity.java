@@ -80,6 +80,8 @@ public class SignInActivity extends AppCompatActivity {
                 String password = inputPassword.getText().toString();
                 if (email.equals("") || password.equals("")) {
                     Toast.makeText(SignInActivity.this, "You need to input your email and password to login.", Toast.LENGTH_SHORT).show();
+                } else if (password.length() < 6) {
+                    Toast.makeText(SignInActivity.this, "password length should >= 6", Toast.LENGTH_SHORT).show();
                 } else {
                     for (User e : Model.getInstance().getAccounts()) {
                         if (e.getEmail().equals(email)) {
@@ -93,7 +95,7 @@ public class SignInActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         Model.getInstance().setCurrentUser(e);
                                         e.setPassword(password);
-                                        Model.getInstance().pushAccountToDatabase(e);
+                                        Model.getInstance().pushEditAccountToDatabase(e);
                                         Intent intent = new Intent(SignInActivity.this, DashboardActivity.class);
                                         startActivityForResult(intent, 0);
                                     } else {
@@ -101,7 +103,7 @@ public class SignInActivity extends AppCompatActivity {
                                         if (e.getCounter() >= 3) {
                                             Toast.makeText(SignInActivity.this, "Your account is locked", Toast.LENGTH_SHORT).show();
                                             e.setIsLocked(true);
-                                            Model.getInstance().pushAccountToDatabase(e);
+                                            Model.getInstance().pushEditAccountToDatabase(e);
                                         } else {
                                             Toast.makeText(SignInActivity.this, "Wrong password, please enter again", Toast.LENGTH_SHORT).show();
                                         }

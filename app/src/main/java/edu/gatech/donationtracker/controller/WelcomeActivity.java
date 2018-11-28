@@ -38,6 +38,7 @@ public class WelcomeActivity extends AppCompatActivity {
         buttonVisitor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Model.getInstance().setCurrentUser(null);
                 Intent intent = new Intent(WelcomeActivity.this, DashboardActivity.class);
                 startActivity(intent);
             }
