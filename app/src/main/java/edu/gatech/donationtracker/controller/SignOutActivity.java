@@ -20,7 +20,12 @@ public class SignOutActivity extends AppCompatActivity {
 
         TextView nameField = findViewById(R.id.name_text_view);
         TextView locationField = findViewById(R.id.location_text_view);
-        String name = "Username: " + Model.getInstance().getCurrentUser().getName();
+        String name;
+        if (Model.getInstance().getCurrentUser() != null) {
+            name = "Username: " + Model.getInstance().getCurrentUser().getName();
+        } else {
+            name = "Username: Visitor";
+        }
         nameField.setText(name);
         //if user type if LE and has location, we show their location, else we show "No location assigned"
         if (Model.getInstance().getCurrentUserType() == 1 && ((LocationEmployee) Model.getInstance().getCurrentUser()).HasLocation()) {
@@ -36,6 +41,7 @@ public class SignOutActivity extends AppCompatActivity {
         buttonSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Model.getInstance().setCurrentUser(null);
                 Intent intent = new Intent(SignOutActivity.this, WelcomeActivity.class);
                 startActivity(intent);
             }

@@ -10,11 +10,6 @@ import edu.gatech.donationtracker.R;
 import edu.gatech.donationtracker.model.Model;
 
 public class WelcomeActivity extends AppCompatActivity {
-
-    private String app_name = "Donation Tracker";
-    private String sign_up = "Sign up";
-    private String sign_in = "Sign in";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

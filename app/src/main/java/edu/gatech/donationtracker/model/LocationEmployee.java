@@ -13,6 +13,10 @@ public class LocationEmployee extends User {
         this.hasLocation = location != null;
     }
 
+    public LocationEmployee() {
+        super("", "", "");
+    }
+
     /**
      * add data of the location this employee belongs to
      *

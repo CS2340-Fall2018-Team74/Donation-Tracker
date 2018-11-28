@@ -94,6 +94,7 @@ public class SignUpActivity extends AppCompatActivity  {
                             newAccount = new User(email, name, password);
                     }
                     Model.getInstance().addAccount(newAccount);
+                    Model.getInstance().pushAccountToDatabase(newAccount);
                     Model.getInstance().setCurrentUser(newAccount);
                     Intent intent = new Intent(SignUpActivity.this, DashboardActivity.class);
                     startActivity(intent);

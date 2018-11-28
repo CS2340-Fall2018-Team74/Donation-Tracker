@@ -11,6 +11,11 @@ public class Manager extends LocationEmployee{
         super(email, username, password, null);
     }
 
+    /** for firebase use **/
+    public Manager() {
+        super("", "", "", null);
+    }
+
     /**
      * Add data of any location
      *

@@ -7,6 +7,10 @@ public class Admin extends User {
         super(email, username, password);
     }
 
+    public Admin() {
+        super("", "", "");
+    }
+
     /**
      * lock/unlock an user account
      * @param user user whom will be locked/unlocked

@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -105,10 +106,93 @@ public class Model {
      * load accounts from database
      */
     private void loadAccount() {
-            User test = new User("test@test.com", "test", "test");
-            Admin admin = new Admin("admin@admin.com", "admin", "admin");
-            accounts.add(test);
-            accounts.add(admin);
+        db = FirebaseFirestore.getInstance();
+        //get users
+        CollectionReference dr = db.collection("Users").document("user").collection("Accounts");
+        dr.get().
+                addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                                User user = documentSnapshot.toObject(User.class);
+                                accounts.add(user);
+                                Log.d("ModelAcc", user.toString());
+                            }
+                        } else {
+                            Log.d("ModelAcc", "Load failed");
+                        }
+                    }
+                });
+        //get LEs
+        dr = db.collection("Users").document("locationEmployee").collection("Accounts");
+        dr.get().
+                addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                                LocationEmployee le = new LocationEmployee();
+                                le.setHasLocation(false);
+                                le.setCounter((int)documentSnapshot.get("counter"));
+                                le.setEmail((String)documentSnapshot.get("email"));
+                                le.setId((int)documentSnapshot.get("id"));
+                                le.setPassword((String)documentSnapshot.get("password"));
+                                le.setName((String)documentSnapshot.get("name"));
+                                le.setIsLocked((boolean)documentSnapshot.get("isLocked"));
+                                for (Locations l : locations) {
+                                    if (l.getReference() == documentSnapshot.get("location")) {
+                                        le.setLocation(l);
+                                        le.setHasLocation(true);
+                                        break;
+                                    }
+                                }
+                                accounts.add(le);
+                                Log.d("ModelAcc", le.toString());
+                            }
+                        } else {
+                            Log.d("ModelAcc", "Load failed");
+                        }
+                    }
+                });
+        //get manager
+        dr = db.collection("Users").document("manager").collection("Accounts");
+        dr.get().
+                addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                                Manager manager = documentSnapshot.toObject(Manager.class);
+                                accounts.add(manager);
+                                Log.d("ModelAcc", manager.toString());
+                            }
+                        } else {
+                            Log.d("ModelAcc", "Load failed");
+                        }
+                    }
+                });
+        //get admin
+        dr = db.collection("Users").document("admin").collection("Accounts");
+        dr.get().
+                addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                                Admin admin = documentSnapshot.toObject(Admin.class);
+                                accounts.add(admin);
+                                Log.d("ModelAcc", admin.toString());
+                            }
+                        } else {
+                            Log.d("ModelAcc", "Load failed");
+                        }
+                    }
+                });
+        User test = new User("test@test.com", "test", "test");
+        Admin admin = new Admin("admin@admin.com", "admin", "admin");
+        accounts.add(test);
+        accounts.add(admin);
     }
 
     /**
@@ -151,6 +235,29 @@ public class Model {
             itemAsMap.put("quantity", item.getQuantity());
             item.getReference().set(itemAsMap);
         }
+    }
+
+    public void pushAccountToDatabase(User user) {
+        String type;
+        if (currentUser instanceof Admin)
+            type = "admin";
+        else if (currentUser instanceof Manager)
+            type = "manager";
+        else if (currentUser instanceof LocationEmployee)
+            type = "locationEmployee";
+        else
+            type = "user";
+        Map<String, Object> userAsMap = new HashMap<>();
+        userAsMap.put("name", user.getName());
+        userAsMap.put("password", user.getPassword());
+        userAsMap.put("email", user.getEmail());
+        userAsMap.put("id", user.getId());
+        userAsMap.put("counter", user.getCounter());
+        userAsMap.put("isLocked", user.getIsLocked());
+        if (type.equals("locationEmployee")) {
+            userAsMap.put("location", ((LocationEmployee)user).getLocation().getReference());
+        }
+        db.collection("Users").document(type).collection("Accounts").add(userAsMap);
     }
 
     /**

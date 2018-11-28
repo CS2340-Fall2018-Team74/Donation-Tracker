@@ -65,5 +65,6 @@
     <string name="cancel">Cancel</string>
     <string name="details">Details</string>
     <string name="account_info">Account info</string>
+    <string name="sign_in_as_visitor">Sign in as Visitor</string>
 
 </resources>
