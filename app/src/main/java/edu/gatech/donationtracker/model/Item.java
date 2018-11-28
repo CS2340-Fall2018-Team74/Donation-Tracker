@@ -11,18 +11,17 @@ import com.google.firebase.firestore.DocumentReference;
  */
 public class Item implements Comparable<Item>, Parcelable {
 
-    private String url;
+    private String uri;
     private String name;
     private String id;
     private String category;
     private int quantity;
-    private Location location;
+    private Locations location;
     DocumentReference reference;
 
-
-
-    public Item(String url, String name, String id, String category, int quantity, Location location) {
-        this.url = url;
+    /** constructor **/
+    public Item(String uri, String name, String id, String category, int quantity, Locations location) {
+        this.uri = uri;
         this.name = name;
         this.id = id;
         this.category = category;
@@ -30,18 +29,20 @@ public class Item implements Comparable<Item>, Parcelable {
         this.location = location;
     }
 
+    /** default constructor **/
     public Item() {
-        this("Enter url", "Enter name: ", "Enter id: ", "Enter category: ", 0, null);
+        this("Enter uri", "Enter name: ", "Enter id: ", "Enter category: ", 0, null);
     }
 
     protected Item(Parcel in) {
-        url = in.readString();
+        uri = in.readString();
         name = in.readString();
         id = in.readString();
         category = in.readString();
         quantity = in.readInt();
     }
 
+    /** creator method for Parcel **/
     public static final Creator<Item> CREATOR = new Creator<Item>() {
         @Override
         public Item createFromParcel(Parcel in) {
@@ -77,7 +78,7 @@ public class Item implements Comparable<Item>, Parcelable {
         this.quantity -= quantity;
     }
 
-    /** getter */
+    /** getter/setter */
     public int getQuantity() {
         return quantity;
     }
@@ -85,58 +86,71 @@ public class Item implements Comparable<Item>, Parcelable {
     /** toString of this object */
     @Override
     public String toString() {
-        return url + " - " + category + " - " + " id: " + id + " - " + name + " x" + quantity;
+        return uri + " - " + category + " - " + " id: " + id + " - " + name + " x" + quantity;
     }
 
-    public String getUrl() {
-        return url;
+    /** getter/setter */
+    public String getUri() {
+        return uri;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    /** getter/setter */
+    public void setUri(String uri) {
+        this.uri = uri;
     }
 
+    /** getter/setter */
     public String getName() {
         return name;
     }
 
+    /** getter/setter */
     public void setName(String name) {
         this.name = name;
     }
 
+    /** getter/setter */
     public String getId() {
         return id;
     }
 
+    /** getter/setter */
     public void setId(String id) {
         this.id = id;
     }
 
+    /** getter/setter */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
+    /** getter/setter */
     public String getCategory() {
         return category;
     }
 
+    /** getter/setter */
     public void setCategory(String category) {
         this.category = category;
     }
 
+    /** getter/setter */
     public DocumentReference getReference() {
         return reference;
     }
 
+    /** getter/setter */
     public void setReference(DocumentReference reference) {
         this.reference = reference;
     }
 
-    public Location getLocation() {
+    /** getter/setter */
+    public Locations getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    /** getter/setter */
+    public void setLocation(Locations location) {
         this.location = location;
     }
 
@@ -147,7 +161,7 @@ public class Item implements Comparable<Item>, Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(url);
+        dest.writeString(uri);
         dest.writeString(name);
         dest.writeString(id);
         dest.writeString(category);

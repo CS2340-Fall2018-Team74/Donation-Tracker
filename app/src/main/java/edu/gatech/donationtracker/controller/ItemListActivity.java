@@ -24,7 +24,7 @@ public class ItemListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
-        FloatingActionButton add = (FloatingActionButton) findViewById(R.id.item_list_edit);
+        FloatingActionButton add = findViewById(R.id.item_list_edit);
         //when searching or user type is user, we hide add button
         if(Model.getInstance().getLocations() == null || Model.getInstance().getCurrentUserType() < 1) {
             add.hide();
@@ -64,7 +64,7 @@ public class ItemListActivity extends AppCompatActivity {
      * This inner class is our custom adapter.  It takes our basic model information and
      * converts it to the correct layout for this view.
      *
-     * In this case, we are just mapping the toString of the Location object to a text field.
+     * In this case, we are just mapping the toString of the Locations object to a text field.
      */
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
@@ -107,7 +107,7 @@ public class ItemListActivity extends AppCompatActivity {
             holder.mItem = mItems.get(position);
             /*
               Now we bind the data to the widgets.  In this case, pretty simple, put the id in one
-              textview and the string rep of a location in the other.
+              textView and the string rep of a location in the other.
              */
             holder.mCategoryView.setText(mItems.get(position).getCategory());
             holder.mNameView.setText(mItems.get(position).getName());
@@ -149,6 +149,7 @@ public class ItemListActivity extends AppCompatActivity {
             public final TextView mQuantityView;
             public Item mItem;
 
+            /** constructor **/
             public ViewHolder(View view) {
                 super(view);
                 mView = view;

@@ -8,37 +8,48 @@
     tools:context=".controller.SignOutActivity">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/account_info"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/name_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
         android:text="@string/name_textView"
-        android:textColor="@android:color/black"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp" />
 
     <TextView
         android:id="@+id/location_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="16dp"
         android:text="@string/location_textView"
-        android:textColor="@android:color/black"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp" />
 
 
     <Button
         android:id="@+id/button_signOut_SO"
         style="?android:textAppearanceSmall"
-        android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:layout_marginTop="340dp"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="300dp"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:text="@string/log_out"
-        android:textColor="@android:color/background_light"
+        android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
-        app:cornerRadius="20dp" />
+        app:cornerRadius="10dp" />
 
 
 </LinearLayout>

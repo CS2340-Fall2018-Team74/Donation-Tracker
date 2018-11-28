@@ -1,13 +1,12 @@
 package edu.gatech.donationtracker.controller;
 
 import android.content.Intent;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -22,7 +21,6 @@ import edu.gatech.donationtracker.model.Model;
 public class DashboardActivity extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,30 +29,31 @@ public class DashboardActivity extends AppCompatActivity {
         //Set up location list spinner
         final Spinner searchLocationSpinner = findViewById(R.id.search_location_spinner);
         List<String> locationList = Model.getInstance().getLocationsAsString();
-        locationList.add(0, "All Location");
+        locationList.add(0, "All Locations");
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locationList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         searchLocationSpinner.setAdapter(adapter);
 
         //Set up search
         ImageButton searchButton = findViewById(R.id.search_item_button);
-        final EditText searchField = findViewById(R.id.search_item);
+        final TextInputEditText searchField = findViewById(R.id.search_item);
         final CheckBox categoryChecker = findViewById(R.id.search_item_category);
         final CheckBox nameChecker = findViewById(R.id.search_item_name);
 
-        Button buttonSettings = findViewById(R.id.button_settings_DB);
+        ImageButton buttonSettings = findViewById(R.id.button_settings_DB);
 
-        Button location = findViewById(R.id.location);
+        ImageButton location = findViewById(R.id.location_list);
+        ImageButton maps = findViewById(R.id.maps);
 
         //display current user type
-        TextView accountType = (TextView) findViewById(R.id.dashboard_account_type);
+        TextView accountType = findViewById(R.id.dashboard_account_type);
         accountType.setText(Model.getInstance().getCurrentUserTypeAsString());
 
         //jump to item list layout
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!categoryChecker.isChecked() && !nameChecker.isChecked() ) {
+                if (!categoryChecker.isChecked() && !nameChecker.isChecked()) {
                     Toast.makeText(DashboardActivity.this, "Please select the type to search!", Toast.LENGTH_SHORT).show();
                     return;
                 } else if (searchField.getText().length() == 0) {
@@ -119,6 +118,13 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DashboardActivity.this, LocationListActivity.class);
+                startActivity(intent);
+            }
+        });
+        maps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashboardActivity.this, MapsActivity.class);
                 startActivity(intent);
             }
         });

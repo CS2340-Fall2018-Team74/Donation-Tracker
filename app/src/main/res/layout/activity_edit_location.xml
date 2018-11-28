@@ -6,50 +6,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    tools:context=".controller.EditItemActivity"
+    tools:context=".controller.EditLocationActivity"
     tools:layout_editor_absoluteY="25dp">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/edit_item_category"
         style="@style/textBox"
         android:layout_width="330dp"
-        android:layout_height="53dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:hint="@string/enter_category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@id/app_name">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_item_category_SU"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Category"
-            android:textColor="@color/colorPrimaryDark" />
+            android:hint="@string/enter_category" />
 
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/edit_item_name"
-        style="@style/textBox"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_item_category">
+        app:layout_constraintTop_toBottomOf="@id/edit_item_category"
+        style="@style/textBox">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/edit_item_name_SU"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
-            android:textColor="@color/colorPrimaryDark" />
+            android:hint="@string/enter_name" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -57,7 +54,7 @@
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,8 +65,7 @@
             android:id="@+id/edit_item_quantity_SU"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Amount"
-            android:textColor="@color/colorPrimaryDark" />
+            android:hint="@string/enter_quantity" />
     </android.support.design.widget.TextInputLayout>
 
 
@@ -78,15 +74,11 @@
         android:layout_width="330dp"
         android:layout_height="44dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:hint="Uri"
-        android:importantForAutofill="no"
-        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_item_quantity"
-        tools:ignore="TextFields">
+        app:layout_constraintTop_toBottomOf="@id/edit_item_quantity">
 
     </EditText>
 
@@ -96,12 +88,10 @@
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Upload Image"
-        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/update_image"
         android:textSize="16sp"
-        app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_item_uri" />
@@ -112,12 +102,10 @@
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Done"
-        android:textColor="@color/colorPrimaryDark"
+        android:text="@android:string/ok"
         android:textSize="16sp"
-        app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_item_update" />

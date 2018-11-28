@@ -33,11 +33,11 @@ public class SignUpActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        nameField = (EditText)findViewById(R.id.name_SU);
-        emailField = (EditText)findViewById(R.id.email_SU);
-        passwordField = (EditText)findViewById(R.id.password_SU);
-        confirmPasswordField =(EditText) findViewById(R.id.confirm_password_SU);
-        accountTypeSpinner = (Spinner) findViewById(R.id.spinner_SU);
+        nameField = findViewById(R.id.name_SU);
+        emailField = findViewById(R.id.email_SU);
+        passwordField = findViewById(R.id.password_SU);
+        confirmPasswordField = findViewById(R.id.confirm_password_SU);
+        accountTypeSpinner = findViewById(R.id.spinner_SU);
 
         /*
           Set up the adapter to display the allowable majors in the spinner

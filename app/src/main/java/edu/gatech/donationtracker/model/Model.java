@@ -18,21 +18,23 @@ import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-/** firestore database https://console.firebase.google.com/project/donation-tracker-bed83/database/firestore/data~2FLocations~2F4G9dqBJsGOlT4lVlVeld */
+/** fireStore database https://console.firebase.google.com/project/donation-tracker-bed83/database/firestore/data~2FLocations~2F4G9dqBJsGOlT4lVlVeld */
 
 public class Model {
     private static  Model instance = new Model();
+    private static List<Item> filteredItems;
+
     public static Model getInstance() { return instance; }
-    public static FirebaseFirestore db;
+    public FirebaseFirestore db;
 
-    private List<Location> locations;
+    private static List<Locations> locations;
     private List<User> accounts;
-    private List<Item> filteredItems;
 
-    private Location currentLocation;
+    private Locations currentLocation;
     private User currentUser;
     private Item currentItem;
 
+    /** constructor **/
     private Model () {
         locations = new ArrayList<>();
         loadLocation();
@@ -59,7 +61,7 @@ public class Model {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (DocumentSnapshot documentSnapshot : task.getResult()) {
-                                Location location = documentSnapshot.toObject(Location.class);
+                                Locations location = documentSnapshot.toObject(Locations.class);
                                 location.setReference(documentSnapshot.getReference());
                                 locations.add(location);
                                 loadItem(location, documentSnapshot);
@@ -75,7 +77,7 @@ public class Model {
     /**
      * load Items at each location from database
      */
-    private void loadItem(final Location location, DocumentSnapshot locationSnapshot) {
+    private void loadItem(final Locations location, DocumentSnapshot locationSnapshot) {
         locationSnapshot.getReference().collection("Items").
                 get().
                 addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -99,6 +101,9 @@ public class Model {
                 });
     }
 
+    /**
+     * load accounts from database
+     */
     private void loadAccount() {
             User test = new User("test@test.com", "test", "test");
             Admin admin = new Admin("admin@admin.com", "admin", "admin");
@@ -106,10 +111,14 @@ public class Model {
             accounts.add(admin);
     }
 
+    /**
+     * push new item to database
+     * @param items item that will be uploaded
+     */
     public void pushNewItemToDatabase(Item... items) {
         for (Item item : items) {
             Map<String, Object> itemAsMap = new HashMap<>();
-            itemAsMap.put("url", item.getUrl());
+            itemAsMap.put("url", item.getUri());
             itemAsMap.put("id", item.getId());
             itemAsMap.put("name", item.getName());
             itemAsMap.put("category", item.getCategory());
@@ -128,10 +137,14 @@ public class Model {
         }
     }
 
+    /**
+     * push a change to item to database
+     * @param items items that will be changed and pushed to database
+     */
     public void pushEditedItemToDatabase(Item... items) {
         for (Item item : items) {
             Map<String, Object> itemAsMap = new HashMap<>();
-            itemAsMap.put("url", item.getUrl());
+            itemAsMap.put("url", item.getUri());
             itemAsMap.put("id", item.getId());
             itemAsMap.put("name", item.getName());
             itemAsMap.put("category", item.getCategory());
@@ -140,12 +153,21 @@ public class Model {
         }
     }
 
+    /**
+     * delete an item in database
+     * @param items items that will be deleted
+     */
     public void deleteItemInDatabase(Item... items) {
         for (Item item : items) {
             item.getReference().delete();
         }
     }
 
+    /**
+     * filter the item list with a category keyword
+     * @param array array that will be filtered
+     * @param keyword keyword that filters array
+     */
     public void filterCategory(List<Item> array, final String keyword) {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
@@ -155,7 +177,12 @@ public class Model {
         }).collect(Collectors.<Item>toList());
     }
 
-    public void filterName(List<Item> array, final String keyword) {
+    /**
+     * filter the item list with a name keyword
+     * @param array array that will be filtered
+     * @param keyword keyword that filters array
+     */
+    public static void filterName(List<Item> array, final String keyword) {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
             public boolean test(Item item) {
@@ -164,6 +191,11 @@ public class Model {
         }).collect(Collectors.<Item>toList());
     }
 
+    /**
+     * filter the item list with a keyword that filter both name and category
+     * @param array array that will be filtered
+     * @param keyword keyword that filters array
+     */
     public void filterBoth(List<Item> array, final String keyword) {
         filteredItems = array.stream().filter(new Predicate<Item>() {
             @Override
@@ -174,42 +206,69 @@ public class Model {
         }).collect(Collectors.<Item>toList());
     }
 
-    public boolean addLocation(Location location) {
+    /**
+     * add a location to model
+     * @param location location that will be added
+     * @return true is success false otherwise
+     */
+    public boolean addLocation(Locations location) {
         return locations.add(location);
     }
 
-    public boolean removeLocation(Location location) {
+    /**
+     * remove a location to model
+     * @param location location that will be removed
+     * @return true is success false otherwise
+     */
+    public boolean removeLocation(Locations location) {
         return locations.add(location);
     }
 
+    /**
+     * add a user to model
+     * @param user user that will be added
+     * @return true is success false otherwise
+     */
     public boolean addAccount(User user) {
         return accounts.add(user);
     }
 
+    /**
+     * remove a user to model
+     * @param user user that will be removed
+     * @return true is success false otherwise
+     */
     public boolean removeAccount(User user) {
         return accounts.remove(user);
     }
 
-    public Location getCurrentLocation() { return currentLocation;}
+    /** getter/setter */
+    public Locations getCurrentLocation() { return currentLocation;}
 
-    public void setCurrentLocation(Location location) { currentLocation = location; }
+    /** getter/setter */
+    public void setCurrentLocation(Locations location) { currentLocation = location; }
 
+    /** getter/setter */
     public User getCurrentUser() {
         return currentUser;
     }
 
+    /** getter/setter */
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
     }
 
+    /** getter/setter */
     public Item getCurrentItem() {
         return currentItem;
     }
 
+    /** getter/setter */
     public void setCurrentItem(Item currentItem) {
         this.currentItem = currentItem;
     }
 
+    /** getter/setter */
     public List<Item> getFilteredItems() { return filteredItems; }
 
     /**
@@ -241,7 +300,7 @@ public class Model {
             case 0:
                 return "User";
             case 1:
-                return "Location Employee";
+                return "Locations Employee";
             case 2:
                 return "Manager";
             case 3:
@@ -251,25 +310,47 @@ public class Model {
         }
     }
 
+    /** getter/setter */
     public List<User> getAccounts() {
         return accounts;
     }
 
-    public List<Location> getLocations() {
+    /** getter/setter */
+    public List<Locations> getLocations() {
         return locations;
     }
 
+    /**
+     * get longitude and latitude for all locations as a map
+     * @return a map contains all locations' longitude and latitude
+     */
+    public static Map<String, Locations> getLongitudeLatitude() {
+        Map<String, Locations> map = new HashMap<String, Locations>();
+        for (Locations l : locations) {
+            map.put(l.getName(), l);
+        }
+        return map;
+    }
+
+    /**
+     * get a list contain all locations' name
+     * @return a list of all locations' name
+     */
     public List<String> getLocationsAsString() {
         List<String> locationsAsString = new ArrayList<>();
-        for (Location l : locations) {
+        for (Locations l : locations) {
             locationsAsString.add(l.getName());
         }
         return locationsAsString;
     }
 
+    /**
+     * get all items in all locations
+     * @return a list of all items
+     */
     public List<Item> getAllItems() {
         ArrayList<Item> items = new ArrayList<>();
-        for (Location l : locations) {
+        for (Locations l : locations) {
             for (Item i : l.getInventory()) {
                 items.add(i);
             }

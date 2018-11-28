@@ -7,12 +7,16 @@ public class Admin extends User {
         super(email, username, password);
     }
 
-    public void LockAccount(User user) {
-        user.setIsLocked(true);
-    }
-
-    public void UnlockAccount(User user) {
-        user.setIsLocked(false);
+    /**
+     * lock/unlock an user account
+     * @param user user whom will be locked/unlocked
+     */
+    public void lockAccount(User user) {
+        if (user != null) {
+            user.setIsLocked(!user.getIsLocked());
+        } else {
+            throw new IllegalArgumentException("user is null");
+        }
     }
 
     /**

@@ -19,7 +19,7 @@ import java.util.List;
 public class User implements Parcelable {
 
     /** all user types */
-    public static List<String> legalType = Arrays.asList("User", "Location Employee", "Manager", "Admin");
+    public static List<String> legalType = Arrays.asList("User", "Locations Employee", "Manager", "Admin");
 
     /** this User's name */
     private String name;
@@ -42,7 +42,12 @@ public class User implements Parcelable {
     /** this User's password counter */
     private int counter;
 
-    /** User constructor*/
+    /**
+     * constructor
+     * @param email email of the User
+     * @param username username of the User
+     * @param password password of the User
+     */
     public User(String email, String username, String password) {
         this.name = username;
         this.password = password;
@@ -64,6 +69,10 @@ public class User implements Parcelable {
         return name;
     }
 
+    /**
+     *
+     * @param _name
+     */
     public void setName(String _name) {
         this.name = _name;
     }

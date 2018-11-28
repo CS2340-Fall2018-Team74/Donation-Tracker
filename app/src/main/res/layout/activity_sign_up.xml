@@ -22,13 +22,14 @@
 
     <TextView
         android:id="@+id/app_name"
-        android:layout_width="251dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
-        android:text="Donation Tracker"
+        android:text="@string/app_name"
         android:textAlignment="center"
+        android:textAllCaps="true"
         android:textColor="@color/title"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -53,7 +54,9 @@
             android:id="@+id/name_SU"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/prompt_name" />
+            android:hint="@string/prompt_name"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -73,8 +76,9 @@
             android:id="@+id/email_SU"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/prompt_email"
             android:inputType="textEmailAddress"
-            android:hint="@string/prompt_email" />
+            android:textColor="@color/colorPrimaryDark" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -93,8 +97,9 @@
             android:id="@+id/password_SU"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/prompt_password"
             android:inputType="textPassword"
-            android:hint="@string/prompt_password"/>
+            android:textColor="@color/colorPrimaryDark" />
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout5"
@@ -112,8 +117,9 @@
             android:id="@+id/confirm_password_SU"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/prompt_conf_password"
             android:inputType="textPassword"
-            android:hint="@string/prompt_conf_password"/>
+            android:textColor="@color/colorPrimaryDark" />
     </android.support.design.widget.TextInputLayout>
 
     <Spinner
@@ -130,33 +136,32 @@
     <Button
         android:id="@+id/button_signUp_SU"
         android:layout_width="330dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/action_sign_up"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
         app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_cancel_SU"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_SU"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_SU" />
 
     <Button
         android:id="@+id/button_cancel_SU"
         android:layout_width="330dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="68dp"
         android:text="@string/action_cancel_SU"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_SU"
-        app:layout_constraintVertical_bias="0.486" />
+        app:layout_constraintTop_toBottomOf="@+id/button_signUp_SU" />
 </android.support.constraint.ConstraintLayout>

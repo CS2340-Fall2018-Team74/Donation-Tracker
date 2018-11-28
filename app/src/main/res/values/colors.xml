@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#CBD1D9</color>
     <color name="colorPrimaryDark">#5A7392</color>
     <color name="colorAccent">#CBD1D9</color>
     <color name="pop">#FEDE0F</color>
-    <color name="background">#F7F8FD</color>
+    <color name="background" tools:ignore="UnusedResources">#f4f5fa</color>
     <color name="title">#5A7392</color>
 </resources>

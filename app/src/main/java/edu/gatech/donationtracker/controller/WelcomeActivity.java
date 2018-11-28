@@ -23,6 +23,7 @@ public class WelcomeActivity extends AppCompatActivity {
         Model.getInstance();
         Button buttonSignIn = findViewById(R.id.button_signIn_Wel);
         Button buttonSignUp = findViewById(R.id.button_signUp_Wel);
+        Button buttonVisitor = findViewById(R.id.button_visitor_wel);
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,8 +35,15 @@ public class WelcomeActivity extends AppCompatActivity {
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(WelcomeActivity.this, SignUpActivity.class);
-                startActivity(intent1);
+                Intent intent = new Intent(WelcomeActivity.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+        buttonVisitor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WelcomeActivity.this, DashboardActivity.class);
+                startActivity(intent);
             }
         });
     }

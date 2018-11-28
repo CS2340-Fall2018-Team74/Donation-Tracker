@@ -9,13 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -41,23 +37,22 @@ public class EditItemActivity extends AppCompatActivity {
     Uri uriImage;
     private static final int Selected = 100;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_item);
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
-        categoryField = (EditText) findViewById(R.id.edit_item_category_SU);
-        nameField = (EditText) findViewById(R.id.edit_item_name_SU);
-        quantityField = (EditText) findViewById(R.id.edit_item_quantity_SU);
-        urlField = (EditText) findViewById(R.id.edit_item_uri);
+        categoryField = findViewById(R.id.edit_item_category_SU);
+        nameField = findViewById(R.id.edit_item_name_SU);
+        quantityField = findViewById(R.id.edit_item_quantity_SU);
+        urlField = findViewById(R.id.edit_item_uri);
         update_image = findViewById(R.id.edit_item_update);
-        ok = (Button) findViewById(R.id.edit_item_ok);
+        ok = findViewById(R.id.edit_item_ok);
 
         final Item currentItem = Model.getInstance().getCurrentItem();
         if (currentItem != null) {
-            urlField.setText(currentItem.getUrl());
+            urlField.setText(currentItem.getUri());
             categoryField.setText(currentItem.getCategory());
             nameField.setText(currentItem.getName());
             quantityField.setText(String.valueOf(currentItem.getQuantity()));
@@ -88,7 +83,7 @@ public class EditItemActivity extends AppCompatActivity {
                     Model.getInstance().pushNewItemToDatabase(newItem);
                     //edit current item
                 } else {
-                    currentItem.setUrl(imageUrl);
+                    currentItem.setUri(imageUrl);
                     currentItem.setCategory(category);
                     currentItem.setName(name);
                     currentItem.setQuantity(quantity);
@@ -101,6 +96,9 @@ public class EditItemActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Pops up choose image screen
+     */
     public void ChooseImage() {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
@@ -114,12 +112,15 @@ public class EditItemActivity extends AppCompatActivity {
             case Selected:
                 if (resultCode == RESULT_OK) {
                     uriImage = imageReturnedIntent.getData();
-                    UploadFoto();
+                    uploadPhoto();
                 }
         }
     }
 
-    public void UploadFoto() {
+    /**
+     * Upload the chosen image to database
+     */
+    public void uploadPhoto() {
 
         String postItemImageID = Model.getInstance().getCurrentItem().getId();
         String postLocationID = Model.getInstance().getCurrentLocation().getKey();
