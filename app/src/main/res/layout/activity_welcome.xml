@@ -10,6 +10,24 @@
     tools:ignore="Overdraw">
 
     <Button
+        android:id="@+id/button_forget_wel"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/forget_password"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_visitor_wel"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <Button
         android:id="@+id/button_visitor_wel"
         android:layout_width="210dp"
         android:layout_height="50dp"
@@ -22,10 +40,10 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_name"
-        app:layout_constraintVertical_bias="0.308" />
+        app:layout_constraintVertical_bias="0.377" />
 
     <TextView
         android:id="@+id/app_name"

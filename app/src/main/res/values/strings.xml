@@ -66,5 +66,8 @@
     <string name="details">Details</string>
     <string name="account_info">Account info</string>
     <string name="sign_in_as_visitor">Sign in as Visitor</string>
+    <string name="forget_password">forget password?</string>
+    <string name="email">Email</string>
+    <string name="send_reset_link_to_this_email">send reset link to this email</string>
 
 </resources>

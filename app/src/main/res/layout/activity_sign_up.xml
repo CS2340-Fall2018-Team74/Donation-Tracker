@@ -134,7 +134,7 @@
         app:layout_constraintTop_toBottomOf="@id/textInputLayout5" />
 
     <Button
-        android:id="@+id/button_signUp_SU"
+        android:id="@+id/button_reset_pass"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -163,5 +163,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_signUp_SU" />
+        app:layout_constraintTop_toBottomOf="@+id/button_reset_pass" />
 </android.support.constraint.ConstraintLayout>

@@ -2,17 +2,15 @@ package edu.gatech.donationtracker.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.google.firebase.auth.FirebaseAuth;
 
 import edu.gatech.donationtracker.R;
 import edu.gatech.donationtracker.model.Admin;
@@ -39,6 +37,8 @@ public class SignUpActivity extends AppCompatActivity  {
         confirmPasswordField = findViewById(R.id.confirm_password_SU);
         accountTypeSpinner = findViewById(R.id.spinner_SU);
 
+        FirebaseAuth fa = FirebaseAuth.getInstance();
+
         /*
           Set up the adapter to display the allowable majors in the spinner
          */
@@ -46,7 +46,7 @@ public class SignUpActivity extends AppCompatActivity  {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountTypeSpinner.setAdapter(adapter);
 
-        Button buttonSignUp = findViewById(R.id.button_signUp_SU);
+        Button buttonSignUp = findViewById(R.id.button_reset_pass);
         Button buttonCancel = findViewById(R.id.button_cancel_SU);
 
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +65,7 @@ public class SignUpActivity extends AppCompatActivity  {
                 } else if (!password.equals(confirmPassword)) {
                     Toast.makeText(SignUpActivity.this, "The two passwords you entered don't match.",
                             Toast.LENGTH_SHORT).show();
-                } else {passwordCheck = true;}
+                } else if (email.contains("@") && email.contains(".")) {passwordCheck = true;}
 
                 for (User u : Model.getInstance().getAccounts()){
                     if (u.getEmail().equals(email)){
@@ -96,6 +96,7 @@ public class SignUpActivity extends AppCompatActivity  {
                     Model.getInstance().addAccount(newAccount);
                     Model.getInstance().pushAccountToDatabase(newAccount);
                     Model.getInstance().setCurrentUser(newAccount);
+                    fa.createUserWithEmailAndPassword(email, password);
                     Intent intent = new Intent(SignUpActivity.this, DashboardActivity.class);
                     startActivity(intent);
                 }

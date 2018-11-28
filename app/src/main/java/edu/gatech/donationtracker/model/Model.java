@@ -149,7 +149,6 @@ public class Model {
                                 le.setIsLocked((boolean)documentSnapshot.get("isLocked"));
                                 for (Locations l : locations) {
                                     String key = (String)documentSnapshot.get("location");
-                                    Log.d("CompareKey", key + " = " + l.getKey());
                                     if (l.getKey().equals(key)) {
                                         le.setLocation(l);
                                         le.setHasLocation(true);

@@ -36,7 +36,6 @@ public class SignOutActivity extends AppCompatActivity {
             locationField.setText(location);
         }
 
-        //Jump to sign in layout when button clicked.
         final Button buttonSignOut = findViewById(R.id.button_signOut_SO);
         buttonSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
