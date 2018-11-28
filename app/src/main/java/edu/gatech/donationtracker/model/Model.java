@@ -39,6 +39,13 @@ public class Model {
     private Model () {
         locations = new ArrayList<>();
         loadLocation();
+        //try to sleep for 100 milliseconds to load locations first,
+        //otherwise LE's location will not be loaded correctly
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            Log.d("ModelLocation", "sleep failed");
+        }
         accounts = new ArrayList<>();
         loadAccount();
         filteredItems = new ArrayList<>();
@@ -134,14 +141,16 @@ public class Model {
                             for (DocumentSnapshot documentSnapshot : task.getResult()) {
                                 LocationEmployee le = new LocationEmployee();
                                 le.setHasLocation(false);
-                                le.setCounter((int)documentSnapshot.get("counter"));
+                                le.setCounter(Math.toIntExact((long)documentSnapshot.get("counter")));
                                 le.setEmail((String)documentSnapshot.get("email"));
-                                le.setId((int)documentSnapshot.get("id"));
+                                le.setId(Math.toIntExact((long)documentSnapshot.get("id")));
                                 le.setPassword((String)documentSnapshot.get("password"));
                                 le.setName((String)documentSnapshot.get("name"));
                                 le.setIsLocked((boolean)documentSnapshot.get("isLocked"));
                                 for (Locations l : locations) {
-                                    if (l.getReference() == documentSnapshot.get("location")) {
+                                    String key = (String)documentSnapshot.get("location");
+                                    Log.d("CompareKey", key + " = " + l.getKey());
+                                    if (l.getKey().equals(key)) {
                                         le.setLocation(l);
                                         le.setHasLocation(true);
                                         break;
@@ -189,10 +198,6 @@ public class Model {
                         }
                     }
                 });
-        User test = new User("test@test.com", "test", "test");
-        Admin admin = new Admin("admin@admin.com", "admin", "admin");
-        accounts.add(test);
-        accounts.add(admin);
     }
 
     /**
@@ -239,11 +244,11 @@ public class Model {
 
     public void pushAccountToDatabase(User user) {
         String type;
-        if (currentUser instanceof Admin)
+        if (user instanceof Admin)
             type = "admin";
-        else if (currentUser instanceof Manager)
+        else if (user instanceof Manager)
             type = "manager";
-        else if (currentUser instanceof LocationEmployee)
+        else if (user instanceof LocationEmployee)
             type = "locationEmployee";
         else
             type = "user";
@@ -255,7 +260,7 @@ public class Model {
         userAsMap.put("counter", user.getCounter());
         userAsMap.put("isLocked", user.getIsLocked());
         if (type.equals("locationEmployee")) {
-            userAsMap.put("location", ((LocationEmployee)user).getLocation().getReference());
+            userAsMap.put("location", ((LocationEmployee)user).getLocation().getKey());
         }
         db.collection("Users").document(type).collection("Accounts").add(userAsMap);
     }
