@@ -19,7 +19,7 @@ import java.util.List;
 public class User implements Parcelable {
 
     /** all user types */
-    public static List<String> legalType = Arrays.asList("User", "Locations Employee", "Manager", "Admin");
+    public static List<String> legalType = Arrays.asList("Sign up as:", "User", "Locations Employee", "Manager", "Admin");
 
     /** this User's name */
     private String name;

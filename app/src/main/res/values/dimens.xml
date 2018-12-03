@@ -8,6 +8,6 @@
     <dimen name="text_margin">10dp</dimen>
     <!-- Height of each list item -->
     <dimen name="list_item_height" tools:ignore="UnusedResources">88dp</dimen>
-
-
+    <dimen name="corner_radius">5dp</dimen>
+    <dimen name="button_height">55dp</dimen>
 </resources>

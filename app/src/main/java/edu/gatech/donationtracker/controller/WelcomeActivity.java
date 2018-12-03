@@ -19,7 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
         Button buttonSignIn = findViewById(R.id.button_signIn_Wel);
         Button buttonSignUp = findViewById(R.id.button_signUp_Wel);
         Button buttonVisitor = findViewById(R.id.button_visitor_wel);
-        Button buttonForget = findViewById(R.id.button_forget_wel);
+
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,12 +43,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        buttonForget.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this, ResetPasswordActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 }

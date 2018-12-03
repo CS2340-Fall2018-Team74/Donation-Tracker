@@ -6,44 +6,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:layout_editor_absoluteY="81dp"
-    tools:ignore="Overdraw">
+    tools:ignore="Overdraw"
+    tools:layout_editor_absoluteY="81dp">
 
-    <Button
-        android:id="@+id/button_forget_wel"
-        android:layout_width="230dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/forget_password"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_visitor_wel"
-        app:layout_constraintVertical_bias="0.061" />
 
     <Button
         android:id="@+id/button_visitor_wel"
         android:layout_width="210dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginBottom="126dp"
         android:text="@string/sign_in_as_visitor"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
+        app:cornerRadius="@dimen/corner_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_name"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintTop_toBottomOf="@+id/button_signUp_Wel"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/app_name"
@@ -65,32 +48,35 @@
 
     <Button
         android:id="@+id/button_signIn_Wel"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
+        android:layout_width="210dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="38dp"
         android:text="@string/sign_in"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_signUp_Wel"
+        app:cornerRadius="@dimen/corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/button_signUp_Wel"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/app_name"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_name" />
 
     <Button
         android:id="@+id/button_signUp_Wel"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
+        android:layout_width="210dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="101dp"
         android:background="@color/colorPrimary"
         android:text="@string/sign_up"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cornerRadius="@dimen/corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/button_visitor_wel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_signIn_Wel"
-        app:layout_constraintTop_toBottomOf="@+id/app_name"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_signIn_Wel" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -106,6 +92,13 @@
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"

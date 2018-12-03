@@ -55,7 +55,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/prompt_email"
             android:inputType="textEmailAddress"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorPrimaryDark"
+            app:cornerRadius="15dp" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -76,41 +77,61 @@
             android:layout_height="wrap_content"
             android:hint="@string/prompt_password"
             android:inputType="textPassword"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorPrimaryDark"
+            app:cornerRadius="15dp" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/button_signIn_SI"
         android:layout_width="330dp"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/button_height"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:background="@color/colorPrimaryDark"
         android:text="@string/action_sign_in"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
-        app:cornerRadius="10dp"
+        app:cornerRadius="@dimen/corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/button_forget_wel"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
-        android:id="@+id/button_cancel_SI"
+        android:id="@+id/button_forget_wel"
         android:layout_width="330dp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/button_height"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:text="@string/forget_password"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        app:cornerRadius="@dimen/corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/button_cancel_SI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_signIn_SI" />
+
+    <Button
+        android:id="@+id/button_cancel_SI"
+        android:layout_width="330dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="151dp"
         android:background="@color/colorPrimaryDark"
         android:text="@string/action_cancel_SI"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
-        app:cornerRadius="10dp"
+        app:cornerRadius="@dimen/corner_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_signIn_SI"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/button_forget_wel" />
 </android.support.constraint.ConstraintLayout>
