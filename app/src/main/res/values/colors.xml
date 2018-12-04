@@ -6,4 +6,5 @@
     <color name="pop">#FEDE0F</color>
     <color name="background" tools:ignore="UnusedResources">#f4f5fa</color>
     <color name="title">#5A7392</color>
+    <color name="black">#000000</color>
 </resources>

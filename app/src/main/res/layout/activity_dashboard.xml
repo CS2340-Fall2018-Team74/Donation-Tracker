@@ -19,8 +19,8 @@
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/search_item"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
             android:hint="@string/enter_keyword"
             android:inputType="text"
             android:textColor="@color/colorPrimaryDark" />
@@ -32,8 +32,8 @@
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/profile"
         android:scaleType="fitCenter"
@@ -41,12 +41,16 @@
 
     <ImageButton
         android:id="@+id/maps"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="115dp"
+        android:layout_height="91dp"
         android:layout_below="@+id/search_location_spinner"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="284dp"
+        android:layout_marginTop="255dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="64dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/map_button"
         android:scaleType="fitCenter"
@@ -54,12 +58,16 @@
 
     <ImageButton
         android:id="@+id/location_list"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_below="@+id/search_location_spinner"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_toStartOf="@+id/maps"
+        android:layout_width="117dp"
+        android:layout_height="96dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="503dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="61dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/location_list_button"
         android:scaleType="fitCenter"
@@ -71,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button_settings_DB"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="5dp"
         android:text="@string/user"
         android:textAlignment="center" />
@@ -81,8 +89,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_bar"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="-13dp"
         android:layout_toStartOf="@+id/search_item_name"
         android:text="@string/category"
         android:textColor="@color/colorPrimaryDark" />
@@ -93,8 +103,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/search_bar"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="38dp"
         android:text="@string/name"
         android:textColor="@color/colorPrimaryDark" />
 
@@ -115,11 +125,37 @@
         android:id="@+id/search_location_spinner"
         android:layout_width="330dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/search_item_category"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="205dp"
+        android:layout_marginEnd="4dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="97dp"
+        android:text="@string/select_search_type"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="181dp"
+        android:text="Select location"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

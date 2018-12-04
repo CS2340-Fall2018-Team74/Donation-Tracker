@@ -154,6 +154,7 @@
         android:id="@+id/button_cancel_SU"
         android:layout_width="330dp"
         android:layout_height="@dimen/button_height"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="68dp"
         android:text="@string/action_cancel_SU"
@@ -162,6 +163,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_reset_pass" />
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

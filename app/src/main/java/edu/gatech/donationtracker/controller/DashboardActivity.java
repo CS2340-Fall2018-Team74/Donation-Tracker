@@ -29,6 +29,7 @@ public class DashboardActivity extends AppCompatActivity {
         //Set up location list spinner
         final Spinner searchLocationSpinner = findViewById(R.id.search_location_spinner);
         List<String> locationList = Model.getInstance().getLocationsAsString();
+//        locationList.add(0, "Select location");
         locationList.add(0, "All Locations");
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locationList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

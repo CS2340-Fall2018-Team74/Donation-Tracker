@@ -25,6 +25,7 @@
 
     <!-- Strings related to Dash Board -->
     <string name="detail" tools:ignore="UnusedResources">detail</string>
+    <string name="select_search_type">Select search type </string>
 
     <!-- Strings related to Welcome -->
     <string name="sign_in">sign in</string>
