@@ -56,7 +56,7 @@
 
     <!--Strings related to location list-->
     <string name="location_list_name" tools:ignore="UnusedResources">Location name</string>
-    <string name="location_list_type" tools:ignore="UnusedResources">Type</string>
+    <string name="location_list_type" tools:ignore="UnusedResources">Location type</string>
     <string name="title_activity_maps" tools:ignore="UnusedResources">Map</string>
     <string name="profile">profile</string>
     <string name="location_list_button">location_list_button</string>
@@ -70,5 +70,9 @@
     <string name="forget_password">forget password?</string>
     <string name="email">Email</string>
     <string name="send_reset_link_to_this_email">send reset link to this email</string>
+    <string name="location_address">Address</string>
+    <string name="location_phone">Phone</string>
+    <string name="location_website">Website</string>
+    <string name="location_name1">Location name</string>
 
 </resources>
