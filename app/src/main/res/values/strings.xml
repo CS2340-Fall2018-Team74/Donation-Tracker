@@ -69,10 +69,15 @@
     <string name="sign_in_as_visitor">Sign in as Visitor</string>
     <string name="forget_password">forget password?</string>
     <string name="email">Email</string>
-    <string name="send_reset_link_to_this_email">send reset link to this email</string>
+    <string name="send_reset_link_to_this_email">Reset password</string>
     <string name="location_address">Address</string>
     <string name="location_phone">Phone</string>
     <string name="location_website">Website</string>
     <string name="location_name1">Location name</string>
+    <string name="item_category">Category</string>
+    <string name="item_name">Item name</string>
+    <string name="item_quantity">Quantity</string>
+
+
 
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".controller.ItemDetailActivity">
 
     <ImageView
@@ -18,16 +19,17 @@
         android:layout_marginEnd="71dp"
         android:contentDescription="@string/todo" />
 
+
     <TextView
         android:id="@+id/item_detail_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/item_detail_image"
-        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="163dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="163dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@+id/textView9"
         android:text="@string/textView"
         tools:layout_editor_absoluteX="4dp"
         tools:layout_editor_absoluteY="40dp" />
@@ -37,11 +39,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/item_detail_category"
-        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="163dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="163dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toEndOf="@+id/textView13"
         android:text="@string/textView"
         tools:layout_editor_absoluteX="4dp"
         tools:layout_editor_absoluteY="145dp" />
@@ -51,27 +53,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/item_detail_name"
-        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="163dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="163dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toEndOf="@+id/textView14"
         android:text="@string/textView"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="89dp" />
 
     <Button
         android:id="@+id/item_detail_edit"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/item_detail_quantity"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="27dp"
+        android:layout_width="245dp"
+        android:layout_height="50dp"
 
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="428dp"
+        android:layout_marginEnd="83dp"
         android:text="@string/edit"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,15 +85,16 @@
 
     <Button
         android:id="@+id/item_detail_delete"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
+        android:layout_width="245dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/item_detail_edit"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="83dp"
         android:text="@string/delete"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -98,6 +103,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_detail_edit"
         app:layout_constraintVertical_bias="0.821" />
+
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_detail_image"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/item_category"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView9"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/item_name"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView13"
+        android:layout_alignStart="@+id/textView10"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/item_quantity"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

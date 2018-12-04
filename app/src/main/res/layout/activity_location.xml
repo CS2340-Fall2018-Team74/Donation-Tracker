@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:keep="@layout/activity_location">
 
     <TextView
@@ -29,6 +30,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/inventory"
         android:textAlignment="textStart"
+        android:textColor="@color/colorPrimaryDark"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.579"
@@ -42,6 +44,7 @@
         android:layout_marginTop="292dp"
         android:layout_marginEnd="60dp"
         android:text="@string/cancel"
+        android:textColor="@color/colorPrimaryDark"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
